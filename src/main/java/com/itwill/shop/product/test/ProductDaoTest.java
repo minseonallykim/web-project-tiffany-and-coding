@@ -1,7 +1,6 @@
 package com.itwill.shop.product.test;
 
-import product.Product;
-import product.ProductDao;
+import com.itwill.shop.product.ProductDao;
 
 public class ProductDaoTest {
 
