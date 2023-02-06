@@ -1,7 +1,6 @@
 /***************userinfo select**************/
 --모든 회원 정보 찾기--
 select*from userinfo;
-
 --id로 회원찾기--
 select*from userinfo where userid = 'test3';
 
