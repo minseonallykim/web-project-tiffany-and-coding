@@ -47,12 +47,17 @@ public class OrderDao {
 		try {
 			con = dataSource.getConnection();
 			con.setAutoCommit(false);
+			/*
+			 * order 삽입
+			 */
 			pstmt1 = con.prepareStatement(OrderSQL.ORDER_INSERT);
 			pstmt1.setString(1, order.getO_desc());
 			pstmt1.setInt(2, order.getO_price());
 			pstmt1.setString(3, order.getUserid());
 			pstmt1.executeUpdate();
-
+			/*
+			 * order item 삽입
+			 */
 			pstmt2 = con.prepareStatement(OrderSQL.ORDERITEM_INSERT);
 			for (OrderItem orderItem : order.getOrderItem()) {
 				pstmt2.setInt(1, orderItem.getOi_qty());
@@ -164,7 +169,7 @@ public class OrderDao {
 	
 	
 	/*
-	 * 주문전체삭제(ON DELETE CASCADE)
+	 * 주문전체삭제(ON DELETE CASCADE) - 해당아이디
 	 */
 	public int deleteByUserId(String sUserId) throws Exception {
 		Connection con = null;
@@ -189,7 +194,7 @@ public class OrderDao {
 	}
 
 	/*
-	 * 주문1건삭제(ON DELETE CASCADE)
+	 * 주문1건삭제(ON DELETE CASCADE) (주문선택삭제)
 	 */
 	public int deleteByOrderNo(int o_no) throws Exception {
 
