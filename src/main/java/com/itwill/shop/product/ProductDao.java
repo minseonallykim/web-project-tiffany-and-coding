@@ -31,7 +31,24 @@ public class ProductDao {
 		basicDataSource.setPassword(properties.getProperty("password"));
 		dataSource = basicDataSource;
 	}
+	/*
+	 * 상품 옵션 update
+	 */
+	public int update(int p_no, String p_option) throws SQLException {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_OPTION_UPDATE);
+		pstmt.setString(1, p_option);
+		pstmt.setInt(2, p_no);	
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
+	}
 	
+	
+	/*
+	 * 상품 번호로 검색
+	 */
 	public Product findByPrimaryKey(int p_no) throws Exception {
 		Product product = null;
 		Connection con = dataSource.getConnection();
@@ -49,7 +66,9 @@ public class ProductDao {
 		}
 		return product;
 	}
-	
+	/*
+	 * 상품 전체 리스트
+	 */
 	public List<Product> findAll() throws Exception{
 		List<Product> productList = new ArrayList<Product>();
 		
@@ -68,10 +87,6 @@ public class ProductDao {
 		}
 		return productList;
 	}
-	
-	/*
-	 * 상품 카테고리 선택 시 카테고리에 해당하는 아이템 모두 보여주기
-	 */
 	
 	/*
 	 * 전체 리스트에서 카테고리 검색 시 해당 카테고리 아이템 전부 보여주기

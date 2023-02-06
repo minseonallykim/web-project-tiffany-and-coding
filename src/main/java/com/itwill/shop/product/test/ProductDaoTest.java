@@ -1,11 +1,15 @@
 package com.itwill.shop.product.test;
 
-import com.itwill.shop.product.ProductDao;
+import product.Product;
+import product.ProductDao;
 
 public class ProductDaoTest {
 
 	public static void main(String[] args) throws Exception {
 		ProductDao productDao = new ProductDao();
+		
+		System.out.println("상품 번호를 인자로 받아서 옵션 변경");
+		System.out.println(productDao.update(1,"화이트골드"));
 		
 		System.out.println("상품 번호로 검색");
 		System.out.println(productDao.findByPrimaryKey(1));
@@ -24,6 +28,7 @@ public class ProductDaoTest {
 
 		System.out.println("카테고리 선택 후 가격 오름차순으로 정렬");
 		System.out.println(productDao.categorySortAsc(1));
+		
 	}
 
 }
