@@ -6,6 +6,7 @@ html, body {
 body {
 	font:sans-serif;
 	text-align: center;
+	font-size: 13px;
 }
 
 p {
@@ -46,7 +47,6 @@ div#header h1 {
 /***************** menu end****************/
 div#container {
 	width:100%;
-	text-align: left
 }
 
 div#content p {
@@ -54,7 +54,7 @@ div#content p {
 }
 
 div#navigation {
-	background: #FFFFFF;
+	background: #81d8d0;
 }
 
 div#navigation {
@@ -64,21 +64,65 @@ div#navigation {
 
 div#navigation ul {
 	align-content: center;
-	margin: 15px 20px;
-	padding: 0;
 	list-style-type: none;
-	font-size: 10px;
 }
 
 div#navigation li {
-	margin: 15px 10px;
+	margin: 5px 30px 0 50px;
 	font-size: 10px;
+	float: left;
 }
 
 div#navigation p {
 	margin-top: 20px;
 	margin-left: 15px
 }
+/*
+div#navigation{float:left;width:150px;height:350px;margin-left:-700px}
+*/
+div#navigation {
+	width: 100%;
+	height: 20px;
+	font-size: 10px;
+}
+table#boardmaintop{
+	width: 300px;
+	font-size: 13px;
+}
+
+div#category_body{
+	width: 100%;
+	height:400px;
+	display: flex;
+}
+div#category_container{
+	width: 100%;
+	height:400px;
+	display: flex;
+}
+div#category_content{
+	width: 100%;
+	height:400px;
+	display: flex;
+}
+#category_content ul{
+	list-style:none;
+	display: flex;
+	padding: 0px;
+	width: 100%;
+}
+#category_content li{
+	display: flex;
+}
+
+div#category_body{
+	padding-top: 50px;
+}
+
+div#mainbanner_bottom_container{
+	padding-top: 200px;
+}
+
 /*
 div#extra{background:#CCC8B3;}
 */
@@ -105,15 +149,7 @@ div#container {
 	width: 100%;
 	margin: 0 auto
 }
-/*
-div#navigation{float:left;width:150px;height:350px;margin-left:-700px}
-*/
-div#navigation {
-	float: left;
-	width: 150px;
-	height: 350px;
-	font-size: 10px;
-}
+
 /*
 div#wrapper{float:left;width:100%} #7DE3EB
 margin-right: 100px;
@@ -124,13 +160,43 @@ div#wrapper {
 }
 
 div#content {
-	margin: 0 100px 0 150px
+	margin: 50px 50px 0 50px
 }
 
 table#boardlist{
 	align-content: center;
 	margin: 0 200px 0 0
 }
+/*
+board
+*/
+div#boardlist_info{
+	text-align: left;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 20px 0 0 150px;
+}
+div#boardlist_info span{
+	font-size: 12px;
+	padding: 0 0 0 30px;
+}
+div#boardlist_info ul{
+	list-style:none;
+	padding: 0px;
+	width: 100%;
+}
 
+#boardlist_info li#boardlist_top{
+	float: left;
+}
 
-
+#boardlist_info li#boardwrite a{
+	float: right;
+	padding: 0 150px 0 0;
+}
+table#boardlist_paging{
+	padding: 30px 0 30px 0;
+}
+table#boardlist tr#boardlist_tr{
+	color: white;
+}
