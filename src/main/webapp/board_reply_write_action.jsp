@@ -2,12 +2,13 @@
 <%@page import="com.itwill.board.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
 Board board = new Board();
 board.setBoardNo(Integer.parseInt(request.getParameter("boardno")));
 
 board.setTitle(request.getParameter("title"));
-board.setUserId(request.getParameter("writer"));
+board.setUserId(sUserId);
 board.setContent(request.getParameter("content"));
 
 BoardService.getInstance().createReply(board);

@@ -43,6 +43,11 @@ div#header h1 {
 	text-align: center;
 }
 
+div#mainlogo{
+	text-align: center;
+	margin:0;
+}
+
 /***************** menu start****************/
 /***************** menu end****************/
 div#container {
@@ -146,7 +151,7 @@ div#footer p {
 }
 
 div#container {
-	width: 100%;
+	width: 80%;
 	margin: 0 auto
 }
 
@@ -160,7 +165,7 @@ div#wrapper {
 }
 
 div#content {
-	margin: 50px 50px 0 50px
+	margin: 50px 0px 0 0px
 }
 
 table#boardlist{
@@ -192,7 +197,7 @@ div#boardlist_info ul{
 
 #boardlist_info li#boardwrite a{
 	float: right;
-	padding: 0 150px 0 0;
+	padding: 0 50px 0 0;
 }
 table#boardlist_paging{
 	padding: 30px 0 30px 0;

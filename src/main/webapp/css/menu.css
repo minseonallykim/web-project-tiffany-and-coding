@@ -25,6 +25,7 @@ div#header #menu {
 
 #mainlogo ul{
 	list-style:none;
+	text-align: center;
 }
 
 #menu ul {
@@ -48,6 +49,10 @@ div#header #menu {
 #menu li#toboard {
 	padding: 0 0 0 50px;
 	float: left;
+}
+
+#menu li#mainsearch {
+	float: right;
 }
 
 #menu li#toboard a{
@@ -83,3 +88,17 @@ div#header #menu {
 #menu li#mypage:hover{
 	opacity: 1;
 }
+
+input#mainsearchbtn{
+	background-image: url(../image/mainsearchbtn.png); 
+	background-color: #FFFFFF;
+    background-repeat: no-repeat;  
+    border: none;           
+    cursor: pointer;      
+    width: 36px;
+    height: 36px;
+    padding: 0,0,0,0;
+}
+
+
+

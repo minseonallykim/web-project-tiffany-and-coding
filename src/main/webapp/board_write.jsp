@@ -1,5 +1,12 @@
+<%@page import="com.itwill.shop.user.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
+<%
+	UserService userService = new UserService();
+	User user = userService.findUser(sUserId);
+
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +18,6 @@
 		if(f.title.value == ""){
 			alert("제목을 입력하세요.");
 			f.title.focus();
-			return false;
-		}
-		if (f.writer.value == "") {
-			alert("작성자를 입력하세요.");
-			f.writer.focus();
 			return false;
 		}
 		if (f.content.value == "") {
@@ -70,8 +72,7 @@
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-										<input type="text" style="width: 100% ;height: 100%" name="writer"></td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white'>내 용</td>

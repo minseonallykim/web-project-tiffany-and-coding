@@ -2,6 +2,7 @@
 <%@page import="com.itwill.board.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
 if(request.getMethod().equalsIgnoreCase("get")){
 	response.sendRedirect("board_list.jsp");
@@ -10,10 +11,11 @@ if(request.getMethod().equalsIgnoreCase("get")){
 
 Board board = new Board();
 board.setTitle(request.getParameter("title"));
-board.setUserId(request.getParameter("writer"));
+board.setUserId(sUserId);
 board.setContent(request.getParameter("content"));
 
-BoardService.getInstance().create(board);
+BoardService boardService = new BoardService();
+boardService.create(board);
 
 response.sendRedirect("board_list.jsp");
 

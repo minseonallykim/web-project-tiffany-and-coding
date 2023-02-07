@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.board.BoardCommentService"%>
 <%@page import="com.itwill.board.BoardComment"%>
@@ -5,7 +6,12 @@
 <%@page import="com.itwill.board.BoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
+
+UserService userService = new UserService();
+User user = userService.findUser(sUserId);
+
 Integer boardno = null;
 int pageno = 1;
 try {
@@ -179,7 +185,7 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 							<%
 							 if (boardCommentList.size() == 0) {
 							 %>
-							<div id="nodata"  style="text-align: center; color: #62B1B8 ">
+							<div id="nodata"  style="text-align: center; color: #62B1B8; font-size: 15px ">
 								<b><br>작성된 댓글이 없습니다.</b><br><br><br>
 							</div> 
 							<%
@@ -214,30 +220,28 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 											</table>
 										</div>
 
-										<div id='commentedit<%=boardComment.getCommentNo()%>'
-											style="background-color: #DAF8FA; padding: 0px; margin: 0px; display: none">
+										<div id='commentedit<%=boardComment.getCommentNo()%>'style="background-color: #000000; padding: 0px; margin: 0px; display: none">
 											<table>
 												<tr>
 													
 													<%-- <td style="border: 1px solid; width: 50px;font-size:1pt;padding:3px""><%=bcomment.getWriter()%><br />
 														<%=bcomment.getRegDate()%></td>
 													 --%>
-													<td bgcolor="#DAF8FA" style=" width: 75px;font-size:1pt;padding:3px">
+													<td bgcolor="#000000" style="color:white; width: 75px;font-size:1pt;padding:0px">
 													<img style="vertical-align:top" width="25px" height="25px" src='image/comment.png'>
 													<p style="display: inline-block;margin: 0px;padding: 0px"><%=boardComment.getUserId()%><br><%=boardComment.getC_regDate()%></p></td> 			
-													<td style="width: 400px; padding: 0px; margin: 0px;font-size:1pt;">
+													<td style="width: 400px; padding-left: 10px; margin: 0px;font-size:1pt;">
 														<form id="commenteditform<%=boardComment.getCommentNo()%>"
-															action="board_comment_update_action.jsp" method="post" style="width: 400px; padding: 0px; margin: 0px">
+															action="board_comment_update_action.jsp" method="post" style=" padding: 0px; margin: 0px">
 															<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>" /> 
 															<input type="hidden" name="pageno" value="<%=pageno%>" /> 
 															<input type="hidden" name="commentno" value="<%=boardComment.getCommentNo()%>" />
 															<textarea name="content" rows="3"
-																style="width: 510px; padding: 0px; margin-top:5px ;font-size:1pt;"><%=boardComment.getC_content()%></textarea>
+																style="width: 100%; padding-left: 10px;  ;font-size:1pt;"><%=boardComment.getC_content()%></textarea>
 														</form>
 													</td>
-													<td style="width: 40px">
+													<td bgcolor="#000000" style="color:white; width: 40px; padding-left: 15px; align-content: center">
 													<input type="button" value="수정" onclick="updateComment('commenteditform<%=boardComment.getCommentNo()%>');" />
-														<br />
 													<input type="button" value="취소" onclick="toggleCommentStatus(<%=boardComment.getCommentNo()%>, false);" /></td>
 												</tr>
 											</table>
