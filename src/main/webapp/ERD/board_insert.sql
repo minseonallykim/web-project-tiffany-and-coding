@@ -87,10 +87,10 @@ insert into board(boardno,title,userid,content,groupno,step,depth)
 -- 댓글 쓰기
 -- insert
 insert into boardcomment(commentno,boardno,userid,c_content) 
-values(boardcomment_commentno_seq.nextval, 5, 'kms1', '댓글내용'||boardcomment_commentno_seq.currval);
+values(boardcomment_commentno_seq.nextval, 35, 'kms1', '댓글내용'||boardcomment_commentno_seq.currval);
 
 insert into boardcomment(commentno,boardno,userId,c_content) 
-values(boardcomment_commentno_seq.nextval, 6, 'kms3', '댓글내용'||boardcomment_commentno_seq.currval);
+values(boardcomment_commentno_seq.nextval, 36, 'kms3', '댓글내용'||boardcomment_commentno_seq.currval);
 
 
 

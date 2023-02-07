@@ -13,4 +13,4 @@ where userid='test1';
 --회원탈퇴,회원정보 모두삭제--
 delete from userinfo where userid='test2';
 
-commit;=
+commit;
