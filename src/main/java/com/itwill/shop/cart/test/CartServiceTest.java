@@ -12,7 +12,7 @@ public class CartServiceTest {
 		
 		// 카트에 새로운 상품 추가 or 수정
 		System.out.println("1. insertCart");
-		System.out.println(">> " + cartService.addCart(new Cart(1, 1, "test1", new Product(15, null, 0, null, null, null))));
+		System.out.println(">> " + cartService.addCart("test2",3,3));
 
 		// 카트리스트에서 수량 변경
 		System.out.println("2. updateByCartNo");

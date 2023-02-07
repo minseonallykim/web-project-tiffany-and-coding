@@ -11,11 +11,11 @@ public class CartService {
 	 * 카트추가 or 수정
 	 */
 	
-	public int addCart(Cart cart)throws Exception {
-		if(cartDao.countByProductNo(cart.getUserId(),cart.getProduct().getP_no()) > 0) {
-			return cartDao.updateByProductNo(cart);
+	public int addCart(String sUserId,int p_no,int cart_qty)throws Exception {
+		if(cartDao.countByProductNo(sUserId, p_no) > 0) {
+			return cartDao.updateByProductNo(sUserId, p_no, cart_qty);
 		}else {
-			return cartDao.insert(cart);
+			return cartDao.insert(sUserId, p_no, cart_qty);
 		}
 	}
 	/*

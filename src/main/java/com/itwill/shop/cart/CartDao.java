@@ -61,47 +61,44 @@ public class CartDao {
 	/*
 	 *상품에서 카트추가시 카트에 없는 상품 추가
 	 */
-	public int insert(Cart cart) throws Exception {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		int insertRowcount=0;
+	public int insert(String userId,int p_no,int cart_qty) throws Exception {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int insertRowCount=0;
 		try {
-			con = dataSource.getConnection();
-			pstmt =con.prepareStatement(CartSQL.CART_INSERT);
-			pstmt.setInt(1, cart.getCart_qty());
-			pstmt.setInt(2, cart.getProduct().getP_no());
-			pstmt.setString(3, cart.getUserId());
-			insertRowcount = pstmt.executeUpdate();
-			
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(CartSQL.CART_INSERT);
+			pstmt.setInt(1, cart_qty);
+			pstmt.setInt(2, p_no);
+			pstmt.setString(3, userId);
+			insertRowCount = pstmt.executeUpdate();
 		}finally {
 			if(con!=null) {
 				con.close();
 			}
 		}
-		return insertRowcount;
-		
+		return insertRowCount;
 	}
 	/*
 	 * 상품에서 카트추가시 이미담긴 상품 수량증가
 	 */
-	public int updateByProductNo(Cart cart) throws Exception {
-		Connection con = null ;
-		PreparedStatement pstmt = null;
-		int updateRowcount = 0;
+	public int updateByProductNo(String userId,int p_no,int cart_qty) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rowCount=0;
 		try {
-			con = dataSource.getConnection();
-			pstmt = con.prepareStatement(CartSQL.CART_UPDATE_BY_PRODUCT_NO_USERID);
-			pstmt.setInt(1, cart.getCart_qty());
-			pstmt.setString(2, cart.getUserId());
-			pstmt.setInt(3, cart.getProduct().getP_no());
-			updateRowcount = pstmt.executeUpdate();
-			
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_PRODUCT_NO_USERID);
+			pstmt.setInt(1, cart_qty);
+			pstmt.setString(2, userId);
+			pstmt.setInt(3, p_no);
+			rowCount = pstmt.executeUpdate();
 		}finally {
 			if(con!=null) {
 				con.close();
 			}
 		}
-		return updateRowcount;
+		return rowCount;
 	}
 	/*
 	 * 카트리스트에서 수량조절
