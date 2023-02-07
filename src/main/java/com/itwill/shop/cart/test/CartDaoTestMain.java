@@ -20,8 +20,8 @@ public class CartDaoTestMain {
 		System.out.println(cartDao.updateByProductNo("test2",3,4));
 
 		// 카트 번호로 update
-		System.out.println(cartDao.updateByCartNo(new Cart(3,6,"test3",new Product(3,null, 0, null,null, null))));
-
+		System.out.println(cartDao.updateByCartNo(5,3));
+		
 		// 카트 번호로 삭제
 		System.out.println(cartDao.deleteByCartNo(6));
 

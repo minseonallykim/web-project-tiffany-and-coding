@@ -16,7 +16,7 @@ public class CartServiceTest {
 
 		// 카트리스트에서 수량 변경
 		System.out.println("2. updateByCartNo");
-		System.out.println(">> " + cartService.updateCart(new Cart(15, 8, "test2", new Product(15, null, 0, null, null, null))));
+		System.out.println(">> " + cartService.updateCart(5,3));
 
 		
 		// 카트에 담긴 특정 상품 카트번호로 삭제
