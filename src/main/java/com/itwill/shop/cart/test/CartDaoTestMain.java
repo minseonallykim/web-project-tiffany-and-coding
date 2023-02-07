@@ -1,10 +1,38 @@
 package com.itwill.shop.cart.test;
 
-public class CartDaoTestMain {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+import com.itwill.shop.cart.Cart;
+import com.itwill.shop.cart.CartDao;
+import com.itwill.shop.product.Product;
+
+public class CartDaoTestMain {
+	public static void main(String[] args) throws Exception{
+		CartDao cartDao=new CartDao();
+		
+		// 회원의 장바구니의 특정 상품 count
+		System.out.println(cartDao.countByProductNo("test3", 1));
+		
+		// cart객체로 insert
+		System.out.println(cartDao.insert(new Cart(0, 3, "test3", new Product(10,null, 0, null,null, null))));
+		System.out.println(cartDao.insert(new Cart(0, 2, "test2", new Product(12,null, 0, null,null, null))));
+		
+		// 카트의 상품번호로 update
+		System.out.println(cartDao.updateByProductNo(new Cart(0,10,"test3",new Product(15,null, 0, null,null, null))));
+
+		// 카트 번호로 update
+		System.out.println(cartDao.updateByCartNo(new Cart(3,6,"test3",new Product(3,null, 0, null,null, null))));
+
+		// 카트 번호로 삭제
+		System.out.println(cartDao.deleteByCartNo(6));
+
+		// 회원의 카트에 담긴 상품 전체 삭제
+		System.out.println(cartDao.deleteByUserId("test3"));
+
+		// 카트에 담긴 특정 상품 찾기(카트 번호로)
+		System.out.println(cartDao.findByCartNo(16));
+
+		// 회원의 카트에 담긴 상품 전체 찾기
+		System.out.println(cartDao.findByUserId("test2"));
 
 	}
-
 }
