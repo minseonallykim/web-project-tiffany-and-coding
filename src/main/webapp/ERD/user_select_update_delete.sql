@@ -1,8 +1,10 @@
 /***************userinfo select**************/
---모든 회원 정보 찾기--
-select*from userinfo;
 --id로 회원찾기--
 select*from userinfo where userid = 'test3';
+--모든 회원 정보 찾기--
+select*from userinfo;
+--ID 중복 체크
+select count(*) cnt from userinfo where u_id='test3';
 
 /***************userinfo update**************/
 --회원정보수정(아이디변경 불가)--
@@ -13,4 +15,4 @@ where userid='test1';
 --회원탈퇴,회원정보 모두삭제--
 delete from userinfo where userid='test2';
 
-commit;
+commit;=
