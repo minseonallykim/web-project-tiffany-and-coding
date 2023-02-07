@@ -13,11 +13,11 @@ public class CartDaoTestMain {
 		System.out.println(cartDao.countByProductNo("test3", 1));
 		
 		// cart객체로 insert
-		System.out.println(cartDao.insert(new Cart(0, 3, "test3", new Product(10,null, 0, null,null, null))));
-		System.out.println(cartDao.insert(new Cart(0, 2, "test2", new Product(12,null, 0, null,null, null))));
+		System.out.println(cartDao.insert("test2",2,2));
+		System.out.println(cartDao.insert("test3",3,5));
 		
 		// 카트의 상품번호로 update
-		System.out.println(cartDao.updateByProductNo(new Cart(0,10,"test3",new Product(15,null, 0, null,null, null))));
+		System.out.println(cartDao.updateByProductNo("test2",3,4));
 
 		// 카트 번호로 update
 		System.out.println(cartDao.updateByCartNo(new Cart(3,6,"test3",new Product(3,null, 0, null,null, null))));
