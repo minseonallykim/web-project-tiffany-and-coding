@@ -24,7 +24,9 @@ public class OrderDaoTestMain {
 		System.out.println(orderDao.findOrderByUserId("cmy0"));
 		
 		
-		//Order 주문 생성
+		/*
+		 * Order 주문 생성 TEST
+		 */
 		int oi_qty=1;
 		int p_no=1;
 		ProductDao productDao = new ProductDao();
@@ -40,7 +42,7 @@ public class OrderDaoTestMain {
 		System.out.println(orderDao.findOrderWithOrderItemByUserId("cmy0"));
 		
 		/*
-		 * 주문삭제 관련 dao test
+		 * 주문삭제 관련 DAO test
 		 */
 		
 		orderDao.deleteByUserId("cmy0");
