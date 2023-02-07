@@ -12,7 +12,7 @@ public class CartService {
 	 */
 	
 	public int addCart(String sUserId,int p_no,int cart_qty)throws Exception {
-		if(cartDao.countByProductNo(sUserId, p_no) > 0) {
+		if(cartDao.countByProductNo(sUserId, p_no) > 0 ) {
 			return cartDao.updateByProductNo(sUserId, p_no, cart_qty);
 		}else {
 			return cartDao.insert(sUserId, p_no, cart_qty);

@@ -202,7 +202,7 @@ public Cart findByCartNo(int cart_no)throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		
+		try {
 		String selectQuery="select * from cart c join product p on c.p_no=p.p_no where cart_no=?";
 		con=dataSource.getConnection();
 		pstmt=con.prepareStatement(CartSQL.CART_SELECT_BY_CART_NO);
@@ -221,6 +221,12 @@ public Cart findByCartNo(int cart_no)throws Exception {
 		            		      )
 					
 					 );
+			}
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+		
 		}
 		return cart;
 	}
