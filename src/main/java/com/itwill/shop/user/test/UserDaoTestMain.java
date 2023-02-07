@@ -9,7 +9,7 @@ public class UserDaoTestMain {
 		UserDao userDao=new UserDao();
 		
 		//회원가입
-		//System.out.println(userDao.insert(new User("test99","1111","생성되길","aaa@naver.com","010-0000-0000","신도시")));
+		System.out.println(userDao.insert(new User("test99","1111","생성되길","aaa@naver.com","010-0000-0000","신도시")));
 				
 		//회원수정
 		//System.out.println(userDao.update(new User("test1","1234","변경되길","update@aaa.com","010-4444-8888","수정시")));
