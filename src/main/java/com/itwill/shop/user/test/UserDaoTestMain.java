@@ -7,23 +7,21 @@ public class UserDaoTestMain {
 
 	public static void main(String[] args) throws Exception{
 		UserDao userDao=new UserDao();
-		//회원 등록
-		//System.out.println("1.insert:"+
-		//userDao.create(new User("test1", "1111", "스펀지밥","bob1@naver.com","010-1111-2222","강남구")));
-		//회원 정보 수정
-		//User updateUser = new User("test1", "1111", "스펀지밥", "bob1@naver.com","010-1111-2222","강남구");
-		//System.out.println("2.update:"+userDao.update(updateUser));
-	    //ID로 회원 검색
-     	//System.out.println("3.findUser:"+userDao.findUser("test3"));
-		//회원 삭제
-		System.out.println("4.remove:"+userDao.delete("test2"));
-		//전체 회원 검색
-		//System.out.println("5.findUserList:"+userDao.findUserList());
-		//ID로 회원 중복 체크
-		//System.out.println("6.existedUser:"+userDao.existedUser("test1"));
-		//System.out.println("6.existedUser:"+userDao.existedUser("test2"));
-		//System.out.println("6.existedUser:"+userDao.existedUser("test3"));
-		//System.out.println("7. find user by email"+userDao.findUser("jing3@naver.com"));				
+		
+		//회원가입
+		//System.out.println(userDao.insert(new User("test99","1111","생성되길","aaa@naver.com","010-0000-0000","신도시")));
+				
+		//회원수정
+		//System.out.println(userDao.update(new User("test1","1234","변경되길","update@aaa.com","010-4444-8888","수정시")));
+				
+		//전체회원보기
+		//System.out.println(userDao.findUserList());
+				
+		//유저한명 상세보기
+		//System.out.println(userDao.findUser("test99"));
+				
+		//아이디 중복체크
+		//System.out.println(userDao.existedUser("test50"));			
 	}
 
 }
