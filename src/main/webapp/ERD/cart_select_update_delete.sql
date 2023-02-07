@@ -29,7 +29,7 @@ select count(*) as p_count from cart c where userid='test1' and c.p_no = 4;
 update cart set cart_qty = cart_qty+1 where userid = 'test1' and p_no = 1 ;
 update cart set cart_qty = cart_qty+4 where userid = 'test1' and p_no = 1 ;
 
---test1 카트에 있는 cart_no 2번의 수량4개 수정 **
+--test1 카트에 있는 p_no 2번의 수량4개 수정 
 update cart set cart_qty=4 where userid = 'test1' and p_no = 2;
 
 --test1님 카트아이템1개삭제

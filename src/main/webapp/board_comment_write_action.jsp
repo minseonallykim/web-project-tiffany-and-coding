@@ -3,11 +3,12 @@
 <%@page import="com.itwill.board.BoardComment"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 	
 <%
 BoardComment boardComment = new BoardComment();
 boardComment.setC_content(request.getParameter("content"));
-boardComment.setUserId(request.getParameter("guest"));
+boardComment.setUserId(sUserId);
 
 int boardno = Integer.parseInt(request.getParameter("boardno"));
 boardComment.setBoardNo(boardno);

@@ -1,12 +1,18 @@
+<%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="com.itwill.board.BoardService"%>
 <%@page import="com.itwill.board.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
 if(request.getParameter("boardno") == null){
 	response.sendRedirect("board_list.jsp");
 	return;
 }
+
+UserService userService = new UserService();
+User user = userService.findUser(sUserId);
+
 int boardno = Integer.parseInt(request.getParameter("boardno"));
 Board board = BoardService.getInstance().findBoard(boardno);
 if(board == null){
@@ -31,11 +37,6 @@ if(request.getParameter("pageno") != null){
 		if (f.title.value == "") {
 			alert("제목을 입력하세요.");
 			f.title.focus();
-			return false;
-		}
-		if (f.writer.value == "") {
-			alert("작성자를 입력하세요.");
-			f.writer.focus();
 			return false;
 		}
 		if (f.content.value == "") {
@@ -81,31 +82,24 @@ if(request.getParameter("pageno") != null){
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>게시판 -
-											게시판 답글 쓰기</b></td>
-								</tr>
 							</table> <br> <!-- write Form  -->
 							<form name="f" method="post">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
 		        				<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>"/>
 
-								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="#CCCCCC">
+								<table border="0" cellpadding="10px" cellspacing="1" width="590" bgcolor="#CCCCCC">
 									<tr>
-										<td width=100 align=center bgcolor="#DAF8FA" height="22">제 목</td>
+										<td width=100 align=center bgcolor=#000000 style='color:white' height="22">제 목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input value="[RE]<%=board.getTitle()%>"  type="text" style="width: 150" name="title">
+											<input value="[RE]<%=board.getTitle()%>"  type="text" style="width: 100% ;height: 100%" name="title">
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="#DAF8FA" height="22">작성자</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input value="<%=board.getUserId()%>" type="text" style="width: 150" name="writer">
-										</td>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="#DAF8FA" height="22">내 용</td>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<textarea name="content" class="textarea" style="width: 100%" rows="14">>><%=board.getContent().replace("\n",">>").trim()%></textarea>
 										</td>
@@ -115,11 +109,11 @@ if(request.getParameter("pageno") != null){
 								</table>
 							</form> <br>
 
-							<table width=590 border=0 cellpadding=0 cellspacing=0>
+							<table width=590 border=0 cellpadding=50 cellspacing=0>
 								<tr>
 									<td align=center>
-									<input type="button" value="게시판 답글 쓰기" onClick="boardReplyCreate()"> &nbsp; 
-									<input type="button" value="게시판 리스트" onClick="boardList()"></td>
+									<input type="button" value="답글 쓰기 완료" onClick="boardReplyCreate()"> &nbsp; 
+									<input type="button" value="취 소" onClick="boardList()"></td>
 								</tr>
 							</table></td>
 					</tr>
