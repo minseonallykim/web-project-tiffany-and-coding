@@ -1,6 +1,5 @@
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="com.itwill.shop.product.ProductService"%>
-
 <%@page import="java.util.List"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.ArrayList"%>
@@ -81,7 +80,7 @@ function add_cart_popup_window(f){
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>earing</b></td>
 								</tr>
 							</table>
-
+							<jsp:include page="include_product_sort_from.jsp"/>
 							<div id="f">
 								<table width="100%" align="center" border="0" cellpadding="10"
 									cellspacing="20" >
