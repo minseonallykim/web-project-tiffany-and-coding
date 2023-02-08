@@ -19,9 +19,9 @@ public class OrderDaoTestMain {
 		 * orderDao. insert, findOrderByUserId, findOrderWithOrderItemByUserId,findByOrderNo TEST
 		 */
 		
-		System.out.println(orderDao.findByOrderNo(12));
+		System.out.println(orderDao.findByOrderNo(1));
 	
-		System.out.println(orderDao.findOrderByUserId("cmy0"));
+		//System.out.println(orderDao.findOrderByUserId("cmy0"));
 		
 		
 		/*

@@ -51,6 +51,7 @@ DROP SEQUENCE product_p_no_SEQ;
 CREATE SEQUENCE product_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
+
 CREATE TABLE cart(
 		cart_no                       		NUMBER(10)		 NULL ,
 		userId                        		VARCHAR2(100)		 NULL ,
@@ -89,6 +90,11 @@ CREATE TABLE board(
 		depth                         		NUMBER		 DEFAULT 0		 NULL 
 );
 
+DROP SEQUENCE board_boardno_SEQ;
+
+CREATE SEQUENCE board_boardno_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
 
 CREATE TABLE boardcomment(
 		commentno                     		NUMBER		 NULL ,
@@ -97,6 +103,11 @@ CREATE TABLE boardcomment(
 		c_content                     		VARCHAR2(500)		 NOT NULL,
 		c_regdate                     		DATE		 DEFAULT sysdate		 NULL 
 );
+
+DROP SEQUENCE boardcomment_commentno_SEQ;
+
+CREATE SEQUENCE boardcomment_commentno_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 

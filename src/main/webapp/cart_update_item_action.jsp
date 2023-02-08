@@ -15,8 +15,8 @@
     	}else{
     		cartService.updateCart(Integer.parseInt(cart_noStr),Integer.parseInt(cart_qtyStr));
     	}
-    	response.sendRedirect("cart_view_select_update_qty.jsp");
-    	/*
+    	//response.sendRedirect("cart_view_select_update_qty.jsp");
+    	
     	response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
-    	*/
+    	
     %>

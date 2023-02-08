@@ -1,8 +1,8 @@
+<%@page import="com.itwill.shop.cart.Cart"%>
+<%@page import="com.itwill.shop.cart.CartService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="com.itwill.shop.cart.Cart"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.itwill.shop.cart.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf"%>
@@ -127,6 +127,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 		}
 	}
 </script>
+<jsp:include page="include_mouseffect.jsp"/>
 </head>
 <body onload="cart_item_select_count();" bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -161,7 +162,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td height="22">&nbsp;&nbsp;<b>쇼핑몰 - 장바구니 보기</b></td>
+									<td height="22">&nbsp;&nbsp;<b>cart</b></td>
 								</tr>
 							</table> <!--form--> <!-- 
 							<form name="f" method="post">
@@ -170,17 +171,19 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
 									<tr>
-										<td width=60 height=25 align="center" bgcolor="E6ECDE"
+										<td width=60 height=25 align="center" bgcolor="#81D8D0"
 											class=t1><input type="checkbox" id="all_select_checkbox" checked="checked" onchange="cart_item_all_select(event);cart_item_select_count();"></td>
-										<td width=40 height=25 align="center" bgcolor="E6ECDE"
+										<td width=40 height=25 align="center" bgcolor="#81D8D0"
 											class=t1><font>이미지</font></td>
-										<td width=210 height=25 align="center" bgcolor="E6ECDE"
-											class=t1><font>강아지 이름</font></td>
-										<td width=112 height=25 align="center" bgcolor="E6ECDE"
+										<td width=210 height=25 align="center" bgcolor="#81D8D0"
+											class=t1><font>상품명</font></td>
+										<td width=112 height=25 align="center" bgcolor="#81D8D0"
 											class=t1><font>수 량</font></td>
-										<td width=146 height=25 align="center" bgcolor="E6ECDE"
+										 <td width=112 height=25 align="center" bgcolor="#81D8D0" class=t1><font
+												 >옵 션</font></td>
+										<td width=146 height=25 align="center" bgcolor="#81D8D0"
 											class=t1><font>가 격</font></td>
-										<td width=50 height=25 align="center" bgcolor="E6ECDE"
+										<td width=50 height=25 align="center" bgcolor="#81D8D0"
 											class=t1><font>비 고</font></td>
 									</tr>
 									<!-- cart item start -->
@@ -190,17 +193,17 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 										tot_price += cart.getProduct().getP_price() * cart.getCart_qty();
 									%>
 									<tr>
-										<td width=60 height=26 align=center bgcolor="ffffff" class=t1>
+										<td width=60 height=75 align=center bgcolor="ffffff" class=t1>
 										 <input type="checkbox" name="cart_item_no_check" onchange="cart_item_all_select_checkbox_deselect();cart_item_select_count();" value="<%=cart.getCart_no()%>" checked="checked">
 										</td>
-										<td width=40 height=26 align=center bgcolor="ffffff" class=t1>
-											<img src='image/<%=cart.getProduct().getP_image()%>' width="34" height="28" />
+										<td width=100 height=75 align=center bgcolor="ffffff" class=t1>
+											<img src='image/<%=cart.getProduct().getP_image()%>' width="100" height="75" />
 										</td>
-										<td width=210 height=26 align=center bgcolor="ffffff" class=t1>
+										<td width=210 height=75 align=center bgcolor="ffffff" class=t1>
 											<a href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'><%=cart.getProduct().getP_name()%></a>
 										</td>
 
-										<td width=112 height=26 align=center bgcolor="ffffff" class=t1>
+										<td width=112 height=75 align=center bgcolor="ffffff" class=t1>
 											<form action="cart_update_action.jsp" method="post"
 												id="cart_update_form_<%=cart.getCart_no()%>">
 												<input type="hidden" name="cart_no"
@@ -215,7 +218,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 												<input type="hidden" name="cart_product_unit_price" value="<%=cart.getProduct().getP_price()%>"/>	
 											</form>
 										</td>
-
+										<td width=112 height=75 align=center bgcolor="ffffff" class=t1><%=cart.getProduct().getP_option()%></td>
 										<td width=146 height=26 align=center bgcolor="ffffff" class=t1><%=new DecimalFormat("#,##0").format(cart.getProduct().getP_price() * cart.getCart_qty())%></td>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
 
@@ -249,10 +252,10 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 
 
 									<tr>
-										<td width=640 colspan=6 height=26 class=t1 bgcolor="ffffff">
+										<td width=640 colspan=7 height=26 class=t1 bgcolor="ffffff">
 											<p align=right>
 												<br /> 
-												<font color='red'>총주문금액 : <span id="tot_order_price"><%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
+												<font color='red'>총주문금액 : <span id="tot_order_price">₩<%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
 											</p>
 										</td>
 									</tr>
