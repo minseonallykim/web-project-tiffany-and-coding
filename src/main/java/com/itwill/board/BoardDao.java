@@ -259,7 +259,7 @@ public class BoardDao {
 			}
 			try {
 				if (con != null)
-					con.close();;
+					con.close();
 			} catch (Exception ex) {
 			}
 		}
@@ -288,7 +288,7 @@ public class BoardDao {
 			}
 			try {
 				if (con != null)
-					con.close();;
+					con.close();
 			} catch (Exception ex) {
 			}
 		}
