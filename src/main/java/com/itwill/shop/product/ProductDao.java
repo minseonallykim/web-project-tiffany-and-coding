@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
@@ -21,9 +22,16 @@ public class ProductDao {
 	/*
 	 * productDao 생성자 선언 후 properties 받을 준비
 	 */
-	public ProductDao() throws IOException {
-		Properties properties = new Properties();	
+	public ProductDao() throws Exception {
+		InitialContext ic = new InitialContext();
+		dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/OracleDB");
+		
+	}
+	/*
+	public ProductDao() throws Exception {
+		Properties properties = new Properties();
 		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
+		//Apache DataSource
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
@@ -31,6 +39,7 @@ public class ProductDao {
 		basicDataSource.setPassword(properties.getProperty("password"));
 		dataSource = basicDataSource;
 	}
+	*/
 	/*
 	 * 상품 옵션 update
 	 */
