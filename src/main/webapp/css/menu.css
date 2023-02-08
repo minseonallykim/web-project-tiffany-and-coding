@@ -47,6 +47,14 @@ div#header #menu {
 }
 
 #menu li#toboard {
+	padding: 0 0 0 20px;
+	float: left;
+}
+#menu li#login {
+	padding: 0 0 0 50px;
+	float: left;
+}
+#menu li#logout {
 	padding: 0 0 0 50px;
 	float: left;
 }
@@ -63,7 +71,21 @@ div#header #menu {
 	float: right;
 }
 
-#menu li a {
+#menu li#mypage {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px 16px 20px 16px;
+	text-decoration: none;
+}
+#menu li#mypagebflogin {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px 16px 20px 16px;
+	text-decoration: none;
+}
+#menu li#cart {
 	display: block;
 	color: white;
 	text-align: center;
@@ -88,7 +110,7 @@ div#header #menu {
 #menu li#mypage:hover{
 	opacity: 1;
 }
-
+/*
 input#mainsearchbtn{
 	background-image: url(../image/mainsearchbtn.png); 
 	background-color: #FFFFFF;
@@ -99,6 +121,6 @@ input#mainsearchbtn{
     height: 36px;
     padding: 0,0,0,0;
 }
-
+*/
 
 

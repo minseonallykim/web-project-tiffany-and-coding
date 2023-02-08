@@ -32,7 +32,7 @@ public class BoardDataInsertMain {
 				// addBatch : 여러개의 SQL문 넣을 때
 				stmt.addBatch("INSERT INTO board (boardno, title, userid, content, groupno, step)" + " VALUES ("
 						+ "board_board_no_seq.nextval," + "'게시판타이틀'||board_board_no_seq.currval ,"
-						+ "'guard1'," + "'content'||board_board_no_seq.currval,"
+						+ "'test1'," + "'content'||board_board_no_seq.currval,"
 						+ "board_board_no_seq.currval," + "1)");
 
 			}

@@ -3,15 +3,12 @@ package com.itwill.shop.cart;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
+import com.itwill.shop.common.DataSourceFactory;
 import com.itwill.shop.product.Product;
 
 
@@ -20,16 +17,10 @@ import com.itwill.shop.product.Product;
 
 public class CartDao {
 	private DataSource dataSource;
+
+	
 	public CartDao() throws Exception{
-		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		/*** Apache DataSource ***/
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
+		dataSource=DataSourceFactory.getDataSource();
 	}
 	
 	/*
@@ -171,7 +162,8 @@ public class CartDao {
 						            		      rs.getInt("p_price"),
 						            		      rs.getString("p_desc"),
 						            		      rs.getString("p_image"),
-						            		      rs.getString("p_option")
+						            		      rs.getString("p_option"),
+						            		      rs.getInt("ca_no")
 						            		      )));
 			}
 			
@@ -246,7 +238,8 @@ public Cart findByCartNo(int cart_no)throws Exception {
 		            		      rs.getInt("p_price"),
 		            		      rs.getString("p_desc"),
 		            		      rs.getString("p_image"),
-		            		      rs.getString("p_option")
+		            		      rs.getString("p_option"),
+		            		      rs.getInt("ca_no")
 		            		      )
 					
 					 );

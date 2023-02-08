@@ -1,3 +1,5 @@
+<%@page import="com.itwill.board.BoardCommentService"%>
+<%@page import="com.itwill.board.BoardComment"%>
 <%@page import="com.itwill.board.util.PageMaker"%>
 <%@page import="com.itwill.board.Board"%>
 <%@page import="com.itwill.board.BoardListPageMakerDto"%>
@@ -15,7 +17,7 @@ public String getTitleString(Board board) {
 	for (int i = 0; i < board.getDepth(); i++) {
 		title.append("&nbsp;&nbsp;");
 	}
-	// 답글 화살표이미지 삽입
+	// 답글 화살표 이미지 삽입
 	if (board.getDepth() > 0) {
 		title.append("<img border='0' src='image/re.gif'/>");
 	}
@@ -24,6 +26,8 @@ public String getTitleString(Board board) {
 }
 %>
 <%
+BoardCommentService boardCommentService = new BoardCommentService();
+
 // pageno 없거나 공백일 경우 1페이지 보여주기
 String pageno = request.getParameter("pageno");
 if(pageno == null || pageno.equals("")){
@@ -111,7 +115,11 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findBoardList(I
 								<tr>
 									<td width=280 bgcolor='#FFFFFF' style='padding-left: 10px' align='left'>
 									<a href='board_view.jsp?boardno=<%=board.getBoardNo() %>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
-									<%=this.getTitleString(board) %></a>
+									<%=this.getTitleString(board) %>
+									</a>
+									<%if(boardCommentService.findBoardCommentList(board.getBoardNo()).size() > 0){ %>
+									<img src='image/boardcomment.png'>
+									<%} %>
 									</td>
 									<td width=120 bgcolor='#FFFFFF' align='center'>
 									<%=board.getUserId() %>

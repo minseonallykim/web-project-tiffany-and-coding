@@ -5,11 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
-<title>Tiffany&Co</title>
+<title>Tiffany&Coding</title>
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css"></style>
+<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 <body>
 	<!-- container start -->
@@ -48,7 +51,7 @@
 						<li id="ca_ring" title="반지" style="margin-right: 17px"><a href="product_list.jsp?type_no=1"><img src="image/shop_category_ring.png" width='100%' height='100%'></a></li>
 						<li id="ca_necklaces" title="목걸이" style="margin-right: 17px"><a href="product_list.jsp?type_no=2"><img src="image/shop_category_necklaces.png" width='100%' height='100%'></a></li>
 						<li id="ca_earings" title="귀걸이" style="margin-right: 17px"><a href="product_list.jsp?type_no=4"><img src="image/shop_category_earings.png" width='100%' height='100%'></a></li>
-						<li id="ca_bracelet" title="팔찌" ><a href="product_list.jsp?type_no=3"><img src="image/shop_category_braclet.png" width='100%' height='100%'></a></li>
+						<li id="ca_braclet" title="팔찌" ><a href="product_list.jsp?type_no=3"><img src="image/shop_category_braclet.png" width='100%' height='100%'></a></li>
 					</ul>
 				</div>
 			</div>
