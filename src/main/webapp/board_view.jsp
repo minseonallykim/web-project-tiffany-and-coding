@@ -6,7 +6,16 @@
 <%@page import="com.itwill.board.BoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
+/*
+세션의 아이디와 게시판 작성자 아이디가 일치하면 수정, 삭제 버튼 생성
+일치하지 않으면 수정, 삭제 버튼 X
+*/
+
+UserService userService = new UserService();
+User user = userService.findUser(sUserId);
+
 
 Integer boardno = null;
 int pageno = 1;
@@ -52,6 +61,7 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 		document.f.method = "POST";
 		document.f.submit();
 	}
+
 	function boardUpdate() {
 		document.f.action = "board_modify.jsp";
 		document.f.submit();
@@ -134,8 +144,7 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 							<form name="f" method="post">
 								<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>">
 								<input type="hidden" name="pageno" value="<%=pageno%>">
-								<table border="0" cellpadding="10" cellspacing="1" width="590"
-									bgcolor="#CCCCCC">
+								<table border="0" cellpadding="10" cellspacing="1" width="590" bgcolor="#CCCCCC">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
 										<td width=490 bgcolor="#FFFFFF" style="padding-left: 10px" align="left">
@@ -161,8 +170,10 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 									<td align=center height=80>
 										<input type="button" value="글쓰기" onClick="boardCreate()"> &nbsp;&nbsp; 
 										<input type="button" value="답글쓰기" onClick="boardReplyCreate()"> &nbsp;&nbsp; 
+										<%if(sUserId.equals(board.getUserId())){ %>
 										<input type="button" value="수 정" onClick="boardUpdate()"> &nbsp;&nbsp;
 										<input type="button" value="삭 제" onClick="boardRemove()"> &nbsp;&nbsp; 
+										<%} %>
 										<input type="button" value="게시판 리스트" onClick="boardList()"></td>
 								</tr>
 							</table>
@@ -210,8 +221,10 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 													</td>
 
 													<td style="width: 40px; padding-left: 15px; align-content: center">
+														<%if(sUserId.equals(boardComment.getUserId())){ %>
 														<input type="button" value="수정" onclick="toggleCommentStatus(<%=boardComment.getCommentNo()%>, true);" />
 														<input type="button" value="삭제" onclick="deleteComment(<%=boardComment.getCommentNo()%>,<%=board.getBoardNo()%>,<%=pageno%>)" /></td>
+														<%} %>
 												</tr>
 											</table>
 										</div>

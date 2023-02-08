@@ -1,8 +1,11 @@
+<%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="com.itwill.board.BoardService"%>
 <%@page import="com.itwill.board.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
+
 Integer boardno = null;
 try{
 	boardno = Integer.valueOf(request.getParameter("boardno"));
@@ -23,6 +26,10 @@ String pageno = "1";
 if(request.getParameter("pageno") != null){
 	pageno = request.getParameter("pageno");
 }
+
+UserService userService = new UserService();
+User user = userService.findUser(sUserId);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -98,8 +105,7 @@ if(request.getParameter("pageno") != null){
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-										<input type="text" style="width: 100% ;height: 100%" name="writer" value="<%=board.getUserId()%>"></td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>
