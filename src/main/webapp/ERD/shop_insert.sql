@@ -70,34 +70,17 @@ insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextv
  */
 
 insert into board(boardno,title,userid,content,groupno,step,depth) 
-    values(board_boardno_seq.nextval,
-            '게시판타이틀'||board_boardno_seq.currval,
-            'test1',
-            '내용'||board_boardno_seq.currval,
-            board_boardno_seq.currval,
-            1,
-            0
-            );
-    
+values(board_boardno_seq.nextval,'반지 사이즈 문의','test1','반지 사이즈 문의드립니다.', board_boardno_seq.currval,1,0);
 insert into board(boardno,title,userid,content,groupno,step,depth) 
-    values(board_boardno_seq.nextval,
-            '게시판타이틀'||board_boardno_seq.currval,
-            'test2',
-            '내용'||board_boardno_seq.currval,
-            board_boardno_seq.currval,
-            1,
-            0
-            );
-            
+values(board_boardno_seq.nextval,'목걸이 길이 문의','test2','목걸이 길이문의드립니다.', board_boardno_seq.currval,1,0);
 insert into board(boardno,title,userid,content,groupno,step,depth) 
-    values(board_boardno_seq.nextval,
-            '게시판타이틀'||board_boardno_seq.currval,
-            'test3',
-            '내용'||board_boardno_seq.currval,
-            board_boardno_seq.currval,
-            1,
-            0
-            );
+values(board_boardno_seq.nextval,'다이아몬드 문의','test3','다이아몬드 문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'시계 문의','test4','시계 문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'로즈골드 색상 문의','test5','로즈골드 색상문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'배송 문의','test6','배송 문의드립니다.', board_boardno_seq.currval,1,0);
 
 -- 게시판 답글쓰기 (groupno 변경 주의)
 
@@ -109,31 +92,31 @@ insert into board(boardno,title,userid,content,groupno,step,depth)
     
  */
 insert into board(boardno,title,userid,content,groupno,step,depth) 
-    values(board_boardno_seq.nextval,
-            '게시판타이틀'||board_boardno_seq.currval,
-            'test1',
-            '내용'||board_boardno_seq.currval,
-            3,
-            2,
-            1
-            );
-            
+values(board_boardno_seq.nextval,'답글','test1','답글내용',3,2,1);
 insert into board(boardno,title,userid,content,groupno,step,depth) 
-    values(board_boardno_seq.nextval,
-            '게시판타이틀'||board_boardno_seq.currval,
-            'test2',
-            '내용'||board_boardno_seq.currval,
-            7,
-            2,
-            1
-            );
+values(board_boardno_seq.nextval,'답글','test2','답글내용',3,2,1);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'답글','test3','답글내용',3,2,1);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'답글','test4','답글내용',3,2,1);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'답글','test5','답글내용',3,2,1);
+insert into board(boardno,title,userid,content,groupno,step,depth) 
+values(board_boardno_seq.nextval,'답글','test6','답글내용',3,2,1);
+
 
 /***************boardcomment insert**************/
 insert into boardcomment(commentno,boardno,userid,c_content) 
-values(boardcomment_commentno_seq.nextval, 35, 'kms1', '댓글내용'||boardcomment_commentno_seq.currval);
-
-insert into boardcomment(commentno,boardno,userId,c_content) 
-values(boardcomment_commentno_seq.nextval, 36, 'kms3', '댓글내용'||boardcomment_commentno_seq.currval);
-
+values(boardcomment_commentno_seq.nextval, 2, 'test1', '저도 궁금합니다!');
+insert into boardcomment(commentno,boardno,userid,c_content) 
+values(boardcomment_commentno_seq.nextval, 2, 'test2', '답변 궁금해요!');
+insert into boardcomment(commentno,boardno,userid,c_content) 
+values(boardcomment_commentno_seq.nextval, 2, 'test3', '우와!');
+insert into boardcomment(commentno,boardno,userid,c_content) 
+values(boardcomment_commentno_seq.nextval, 2, 'test4', '와 대박!');
+insert into boardcomment(commentno,boardno,userid,c_content) 
+values(boardcomment_commentno_seq.nextval, 2, 'test5', '신기하네요!');
+insert into boardcomment(commentno,boardno,userid,c_content) 
+values(boardcomment_commentno_seq.nextval, 2, 'test6', '오~~!');
 
 
