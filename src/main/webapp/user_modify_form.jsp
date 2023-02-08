@@ -14,15 +14,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>내정보 관리</title>
+<title>Tiffany&Co 내정보 수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
  
 <script type="text/javascript">
 	function userModifyAction() {
+		if (f.password.value == "") {
+			alert("비밀번호를 입력하십시요.");
+			f.password.focus();
+			return false;
+		}
+		if (f.password2.value == "") {
+			alert("비밀번호확인을 입력하십시요.");
+			f.password2.focus();
+			return false;
+		}
+		if (f.name.value == "") {
+			alert("이름을 입력하십시요.");
+			f.name.focus();
+			return false;
+		}
+		if (f.email.value == "") {
+			alert("이메일을 입력하십시요.");
+			f.email.focus();
+			return false;
+		}
+		if (f.phone.value == "") {
+			alert("휴대폰 번호를 입력하십시요.");
+			f.email.focus();
+			return false;
+		}if (f.address.value == "") {
+			alert("주소를 입력하십시요.");
+			f.email.focus();
+			return false;
+		}
+		if (f.password.value != f.password2.value) {
+			alert("비밀번호와 비밀번호확인은 일치하여야합니다.");
+			f.password.focus();
+			f.password.select();
+			return false;
+		}
 		document.f.action = "user_modify_action.jsp";
 		document.f.method='POST';
+		document.f.submit();
+	}
+	
+	function userModifyCancel() {
+		document.f.action = 'user_view.jsp';
 		document.f.submit();
 	}
 
@@ -57,55 +97,56 @@
 					<tr>
 						<td>
 							<!--contents--> <br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
-								cellspacing=0>
+							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리
-											- 내정보수정</b></td>
+									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>내정보 수정</b></td>
 								</tr>
-							</table> <!-- update Form  -->
+							</table>  
+							<!-- update Form  -->
 							<form name="f" method="post">
-								<table border="0" cellpadding="0" cellspacing="1" width="590"
-									bgcolor="BBBBBB">
+								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="#CCCCCC">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">사용자
-											아이디</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><%=user.getUserId()%></td>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">아이디</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId()%></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><input type="password" style="width: 150px"
-											name="password" value="<%=user.getPassword()%>"></td>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">비밀번호</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="password" style="width: 100% ;height: 100%" name="password" value="<%=user.getPassword()%>"></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호
-											확인</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><input type="password" style="width: 150px"
-											name="password2" value="<%=user.getPassword()%>"></td>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">비밀번호 확인</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="password" style="width: 100% ;height: 100%" name="password2" value="<%=user.getPassword()%>"></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><input type="text" style="width: 150px"
-											name="name" value="<%=user.getName()%>"></td>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">이름</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="text" style="width: 100% ;height: 100%" name="name" value="<%=user.getName()%>"></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
-											주소</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><input type="text" style="width: 150px"
-											name="email" value="<%=user.getEmail()%>"></td>
+										<td width=100 align=center bgcolor="#000000" style='color:white'height="22">이메일</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="text" style="width: 100% ;height: 100%" name="email" value="<%=user.getEmail()%>"></td>
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="#000000" style='color:white'height="22">휴대폰 번호</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="text" style="width: 100% ;height: 100%" name="phone" value="<%=user.getPhone()%>"></td>
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">주소</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="text" style="width: 100% ;height: 100%" name="address" value="<%=user.getAddress()%>"></td>
 									</tr>
 								</table>
 							</form> <br>
 
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td align=center><input type="button" value="내정보수정"
-										onClick="userModifyAction();"> &nbsp;</td>
+									<td align=center height='150'>
+									<input type="button" value="수정완료" onClick="userModifyAction();">  &nbsp;&nbsp;&nbsp; 
+									<input type="button" value="취소" onClick="userModifyCancel()"></td>
 								</tr>
 							</table>
 
