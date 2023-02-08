@@ -17,10 +17,10 @@ public class OrderServiceTestMain {
 				//System.out.println(orderService.orderList("cmy0"));
 				
 				//특정회원의 주문+주문아이템 목록
-				//System.out.println(orderService.orderWithOrderItemList("cmy0"));
+				System.out.println(orderService.orderWithOrderItemList("cmy0"));
 				
 				//상품에서 직접 주문
-				orderService.create("cmy0", 1, 2); //test 완료
+				//orderService.create("cmy0", 1, 2); //test 완료
 	}
 
 }

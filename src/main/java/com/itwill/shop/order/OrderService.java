@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.itwill.shop.cart.Cart;
+import com.itwill.shop.cart.CartDao;
 import com.itwill.shop.product.Product;
 import com.itwill.shop.product.ProductDao;
 
 public class OrderService {
 	private OrderDao orderDao;
 	private ProductDao productDao;
-	//private CartDao cartDao;
+	private CartDao cartDao;
 	public OrderService() throws Exception{
 		orderDao = new OrderDao();
 		productDao = new ProductDao();
@@ -67,7 +68,7 @@ public class OrderService {
 		return orderDao.insert(newOrder);
 	}
 	
- /*
+ 
 	
 	 //cart에서 주문
 	 
@@ -85,12 +86,12 @@ public class OrderService {
 		String o_desc = orderItemList.get(0).getProduct().getP_name()+"외 "+(oi_tot_count-1)+" 개";
 		
 		Order newOrder=new Order(0,o_desc, null, o_tot_price, sUserId);
-		newOrder.setOrderItemList(orderItemList);
+		newOrder.setOrderItem(orderItemList);
 		orderDao.insert(newOrder);
 		cartDao.deleteByUserId(sUserId);
 		return 0;
-	} */
-/*	
+	} 
+	
 	
 	//cart에서 선택주문
 	 
@@ -109,7 +110,7 @@ public class OrderService {
 		String o_desc = orderItemList.get(0).getProduct().getP_name()+"외 "+(oi_tot_count-1)+" 개";
 		
 		Order newOrder=new Order(0,o_desc, null, o_tot_price, sUserId);
-		newOrder.setOrderItemList(orderItemList);
+		newOrder.setOrderItem(orderItemList);
 		orderDao.insert(newOrder);
 		
 		for(int i =0;i<cart_item_noStr_array.length;i++) {
@@ -118,7 +119,7 @@ public class OrderService {
 		return 0;
 	}
 	
-	*/
+	
 	
 	
 	
