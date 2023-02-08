@@ -26,7 +26,7 @@ function mainsearch(){
 
 function logincheck(){
 	alert('로그인 후 이용바랍니다.');
-	location.href('user_login_form.jsp');
+	location.href='user_login_form.jsp';
 }
 </script>
 
@@ -57,7 +57,7 @@ function logincheck(){
 			<!-- 마이페이지 아이콘 -->
 			<%if(sUserId == null){ %>
 			<li id="mypagebflogin" title="나의페이지" >
-			<a href="javascript:" ><img src="image/shopmain_user.png" ></a></li>
+			<a href="javascript:logincheck();" ><img src="image/shopmain_user.png" ></a></li>
 			<%} else { %>
 			<li id="mypage" title="나의페이지" >
 			<a href="user_view.jsp" ><img src="image/shopmain_user.png" ></a></li>

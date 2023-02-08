@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
+import com.itwill.shop.common.DataSourceFactory;
 import com.itwill.shop.product.Product;
 
 public class OrderDao {
@@ -19,23 +20,9 @@ public class OrderDao {
 	private DataSource dataSource;
 
 	public OrderDao() throws Exception {
-		InitialContext ic = new InitialContext();
-		dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/OracleDB");
-		
+		dataSource=DataSourceFactory.getDataSource();
 	}
-	/*
-	public OrderDao() throws Exception {
-		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		// Apache DataSource
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
-	}
-	*/
+	
 	/*
 	 * Create , Read(select), Update, Delete (비즈니스 제외)
 	 */

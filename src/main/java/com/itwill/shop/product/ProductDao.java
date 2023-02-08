@@ -14,6 +14,8 @@ import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
+import com.itwill.shop.common.DataSourceFactory;
+
 public class ProductDao {
 	/*
 	 * data Source 멤버필드 선언
@@ -23,23 +25,8 @@ public class ProductDao {
 	 * productDao 생성자 선언 후 properties 받을 준비
 	 */
 	public ProductDao() throws Exception {
-		InitialContext ic = new InitialContext();
-		dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/OracleDB");
-		
+		dataSource=DataSourceFactory.getDataSource();
 	}
-	/*
-	public ProductDao() throws Exception {
-		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		//Apache DataSource
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
-	}
-	*/
 	/*
 	 * 상품 옵션 update
 	 */
