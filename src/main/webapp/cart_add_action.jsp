@@ -1,3 +1,4 @@
+
 <%@page import="com.itwill.shop.product.ProductService"%>
 <%@page import="com.itwill.shop.cart.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,10 +20,11 @@
        	cartService.addCart(sUserId,Integer.parseInt(p_noStr),Integer.parseInt(cart_qty));
        	ProductService productService = new ProductService();
        	productService.updateOption(Integer.parseInt(p_noStr),p_option);
-       	response.sendRedirect("cart_view.jsp");
+       	response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
+       	//response.sendRedirect("cart_view.jsp");
        	/*
        	response.sendRedirect("cart_view_select.jsp");
        	response.sendRedirect("cart_view_select_update_qty.jsp");
-       	response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
+       	
        	*/
        %>
