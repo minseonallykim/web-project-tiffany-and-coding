@@ -35,7 +35,7 @@ select * from
         (select boardno, title, userid, regdate, readcount, groupno, step, depth from board
         order by groupno desc, step asc) s
     )
-where idx>=? and idx <=?;
+where idx>=1 and idx <=10;
 -- 게시판 리스트 전체 보기
 select boardno, title, userid, regdate, readcount, groupno, step, depth from board
 order by groupno desc, step asc;
