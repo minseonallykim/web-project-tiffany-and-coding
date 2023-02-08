@@ -12,12 +12,21 @@ public class CartService {
 	 */
 	
 	public int addCart(String sUserId,int p_no,int cart_qty)throws Exception {
-		if(cartDao.countByProductNo(sUserId, p_no) > 0 ) {
-			return cartDao.updateByProductNo(sUserId, p_no, cart_qty);
+		if(cartDao.countByProductNo(sUserId,p_no) > 0) {
+			return cartDao.updateByProductNo(sUserId,p_no,cart_qty);
 		}else {
-			return cartDao.insert(sUserId, p_no, cart_qty);
+			return cartDao.insert(sUserId,p_no,cart_qty);
 		}
 	}
+	
+	public int addCartOption(String sUserId,int p_no,int cart_qty, String p_option) throws Exception {
+		if(cartDao.countByProductNoOption(sUserId,p_no,p_option) > 0) {
+			return cartDao.updateByProductNo(sUserId,p_no,cart_qty);
+		}else {
+			return cartDao.insert(sUserId,p_no,cart_qty);
+		}
+	}
+	
 	/*
 	 * 카트리스트에서 수량변경
 	 */
