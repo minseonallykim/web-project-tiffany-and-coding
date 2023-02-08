@@ -82,7 +82,7 @@
 										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
 											<span
 											style="font-size: 10pt; font-style: bold;">&nbsp;2023/01/31</span>
-											<span style="font-size: 8pt">주문번호 <%=order.getO_no()%></span> <a href='' style="font-size: 6pt">상세보기</a>
+											<span style="font-size: 8pt">주문번호 <%=order.getO_no()%></span> <a href='order_detail.jsp?o_no=<%=order.getO_no()%>' style="font-size: 6pt">상세보기</a>
 										</td>
 									</tr>
 									<tr>
