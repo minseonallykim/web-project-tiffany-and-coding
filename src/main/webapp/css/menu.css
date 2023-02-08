@@ -50,6 +50,14 @@ div#header #menu {
 	padding: 0 0 0 20px;
 	float: left;
 }
+#menu li#login {
+	padding: 0 0 0 50px;
+	float: left;
+}
+#menu li#logout {
+	padding: 0 0 0 50px;
+	float: left;
+}
 
 #menu li#mainsearch {
 	float: right;
