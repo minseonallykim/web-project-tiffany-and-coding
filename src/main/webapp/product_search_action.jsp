@@ -32,6 +32,6 @@
 		response.sendRedirect("product_list.jsp?type_no="+productList.get(1).getCa_no());
 	}else{
 		productList = productService.searchProductName(keyword);
-		response.sendRedirect("product_list.jsp?type_no");
+		response.sendRedirect("product_list.jsp");
 	}
 %>
