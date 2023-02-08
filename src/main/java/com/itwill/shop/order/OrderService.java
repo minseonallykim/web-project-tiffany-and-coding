@@ -15,7 +15,7 @@ public class OrderService {
 	public OrderService() throws Exception{
 		orderDao = new OrderDao();
 		productDao = new ProductDao();
-		//CartDao = new CartDao();
+		cartDao = new CartDao();
 	}
 	/*
 	 * 주문 1개 삭제
@@ -70,7 +70,7 @@ public class OrderService {
 	
  
 	
-	 //cart에서 주문
+	 //cart에서 전체주문
 	 
 	public int create(String sUserId) throws Exception{
 		List<Cart> cartList=cartDao.findByUserId(sUserId);

@@ -71,6 +71,10 @@ public class OrderDao {
 			throw e;
 			
 		} finally {
+			if(pstmt1 != null || pstmt2 != null) {
+				pstmt1.close();
+				pstmt2.close();
+			}
 			if (con != null)
 				con.close();
 		}
