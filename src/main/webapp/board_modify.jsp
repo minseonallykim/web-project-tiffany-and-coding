@@ -29,7 +29,7 @@ if(request.getParameter("pageno") != null){
 <head>
 <title>Tiffany&Co 게시글 수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel=stylesheet href="css/style.css" type="text/css">
+<link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
 <script type="text/javascript">
  function boardUpdate(){

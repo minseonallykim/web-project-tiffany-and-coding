@@ -6,11 +6,7 @@
 <%@page import="com.itwill.board.BoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="login_check.jspf" %>
 <%
-
-UserService userService = new UserService();
-User user = userService.findUser(sUserId);
 
 Integer boardno = null;
 int pageno = 1;
@@ -43,7 +39,7 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel=stylesheet href="css/style.css" type="text/css">
+<link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
