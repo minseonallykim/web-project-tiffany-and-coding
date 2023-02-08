@@ -8,7 +8,13 @@
 	
 <%
 ProductService productService = new ProductService();
-List<Product> productList = productService.productList();
+String type_noStr = request.getParameter("type_no");
+List<Product> productList = new ArrayList<Product>();
+if(type_noStr == null){
+	productList =  productService.productList();
+}else{
+	productList = productService.searchCaNo(Integer.parseInt(type_noStr));
+}
 %>
 <%
 boolean isLogin = false;
@@ -24,6 +30,7 @@ if (session.getAttribute("sUserId") != null) {
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <script type="text/javascript">
+
 </script> 
 <style type="text/css" media="screen">
 </style>
@@ -61,7 +68,17 @@ if (session.getAttribute("sUserId") != null) {
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>All</b></td>
 								</tr>
 							</table>
-							<jsp:include page="include_product_sort_from.jsp"/>
+							<form name="product_sort_form" method="post" action="product_sort_action.jsp" >
+							<!-- 
+							 <input type=text name="cart_qty" value=1 size=4 class=TXTFLD>  
+							-->
+							<br><b>정렬</b>&nbsp;
+							<select name="sort_option">
+								<option value="select">선택
+								<option value="sort_asc">가격 오름차순
+								<option value="sort_desc">가격 내림차순
+							</select> <br><br> 
+							</form>
 							<div id="f">
 								<table width="100%" align="center" border="0" cellpadding="10"
 									cellspacing="15" >
@@ -80,6 +97,7 @@ if (session.getAttribute("sUserId") != null) {
 									%>
 									<tr>
 									<%} %>
+										
 										<td align="center" width="25%"  bgcolor="ffffff"><a
 											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="200px" height="200px"
 												src="image/<%=product.getP_image()%>" border="0"></a><br />
