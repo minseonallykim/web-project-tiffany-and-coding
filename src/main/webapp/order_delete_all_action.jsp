@@ -1,8 +1,9 @@
 <%@page import="com.itwill.shop.order.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>   
 <%
-	String sUserId = "test1";
+	
 	/*
 	전체주문 삭제
 	 - 주문테이블 delete 

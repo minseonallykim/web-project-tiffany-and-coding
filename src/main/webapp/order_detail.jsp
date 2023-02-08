@@ -9,6 +9,7 @@
 <%@page import="com.itwill.shop.order.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
 <%
 String o_noStr=request.getParameter("o_no");
 if(o_noStr==null|| o_noStr.equals("")){

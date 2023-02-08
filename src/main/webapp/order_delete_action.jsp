@@ -1,6 +1,7 @@
 <%@page import="com.itwill.shop.order.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>   
 <%
 	/*
 		1. 주문번호 받기

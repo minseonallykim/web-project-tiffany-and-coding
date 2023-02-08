@@ -9,14 +9,15 @@
 <%@page import="com.itwill.shop.cart.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>   
 <%
-	String sUserId = "test1";
+	
 
-/*	if(request.getMethod().equalsIgnoreCase("GET")){
+	if(request.getMethod().equalsIgnoreCase("GET")){
 		response.sendRedirect("order_list.jsp");
 		return;
 	}
-*/	
+	
 	String buyType = request.getParameter("buyType");
 	String p_noStr = request.getParameter("p_no");
 	String p_qtyStr = request.getParameter("p_qty");
