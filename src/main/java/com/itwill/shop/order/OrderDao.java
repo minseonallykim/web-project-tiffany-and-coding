@@ -156,7 +156,7 @@ public class OrderDao {
 			do {
 				order.getOrderItem()
 						.add(new OrderItem(rs.getInt("oi_no"), rs.getInt("oi_qty"), rs.getInt("o_no"),
-								new Product(rs.getInt("p_no"), rs.getString("p_name"), rs.getInt("p_price"),rs.getString("p_desc"),rs.getString("p_image"),rs.getString("p_option"))));
+								new Product(rs.getInt("p_no"), rs.getString("p_name"), rs.getInt("p_price"),rs.getString("p_desc"),rs.getString("p_image"),rs.getString("p_option"),rs.getInt("ca_no"))));
 			} while (rs.next());
 		}
 		} finally {
