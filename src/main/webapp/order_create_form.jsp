@@ -53,7 +53,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>쇼핑몰 관리</title>
+<title>Tiffany&coding</title>
 
  
 <link rel=stylesheet href="css/styles.css" type="text/css">
@@ -77,6 +77,9 @@
 
 	
 </script>
+<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 
 
@@ -142,10 +145,10 @@
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">구매자정보</caption>
 									<tr>
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>아이디</td>
-										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>이름</td>
-										<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
-										<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
+										<td width=290 height=25 align=center bgcolor="#81D8D0" class=t1>아이디</td>
+										<td width=112 height=25 align=center bgcolor="#81D8D0" class=t1>이름</td>
+										<td width=166 height=25 align=center bgcolor="#81D8D0" class=t1>이메일</td>
+										<td width=50 height=25 align=center bgcolor="#81D8D0" class=t1>주소</td>
 										
 										
 									</tr>
@@ -166,11 +169,11 @@
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">주문제품목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1>제품명</td>
-										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1>수량</td>
-										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1>가격</td>
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1>비고</td>
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1>색상</td>
+										<td width=290 height=25 bgcolor="#81D8D0" align=center class=t1>제품명</td>
+										<td width=112 height=25 bgcolor="#81D8D0" align=center class=t1>수량</td>
+										<td width=166 height=25 bgcolor="#81D8D0" align=center class=t1>가격</td>
+										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>비고</td>
+										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>색상</td>
 									</tr>
 									<%
 									int tot_price = 0;
