@@ -9,48 +9,6 @@ form,div#f {
 	text-align: center;
 }
 
-li#ca_all {
-	font-size: 50px;
-	position: relative;
-	text-align: center;
-	color: white;
-}
-
-li#ca_ring {
-	font-size: 50px;
-	position: relative;
-	text-align: center;
-	color: white;
-}
-
-li#ca_necklaces {
-	font-size: 50px;
-	position: relative;
-	text-align: center;
-	color: white;
-}
-
-li#ca_earings {
-	font-size: 50px;
-	position: relative;
-	text-align: center;
-	color: white;
-}
-
-li#ca_braclet {
-	font-size: 50px;
-	position: relative;
-	text-align: center;
-	color: white;
-}
-
-.categorytext {
-	font-size: 50px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
 
 /*방문 전 링크상태*/
 a:link {
