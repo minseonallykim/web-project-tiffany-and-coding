@@ -48,7 +48,7 @@ function logincheck(){
 		<!-- cart_view_...image 카트삭제 이미지로 버튼 만든거 참고 -->
 		<!-- <input id='mainsearchbtn' type="button" onClick="mainSearch()"> -->
 		<form id="mainsearchform" method="post">
-			<input type='text' style="border: solid 1px grey; width:200px; height:30px; padding: 0" name='mainsearchkeyword' >
+			<input type='text' style="border: solid 1px grey; width:200px; height:30px; padding: 0;border-radius: 10px" name='mainsearchkeyword' >
 			<input type="hidden" name='searchbtn' value='' >
 				<a href='javascript:mainsearch();'><img src='image/mainsearchbtn.png'></a>
 		</form>

@@ -36,6 +36,21 @@ select * from
         order by groupno desc, step asc) s
     )
 where idx>=1 and idx <=10;
+
+-- 키워드로 검색된 게시판 리스트
+select * from board where title like '%문의%';
+select * from board where title like '%목걸이%';
+select * from board where title like '%문의%' order by boardno desc;
+
+select * from 
+    (select rownum idx, s.* from
+        (select boardno, title, userid, regdate, readcount, groupno, step, depth from board  
+        where title like '%문의%'
+        order by groupno desc, step asc) s
+    )
+where idx>=1 and idx <=10;
+
+
 -- 게시판 리스트 전체 보기
 select boardno, title, userid, regdate, readcount, groupno, step, depth from board
 order by groupno desc, step asc;

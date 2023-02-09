@@ -13,6 +13,7 @@ public class BoardDaoTestMain {
 		//System.out.println(boardDao.createReply(new Board(4,"제목2","guard2","내용2",null,0,4,1,0)));
 		System.out.println(boardDao.findBoard(1));
 		System.out.println(boardDao.findBoardList(1,10));
+		System.out.println(boardDao.findSearchBoardList(1,10,"반지"));
 		System.out.println(boardDao.countReply(newBoard));
 		System.out.println(boardDao.update(new Board(1,"변경",null,"변경",null,0,0,1,0)));
 		boardDao.increaseReadCount(4);

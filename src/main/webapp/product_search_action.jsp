@@ -12,7 +12,7 @@
 		productList = productService.searchCategory(keyword);
 		response.sendRedirect("product_list.jsp?type_no="+productList.get(0).getCa_no());
 	}else{
-		productList = productService.searchProductName(keyword);
+		//productList = productService.searchProductName(keyword);
 		pageContext.forward("product_list.jsp");
 	}
 %>

@@ -53,6 +53,21 @@ public class BoardService {
 		pageMakerBoardList.pageMaker = pageMaker;
 		return pageMakerBoardList;
 	}
+	/*
+	 * 키워드로 검색된 게시글 리스트 보기
+	 */
+	public BoardListPageMakerDto findSearchBoardList(int currentPage, String keyword) throws Exception{
+		// 전체 글의 수
+		int totalRecordCount = boardDao.getBoardCount();
+		// paging 계산 (PageMaker)
+		PageMaker pageMaker = new PageMaker(totalRecordCount, currentPage);
+		// 게시글 데이터 얻기
+		List<Board> boardList = boardDao.findSearchBoardList(pageMaker.getPageBegin(), pageMaker.getPageEnd(),keyword);
+		BoardListPageMakerDto pageMakerBoardList = new BoardListPageMakerDto();
+		pageMakerBoardList.itemList = boardList;
+		pageMakerBoardList.pageMaker = pageMaker;
+		return pageMakerBoardList;
+	}
 	
 	/*
 	 * 게시글 수정

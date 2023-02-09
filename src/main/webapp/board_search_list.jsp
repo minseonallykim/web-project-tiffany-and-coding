@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.itwill.board.BoardCommentService"%>
 <%@page import="com.itwill.board.BoardComment"%>
 <%@page import="com.itwill.board.util.PageMaker"%>
@@ -26,6 +27,18 @@ public String getTitleString(Board board) {
 }
 %>
 <%
+/*
+게시판 검색버튼 클릭 시 
+게시판 리스트에서 검색된 내용 보여주기
+*/
+String boardsearchkeyword = request.getParameter("boardsearchkeyword");
+BoardService boardService = new BoardService();
+
+if(boardsearchkeyword == null || boardsearchkeyword.equals("")){
+	response.sendRedirect("board_list.jsp");
+	return;
+}
+
 BoardCommentService boardCommentService = new BoardCommentService();
 
 // pageno 없거나 공백일 경우 1페이지 보여주기
@@ -34,8 +47,9 @@ if(pageno == null || pageno.equals("")){
 	pageno = "1";
 }
 
-// 게시글 조회
-BoardListPageMakerDto boardListPage = BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
+// 검색된 게시글 조회
+BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoardList((Integer.parseInt(pageno)), boardsearchkeyword);
+
 %>	
 	
 <!DOCTYPE html>
@@ -156,7 +170,6 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findBoardList(I
 							</table>
 							<!-- list end -->
 						</form><br>
-						
 						<!-- paging start -->
 						<table id='boardlist_paging' border="0" cellpadding="0" cellspacing="1" width="590">
 							<tr>
