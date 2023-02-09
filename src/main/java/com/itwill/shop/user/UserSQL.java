@@ -25,4 +25,9 @@ public class UserSQL {
 		//아이디 중복체크
 		public final static String USER_SELECT_BY_ID_COUNT = 
 				"select count(*) cnt from userinfo where userId = ?";
+		
+		//주소정보만 업데이트
+		public final static String USER_ADDRESS_UPDATE = 
+				"update userinfo set address = ? where userid=?";
+		
 }

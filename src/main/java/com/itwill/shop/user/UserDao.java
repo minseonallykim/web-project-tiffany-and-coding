@@ -192,5 +192,22 @@ public class UserDao {
 		return isExist;
 	}
 	
+/*	
+	public int updateAddress(User user) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con=dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL.USER_ADDRESS_UPDATE);
+			pstmt.setString(1, user.getAddress());
+			pstmt.setString(2, user.getUserId());
+			rs = pstmt.executeQuery();
+			rs.next();
+					
+		}
+		
+	} */
+	
 	
 }
