@@ -69,6 +69,8 @@
 		document.order_create_form.submit();
 		alert("주문이 완료되었습니다.")
 	}
+	
+	
 
 	
 </script>
@@ -82,6 +84,8 @@
 		<input type="hidden" name="buyType" value="<%=buyType%>"> 
 		<input type="hidden" name="p_no" value="<%=p_noStr%>"> 
 		<input type="hidden" name="p_qty" value="<%=p_qtyStr%>">
+		<input
+			type="hidden" name="address" value="<%=user.getAddress()%>">
 		<%
 		for (String cart_item_noStr : cart_item_noStr_array) {
 		%>
@@ -138,7 +142,8 @@
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUserId()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=user.getName()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getEmail()%></td>
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
+										
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><input type="text" name="address" id="address_modify" value="<%=user.getAddress()%>"></td>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
 										
 									</tr>
@@ -147,7 +152,7 @@
 								<table>
 								<tr>
 								<td width=50 align=center>
-								<a href="javascript:addressModifyAction();" class=m1>주소 변경</a></td>
+								<input type="button" value="배송지수정" onClick="addressModifyAction();"></td>
 								</tr>
 								
 								</table>
