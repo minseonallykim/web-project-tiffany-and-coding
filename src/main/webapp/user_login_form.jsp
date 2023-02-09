@@ -72,17 +72,17 @@
 									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>로그인</b></td>
 								</tr>
 							</table> <!-- login Form  -->
-							<form name="f" method="post">
-								<table border="solid 1px" bordercolor="#EAEAEA"  cellpadding="0" cellspacing="1" bgcolor=#CCCCCC>
+							<form name="f" method="post" style="padding-left: 600px; padding-right: 600px;">
+								<table border="solid 1px"  cellpadding="10" cellspacing="0" width="300" bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white'  height="22">아이디</td>
-										<td width=490 align="left" bgcolor="ffffff"	style="padding-left: 10px">
-										<input type="text" style="width: 150" name="userId"	value="">&nbsp;&nbsp;
+										<td width=200 align="left" bgcolor="ffffff"	style="padding-left: 10px">
+										<input type="text" style="width: 250" name="userId"	value="">&nbsp;&nbsp;
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">비밀번호</td>
-										<td width=490 align="left" bgcolor="ffffff" style="padding-left: 10px">
-										<input type="password" style="width: 150" name="password" value="">&nbsp;&nbsp;
+										<td width=200 align="left" bgcolor="ffffff" style="padding-left: 10px">
+										<input type="password" style="width: 250" name="password" value="">&nbsp;&nbsp;
 									</tr>
 								</table>
 							</form> <br />

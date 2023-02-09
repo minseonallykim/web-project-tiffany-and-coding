@@ -14,6 +14,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
  
 <script type="text/javascript">
 
@@ -71,35 +73,35 @@
 								</tr>
 							</table> 
 							<!-- view Form  -->
-							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px; ">
-								<table border="solid 1px" bordercolor="#EAEAEA"  cellpadding="10" cellspacing="0" width="590" bgcolor="#CCCCCC">
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
+								<table border="solid 1px"  cellpadding="10" cellspacing="0" width="400" bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">아이디</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
 											<%=user.getUserId()%>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">이름</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
 											<%=user.getName()%>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">이메일</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
 											<%=user.getEmail()%>
 										</td>
 									</tr>
 										<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">휴대폰 번호</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
 											<%=user.getPhone()%>
 										</td>
 									</tr>
 										<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">주소</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10">
 											<%=user.getAddress()%>
 										</td>
 									</tr>
