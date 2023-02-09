@@ -13,6 +13,9 @@ public class UserDaoTestMain {
 				
 		//회원수정
 		//System.out.println(userDao.update(new User("test1","1234","변경되길","update@aaa.com","010-4444-8888","수정시")));
+		
+		//회원탈퇴
+		//System.out.println(userDao.remove("ggg"));
 				
 		//전체회원보기
 		//System.out.println(userDao.findUserList());
@@ -24,7 +27,7 @@ public class UserDaoTestMain {
 		//System.out.println(userDao.existedUser("test50"));
 		
 		//주소만 업데이트
-		System.out.println(userDao.updateAddress("서울시 서초구 역삼동", "fffff"));
+		//System.out.println(userDao.updateAddress("서울시 서초구 역삼동", "fffff"));
 	}
 
 }

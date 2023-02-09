@@ -35,7 +35,7 @@ public class UserService {
 		for (int i = 0; i < temp.length; i++) {
 			if((temp.length >= 4 && temp.length <= 10) && ((temp[i] >= 'a' && temp[i] <= 'z') || (temp[i] >= '0' && temp[i] <= '9'))) {
 				if(i == temp.length-1) {
-					result = this.create(user);
+					result = 1;
 					break;
 				}
 			}else {
@@ -53,7 +53,7 @@ public class UserService {
 		for (int i = 0; i < temp.length; i++) {
 			if((temp.length >= 4 && temp.length <= 10) && ((temp[i] >= 'a' && temp[i] <= 'z') || (temp[i] >= '0' && temp[i] <= '9'))) {
 				if(i == temp.length-1) {
-					result = this.create(user);
+					result = 1;
 					break;
 				}
 			}else {
