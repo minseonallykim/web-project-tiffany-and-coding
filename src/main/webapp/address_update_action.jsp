@@ -3,11 +3,12 @@
     pageEncoding="UTF-8"%>
 <%@ include file="login_check.jspf" %>
 <%
-if(request.getMethod().equalsIgnoreCase("GET")){
+	
+	if(request.getMethod().equalsIgnoreCase("GET")){
 	response.sendRedirect("order_create_form.jsp");
 	return;
-}
-
+	}
+	
 	String address = request.getParameter("address");
 	
 	UserService userService = new UserService();

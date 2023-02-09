@@ -22,7 +22,7 @@ UserService userService = new UserService();
 ProductService productService = new ProductService();
 Product product = new Product();
 
-
+User user = userService.findUser(sUserId);
 Order order = orderService.orderWithOrderItem(Integer.parseInt(o_noStr));
 %>	
 	
@@ -98,7 +98,7 @@ form > table tr td{
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=order.getO_no()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=order.getO_date()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=order.getUserid()%></td>
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=sUser.getAddress()%></td>
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
 										
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
 												<input type="submit" value="삭제">
