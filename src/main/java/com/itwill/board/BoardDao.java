@@ -13,6 +13,9 @@ import javax.sql.DataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import com.itwill.shop.common.DataSourceFactory;
+import com.itwill.shop.product.Product;
+import com.itwill.shop.product.ProductSQL;
+
 
 public class BoardDao {
 	private DataSource dataSource;
@@ -350,5 +353,57 @@ public class BoardDao {
 		}
 		return count;
 	}
+	/*
+	 * 게시판 title 키워드로 검색
+	 */
+	public List<Board> findSearchBoardList(int start, int last, String keyword) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> boardList = new ArrayList<Board>();
+		try {
+			con = dataSource.getConnection();
+			StringBuffer sql = new StringBuffer(500);
+			sql.append("select * from");
+			sql.append(" (select rownum idx, s.* from");
+			sql.append(" (select boardno, title, userid, regdate, readcount, groupno, step, depth from board");
+			sql.append("  where title like ?");
+			sql.append(" order by groupno desc, step asc) s )");
+			sql.append(" where idx>=? and idx <=?");
+			
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, last);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBoardNo(rs.getInt(2));
+				board.setTitle(rs.getString(3));
+				board.setUserId(rs.getString(4));
+				board.setRegDate(rs.getDate(5));
+				board.setReadCount(rs.getInt(6));
+				board.setGroupNo(rs.getInt(7));
+				board.setStep(rs.getInt(8));
+				board.setDepth(rs.getInt(9));
+				boardList.add(board);
+			}
+
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+		}
+		return boardList;
+	}
+	
 
 	}
