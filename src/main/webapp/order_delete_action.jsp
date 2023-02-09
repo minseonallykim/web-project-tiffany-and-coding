@@ -17,7 +17,7 @@
 	String o_noStr = request.getParameter("o_no");
 	OrderService orderService = new OrderService();
 	orderService.deleteByOrderNo(Integer.parseInt(o_noStr));
-	response.sendRedirect("order_lisp.jsp");
+	response.sendRedirect("order_list.jsp");
 
 
 
@@ -25,3 +25,4 @@
 
 
 %>	
+          

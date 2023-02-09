@@ -62,28 +62,12 @@
 <style type="text/css" media="screen"></style>
 
 <script type="text/javascript">
+
 	function order_create_form_submit() {
 		document.order_create_form.method = 'POST'
 		document.order_create_form.action = 'order_create_action.jsp';
 		document.order_create_form.submit();
 		alert("주문이 완료되었습니다.")
-	}
-	
-	function promptAddress(){
-		
-		document.address_modify.method = 'POST';
-		document.address_modify.action = 'address_update_action.jsp';
-		document.address_modify.submit();
-	}
-	
-	
-	function addressUpdateAction() {
-		if(window.confirm('주소를 변경하시겠습니까? 변경하시면 기본배송지로 설정됩니다')){
-			let address1 = prompt("배송지를 입력하세요");
-			
-			$('input[name=address]').attr('value',address1);
-		alert("주소가 변경되었습니다.");
-	}
 	}
 	
 </script>
