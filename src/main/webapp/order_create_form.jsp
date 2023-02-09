@@ -69,6 +69,7 @@
 		document.order_create_form.submit();
 		alert("주문이 완료되었습니다.")
 	}
+
 	
 </script>
 </head>
@@ -146,7 +147,7 @@
 								<table>
 								<tr>
 								<td width=50 align=center>
-								<a href="javascript:addressUpdateAction();" class=m1>주소 변경</a></td>
+								<a href="javascript:addressModifyAction();" class=m1>주소 변경</a></td>
 								</tr>
 								
 								</table>

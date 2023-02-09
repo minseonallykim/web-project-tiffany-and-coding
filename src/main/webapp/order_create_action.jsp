@@ -29,14 +29,19 @@
 	
 	
 	
+	
+	
 	if(buyType.equals("cart")){
 		orderService.create(sUserId);
+		
 	
 	}else if(buyType.equals("cart_select")){
 		orderService.create(sUserId,cart_item_no_StrArray);
+		
 	
 	}else if(buyType.equals("direct")){
 		orderService.create(sUserId,Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr));
+		
 		
 	}
 	response.sendRedirect("order_list.jsp");
