@@ -196,7 +196,7 @@
 									<!-- cart item end -->
 									<%}%>
 									<tr>
-										<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
+										<td width=640 colspan=5 height=26 bgcolor="ffffff" class=t1>
 											<p align=right style="padding-top: 10px">
 												<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###").format(tot_price)%>원
 												</font>
