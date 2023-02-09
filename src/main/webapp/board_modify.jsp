@@ -37,7 +37,9 @@ User user = userService.findUser(sUserId);
 <title>Tiffany&Co 게시글 수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 <script type="text/javascript">
  function boardUpdate(){
 	 if(f.title.value == ""){
@@ -89,22 +91,22 @@ User user = userService.findUser(sUserId);
 							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 							</table> <br> 
 							<!-- modify Form  -->
-							<form name="f" method="post">
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> 
 								<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>" />
-								<table border="0" cellpadding="10" cellspacing="1" width="590" bgcolor="#CCCCCC">
+								<table border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">제 목</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<input type="text" style="width: 100% ;height: 100%" name="title" value="<%=board.getTitle()%>"></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<textarea name="content" style="width: 100%" rows="14"><%=board.getContent().replace("\n", ">>").trim()%></textarea></td>
 									</tr>
 

@@ -49,7 +49,9 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
 	function boardCreate(){
@@ -141,24 +143,24 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 								</tr>
 							</table> <br> 
 							<!-- view Form start-->
-							<form name="f" method="post">
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
 								<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>">
 								<input type="hidden" name="pageno" value="<%=pageno%>">
-								<table border="0" cellpadding="10" cellspacing="1" width="590" bgcolor="#CCCCCC">
+								<table border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
-										<td width=490 bgcolor="#FFFFFF" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="#FFFFFF" style="padding-left: 10px" align="left">
 										<%=board.getUserId() %></td>
 									</tr>
 
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">제 목</td>
-										<td width=490 bgcolor="#FFFFFF" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="#FFFFFF" style="padding-left: 10px" align="left">
 										<%=board.getTitle()%></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>
-										<td width=490 bgcolor="#FFFFFF" height="180px" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="#FFFFFF" height="180px" style="padding-left: 10px" align="left">
 										<%=board.getContent().replace("\n","<br/>")%><br />
 										</td>
 									</tr>

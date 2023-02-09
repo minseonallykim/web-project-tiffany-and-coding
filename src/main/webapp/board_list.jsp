@@ -42,9 +42,10 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findBoardList(I
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='css/styles.css' type='text/css'>
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
-<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
 	// 게시글 쓰기 함수
@@ -116,7 +117,7 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findBoardList(I
 							<li style="float: right"><img src='image/mainsearchbtn.png' style="cursor: pointer;margin-left: 10px;margin-top: 15px"  onclick="boardsearch();"></li>
 							<li id='boardsearch' title='게시판검색' style="float: right" >
 							 	<form id='boardsearchform' method='post'>
-							 		<input type='text' name='boardsearchkeyword'  style="border: solid 1px grey; width:600px; height:30px; padding: 0; border-radius: 10px" >
+							 		<input type='text' name='boardsearchkeyword'  style="border: solid 1px grey; width:600px; height:30px; padding-left: 10px; border-radius: 10px" >
 									<input type="hidden" name='searchbtn' value='' >
 							 	</form>
 							</li>

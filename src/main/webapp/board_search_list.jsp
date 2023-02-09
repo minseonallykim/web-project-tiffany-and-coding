@@ -56,9 +56,10 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='css/styles.css' type='text/css'>
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
-<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
 	// 게시글 쓰기 함수
@@ -123,19 +124,19 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 							</tr>
 						</table> <br><br>
 						<!-- boardsearch start -->
-						<ul style="list-style: none; height: 70px" >
-							<li id='boardsearch' title='게시판검색' >
+						<ul style="list-style: none; height: 70px; padding-right: 500px" >
+							<li style="float: right"><img src='image/mainsearchbtn.png' style="cursor: pointer;margin-left: 10px;margin-top: 15px"  onclick="boardsearch();"></li>
+							<li id='boardsearch' title='게시판검색' style="float: right" >
 							 	<form id='boardsearchform' method='post'>
-							 		<input type='text' name='boardsearchkeyword'  style="border: solid 1px grey; width:600px; height:30px; padding: 0; border-radius: 10px" >
+							 		<input type='text' name='boardsearchkeyword'  style="border: solid 1px grey; width:600px; height:30px; padding-left: 10px; border-radius: 10px" >
 									<input type="hidden" name='searchbtn' value='' >
-										<a href='javascript:boardsearch();'><img src='image/mainsearchbtn.png'></a>
 							 	</form>
 							</li>
 						</ul>
 						<!-- boardsearch end -->
 						<!-- list start -->
-						<form name='f' method='POST' action=''>
-							<table id='boardlist' border='0' cellpadding='5px' cellspacing='1' width='400' bgcolor='#CCCCCC'>
+						<form name='f' method='POST' action='' style="padding-left: 200px; padding-right: 200px; ">
+							<table id='boardlist' border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 								<tr id='boardlist_tr'>
 									<td width=200 align=center bgcolor="#000000" style='color:white'>제 목</td>
 									<td width=60 align=center bgcolor="#000000" style='color:white'>작성자</td>
