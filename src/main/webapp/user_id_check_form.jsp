@@ -30,7 +30,7 @@
 			
 		}
 		if(checked==2) {
-			msg="아이디는 영문+숫자 4~10자 이하로 부탁드립니다.";
+			msg="아이디는 영문+숫자 4~10자 이하여야 합니다.";
 			
 		}
 		
@@ -43,11 +43,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
 <title>아이디 중복 체크</title>
 
 <style type="text/css">
 #wrap {
-	width: 250px;
+	width: 100%;
 	text-align: center;
 	margin: 0 auto 0 auto;
 }
@@ -94,26 +95,26 @@ function sendCheckValue() {
 		<br> <b><font size="3" color="gray">아이디 중복 확인</font></b>
 		<p></p>
 		<hr size="0.5" style="margin: 0 0 0 0"  >
-		<div id="chk" style="margin-top: 10px">
+		<div id="chk" style="margin-top: 30px">
 		<p></p>
 		<p></p>
 			<form id="checkForm" style="display: inline;">
-				<input type="text" name="userId" id="userId" value="<%=userId%>"> 
+				<input type="text" name="userId" id="userId" width="30px" value="<%=userId%>"> 
 				<input type="button" value="중복확인" onclick="idCheck()" style="font-size: 7pt">
 			</form>
 			<p></p>
 			<p></p>
 			<p></p>
 			<%if(!isDuplicate && checked!=2){ %>
-				<div id="msg" style="font-size: 8pt;margin:7px;text-align: center;color:black;font-weight: bold"><%=msg %></div>
+				<div id="msg" style="font-size: 8pt;margin:20px;text-align: center;color:black;font-weight: bold"><%=msg %></div>
 				<input id="useBtn" type="button" value="사용"  style="font-size: 8pt" onclick="sendCheckValue()">
 			<%}else{ %>
-				<div id="msg" style="font-size: 8pt;margin:7px;text-align: center;color:red;font-weight: bold"><%=msg %></div>
-				<input id="useBtn"  type="button" disabled="disabled" value="사용"  style="font-size: 8pt;" onclick="sendCheckValue()" >
+				<div id="msg" style="font-size: 8pt;margin:20px;text-align: center;color:red;font-weight: bold"><%=msg %></div>
+				<input id="useBtn"  type="button" disabled="disabled" value="사용"  style="font-size: 10pt;" onclick="sendCheckValue()" >
 			<%} %>
 			
 				&nbsp;&nbsp;&nbsp;
-				<input id="cancelBtn" type="button" value="취소"  style="font-size: 8pt" onclick="window.close();"> 
+				<input id="cancelBtn" type="button" value="취소"  style="font-size: 10pt" onclick="window.close();"> 
 		</div>
 	</div>
 </body>
