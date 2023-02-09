@@ -31,13 +31,13 @@
 	
 	if(buyType.equals("cart")){
 		orderService.create(sUserId);
-		userService.update(updateUser);
+		//userService.update(updateUser);
 	}else if(buyType.equals("cart_select")){
 		orderService.create(sUserId,cart_item_no_StrArray);
-		userService.update(updateUser);
+		//userService.update(updateUser);
 	}else if(buyType.equals("direct")){
 		orderService.create(sUserId,Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr));
-		userService.update(updateUser);
+		//userService.update(updateUser);
 	}
 	response.sendRedirect("order_list.jsp");
 %>	
