@@ -1,3 +1,3 @@
 <%
-response.sendRedirect("board_list.jsp");
+response.sendRedirect("shop_main.jsp");
 %>

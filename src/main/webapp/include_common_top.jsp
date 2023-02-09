@@ -37,10 +37,10 @@ function logincheck(){
 		<!-- 로그아웃 상태:로그인 아이콘, 로그인 후:로그아웃 아이콘 -->	
 		<!-- 로그인 아이콘 -->	
 		<%if(sUserId == null){ %>
-		<li id="login" title="로그인" ><a href="user_login_form.jsp" ><img src="image/login_icon.png" ></a></li>
+		<li id="login" title="로그인" ><a href="user_login_form.jsp" ><img src="image/login_icon.png" style="margin-top: 2px; "></a></li>
 		<%} else { %>
 		<!-- 로그아웃 아이콘 -->	
-		<li id="logout" title="로그아웃" ><a href="user_logout_action.jsp" ><img src="image/logout_icon.png" ></a></li>
+		<li id="logout" title="로그아웃" ><a href="user_logout_action.jsp" ><img src="image/logout_icon.png" style="margin-top: 2px; "></a></li>
 		<%} %>
 		<!-- 로그아웃 상태 : 로그인 하세요 팝업, 로그인창으로 이동 -->
 		<!-- 마이페이지 아이콘 -->
@@ -53,9 +53,8 @@ function logincheck(){
 		<%} %>
 		<!-- 장바구니 아이콘 -->
 		<li id="cart" title="장바구니"><a href="cart_view_select_update_qyt_all_check_delete_image.jsp" title="장바구니"><img src="image/shopmain_cart.png" ></a></li>
-			<li><a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 				<!-- 검색 아이콘 -->
-				<li><img src='image/mainsearchbtn.png' style="cursor: pointer;margin-left: 10px;margin-top: 15px" onclick="mainsearch();"></li>
+				<li><img src='image/mainsearchbtn.png' style="cursor: pointer;margin-left: 10px;margin-top: 10px; margin-right: 40px" onclick="mainsearch();"></li>
 				<li id="mainsearch" title="검색">
 					<form id="mainsearchform" method="post">
 						<input type='text' style="border: solid 1px grey; width: 200px; height: 30px; padding-left: 10px; border-radius: 10px" name='mainsearchkeyword'> 
