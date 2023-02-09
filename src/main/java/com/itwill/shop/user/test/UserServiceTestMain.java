@@ -31,6 +31,9 @@ public class UserServiceTestMain {
 		
 		//전체보기
 		//System.out.println(userService.findAll());
+		
+		//주소만 업데이트 테스트
+		System.out.println(userService.updateAddress("서울시", "test99"));
 
 	}
 

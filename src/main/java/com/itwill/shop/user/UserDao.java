@@ -188,4 +188,28 @@ public class UserDao {
 	}
 	
 	
+	public int updateAddress(String address, String userId) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int updateRowCount = 0;
+		try {
+			con=dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL.USER_ADDRESS_UPDATE);
+			pstmt.setString(1, address);
+			pstmt.setString(2, userId);
+			updateRowCount = pstmt.executeUpdate();
+		}finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(con != null) {
+				con.close();
+			}
+		}
+		return updateRowCount;
+		
+		
+	} 
+	
+	
 }
