@@ -1,26 +1,40 @@
 
+<%@page import="com.itwill.shop.user.User"%>
 <%@page import="com.itwill.shop.user.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	boolean isDuplicate = false;
 	String msg = "";
-	
 	String userId = request.getParameter("userId");
+	int checked=0;
 	
 	if (userId == null || userId.equals("")){
 		// 최초로 팝업창 띄울 때
 		userId = "";
 		msg = "";
 		isDuplicate = true;
+		
 	} else {
+		User user = new User();
+		user.setUserId(userId);
 		UserService userService = new UserService();
+		
 		isDuplicate = userService.isDuplicateId(userId);
+		checked =userService.createUserIdDetail(user);
 		if(isDuplicate){
-			msg = "사용 불가능한 아이디입니다.";
-		} else {
-			msg = "사용 가능한 아이디입니다.";
+			msg = "중복된 아이디입니다.";
 		}
+		else{
+			msg = "사용 가능한 아이디입니다.";
+			
+		}
+		if(checked==2) {
+			msg="아이디는 영문+숫자 4~10자 이하로 부탁드립니다.";
+			
+		}
+		
+		
 	}
 	
 %>	
@@ -90,13 +104,14 @@ function sendCheckValue() {
 			<p></p>
 			<p></p>
 			<p></p>
-			<%if(!isDuplicate){ %>
+			<%if(!isDuplicate && checked!=2){ %>
 				<div id="msg" style="font-size: 8pt;margin:7px;text-align: center;color:black;font-weight: bold"><%=msg %></div>
 				<input id="useBtn" type="button" value="사용"  style="font-size: 8pt" onclick="sendCheckValue()">
 			<%}else{ %>
 				<div id="msg" style="font-size: 8pt;margin:7px;text-align: center;color:red;font-weight: bold"><%=msg %></div>
 				<input id="useBtn"  type="button" disabled="disabled" value="사용"  style="font-size: 8pt;" onclick="sendCheckValue()" >
 			<%} %>
+			
 				&nbsp;&nbsp;&nbsp;
 				<input id="cancelBtn" type="button" value="취소"  style="font-size: 8pt" onclick="window.close();"> 
 		</div>

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Tiffany&coding</title>
+<title>Tiffany&Co 회원가입</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
@@ -49,6 +49,17 @@
 			f.password.select();
 			return false;
 		}
+		for (let i=0; i<document.f.password.value.length ; i++) {
+			if ((document.f.password.value.charAt(i) >=4 && document.f.password.value.charAt(i) <=10) &&
+				(document.f.password.value.charAt(i) >='a' && document.f.password.value.charAt(i) <='z') ||
+				(document.f.password.value.charAt(i) >='0' && document.f.password.value.charAt(i) <='9')){
+				
+			}
+			alert("비밀번호는 영문+숫자 4~10자로 부탁드립니다.");
+			f.password.select();
+			return;
+		}		
+		
 		alert("회원가입을 축하드립니다!");
 		f.action = "user_write_action.jsp";
 		f.method='POST';
@@ -71,9 +82,6 @@
 	
 	
 </script>
-	<!-- mouse effect start -->
-	<jsp:include page="include_mouseffect.jsp"/>
-	<!-- mouse effect end -->
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
