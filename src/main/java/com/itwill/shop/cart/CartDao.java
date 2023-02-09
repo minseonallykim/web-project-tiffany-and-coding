@@ -3,32 +3,24 @@ package com.itwill.shop.cart;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
-import com.itwill.shop.product.Category;
+import com.itwill.shop.common.DataSourceFactory;
 import com.itwill.shop.product.Product;
+
+
 
 
 
 public class CartDao {
 	private DataSource dataSource;
+
+	
 	public CartDao() throws Exception{
-		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		/*** Apache DataSource ***/
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
+		dataSource=DataSourceFactory.getDataSource();
 	}
 	
 	/*
@@ -57,48 +49,74 @@ public class CartDao {
 		return count;
 	}
 	
+	public int countByProductNoOption(String useId,int p_no,String p_option) throws Exception {
+		int count = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+		con=dataSource.getConnection();
+		pstmt = con.prepareStatement(CartSQL.CART_COUNT_BY_USERID_PRODUCT_NO_AND_OPTION);
+		pstmt.setString(1, useId);		
+		pstmt.setInt(2, p_no);
+		pstmt.setString(3, p_option);
+		rs=pstmt.executeQuery();
+		if(rs.next()) {
+			count=rs.getInt(1);
+		}
+		
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+		}
+		return count;
+	}
 	
 	/*
 	 *상품에서 카트추가시 카트에 없는 상품 추가
 	 */
-	public int insert(String userId,int p_no,int cart_qty) throws Exception {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		int insertRowCount=0;
+	public int insert(String sUserId,int p_no,int cart_qty) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int insertRowcount=0;
 		try {
-			con=dataSource.getConnection();
-			pstmt=con.prepareStatement(CartSQL.CART_INSERT);
+			con = dataSource.getConnection();
+			pstmt =con.prepareStatement(CartSQL.CART_INSERT);
 			pstmt.setInt(1, cart_qty);
 			pstmt.setInt(2, p_no);
-			pstmt.setString(3, userId);
-			insertRowCount = pstmt.executeUpdate();
+			pstmt.setString(3, sUserId);
+			insertRowcount = pstmt.executeUpdate();
+			
 		}finally {
 			if(con!=null) {
 				con.close();
 			}
 		}
-		return insertRowCount;
+		return insertRowcount;
+		
 	}
 	/*
 	 * 상품에서 카트추가시 이미담긴 상품 수량증가
 	 */
-	public int updateByProductNo(String userId,int p_no,int cart_qty) throws Exception{
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		int rowCount=0;
+	public int updateByProductNo(String sUserId,int p_no,int cart_qty) throws Exception {
+		Connection con = null ;
+		PreparedStatement pstmt = null;
+		int updateRowcount = 0;
 		try {
-			con=dataSource.getConnection();
-			pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_PRODUCT_NO_USERID);
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(CartSQL.CART_UPDATE_BY_PRODUCT_NO_USERID);
 			pstmt.setInt(1, cart_qty);
-			pstmt.setString(2, userId);
+			pstmt.setString(2, sUserId);
 			pstmt.setInt(3, p_no);
-			rowCount = pstmt.executeUpdate();
+			updateRowcount = pstmt.executeUpdate();
+			
 		}finally {
 			if(con!=null) {
 				con.close();
 			}
 		}
-		return rowCount;
+		return updateRowcount;
 	}
 	/*
 	 * 카트리스트에서 수량조절
@@ -120,6 +138,8 @@ public class CartDao {
 		}
 		return rowCount;
 	}
+		
+		
 	/*
 	 * 카트리스트 불러오기
 	 */
@@ -142,7 +162,8 @@ public class CartDao {
 						            		      rs.getInt("p_price"),
 						            		      rs.getString("p_desc"),
 						            		      rs.getString("p_image"),
-						            		      rs.getString("p_option")
+						            		      rs.getString("p_option"),
+						            		      rs.getInt("ca_no")
 						            		      )));
 			}
 			
@@ -202,7 +223,7 @@ public Cart findByCartNo(int cart_no)throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		try {
+		
 		String selectQuery="select * from cart c join product p on c.p_no=p.p_no where cart_no=?";
 		con=dataSource.getConnection();
 		pstmt=con.prepareStatement(CartSQL.CART_SELECT_BY_CART_NO);
@@ -217,16 +238,11 @@ public Cart findByCartNo(int cart_no)throws Exception {
 		            		      rs.getInt("p_price"),
 		            		      rs.getString("p_desc"),
 		            		      rs.getString("p_image"),
-		            		      rs.getString("p_option")
+		            		      rs.getString("p_option"),
+		            		      rs.getInt("ca_no")
 		            		      )
 					
 					 );
-			}
-		}finally {
-			if(con!=null) {
-				con.close();
-			}
-		
 		}
 		return cart;
 	}

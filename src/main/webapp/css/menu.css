@@ -78,6 +78,13 @@ div#header #menu {
 	padding: 10px 16px 20px 16px;
 	text-decoration: none;
 }
+#menu li#mypagebflogin {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px 16px 20px 16px;
+	text-decoration: none;
+}
 #menu li#cart {
 	display: block;
 	color: white;

@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
+import com.itwill.shop.common.DataSourceFactory;
 import com.itwill.shop.product.Product;
 
 public class OrderDao {
@@ -18,15 +20,7 @@ public class OrderDao {
 	private DataSource dataSource;
 
 	public OrderDao() throws Exception {
-		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		/*** Apache DataSource ***/
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
+		dataSource=DataSourceFactory.getDataSource();
 	}
 	
 	/*
@@ -156,7 +150,7 @@ public class OrderDao {
 			do {
 				order.getOrderItem()
 						.add(new OrderItem(rs.getInt("oi_no"), rs.getInt("oi_qty"), rs.getInt("o_no"),
-								new Product(rs.getInt("p_no"), rs.getString("p_name"), rs.getInt("p_price"),rs.getString("p_desc"),rs.getString("p_image"),rs.getString("p_option"))));
+								new Product(rs.getInt("p_no"), rs.getString("p_name"), rs.getInt("p_price"),rs.getString("p_desc"),rs.getString("p_image"),rs.getString("p_option"),rs.getInt("ca_no"))));
 			} while (rs.next());
 		}
 		} finally {

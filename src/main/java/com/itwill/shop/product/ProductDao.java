@@ -9,9 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+
+import com.itwill.shop.common.DataSourceFactory;
 
 public class ProductDao {
 	/*
@@ -21,15 +24,8 @@ public class ProductDao {
 	/*
 	 * productDao 생성자 선언 후 properties 받을 준비
 	 */
-	public ProductDao() throws IOException {
-		Properties properties = new Properties();	
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
+	public ProductDao() throws Exception {
+		dataSource=DataSourceFactory.getDataSource();
 	}
 	/*
 	 * 상품 옵션 update
@@ -62,7 +58,8 @@ public class ProductDao {
 							rs.getInt("p_price"),
 							rs.getString("p_desc"),
 							rs.getString("p_image"),
-							rs.getString("p_option"));
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
 		}
 		pstmt.close();
 		con.close();
@@ -84,7 +81,8 @@ public class ProductDao {
 									rs.getInt("p_price"),
 									rs.getString("p_desc"),
 									rs.getString("p_image"),
-									rs.getString("p_option"));
+									rs.getString("p_option"),
+									rs.getInt("ca_no"));
 			productList.add(product);
 		}
 		pstmt.close();
@@ -108,7 +106,8 @@ public class ProductDao {
 									rs.getInt("p_price"),
 									rs.getString("p_desc"),
 									rs.getString("p_image"),
-									rs.getString("p_option"));
+									rs.getString("p_option"),
+									rs.getInt("ca_no"));
 			searchProductList.add(product);
 		}
 		pstmt.close();
@@ -131,7 +130,8 @@ public class ProductDao {
 									rs.getInt("p_price"),
 									rs.getString("p_desc"),
 									rs.getString("p_image"),
-									rs.getString("p_option"));
+									rs.getString("p_option"),
+									rs.getInt("ca_no"));
 			searchProductList.add(product);
 		}
 		pstmt.close();
@@ -155,7 +155,8 @@ public class ProductDao {
 									rs.getInt("p_price"),
 									rs.getString("p_desc"),
 									rs.getString("p_image"),
-									rs.getString("p_option"));
+									rs.getString("p_option"),
+									rs.getInt("ca_no"));
 			searchProductList.add(product);
 		}
 		pstmt.close();
@@ -175,7 +176,8 @@ public class ProductDao {
 							rs.getInt("p_price"),
 							rs.getString("p_desc"),
 							rs.getString("p_image"),
-							rs.getString("p_option"));
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
 			categorySortList.add(product);
 		}
 		pstmt.close();
@@ -195,7 +197,8 @@ public class ProductDao {
 							rs.getInt("p_price"),
 							rs.getString("p_desc"),
 							rs.getString("p_image"),
-							rs.getString("p_option"));
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
 			categorySortList.add(product);
 		}
 		pstmt.close();
@@ -217,7 +220,8 @@ public class ProductDao {
 							rs.getInt("p_price"),
 							rs.getString("p_desc"),
 							rs.getString("p_image"),
-							rs.getString("p_option"));
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
 			categorySortList.add(product);
 		}
 		pstmt.close();
@@ -238,7 +242,8 @@ public class ProductDao {
 							rs.getInt("p_price"),
 							rs.getString("p_desc"),
 							rs.getString("p_image"),
-							rs.getString("p_option"));
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
 			categorySortList.add(product);
 		}
 		pstmt.close();
