@@ -172,8 +172,8 @@
 										<td width=290 height=25 bgcolor="#81D8D0" align=center class=t1>제품명</td>
 										<td width=112 height=25 bgcolor="#81D8D0" align=center class=t1>수량</td>
 										<td width=166 height=25 bgcolor="#81D8D0" align=center class=t1>가격</td>
-										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>비고</td>
 										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>색상</td>
+										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>비고</td>
 									</tr>
 									<%
 									int tot_price = 0;
@@ -188,7 +188,7 @@
 										</td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=cart.getCart_qty()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1>
-											<%=new DecimalFormat("#,###").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
+											₩<%=new DecimalFormat("#,###").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
 										</td>
 										<td width=166 height 26 align=center bgcolor="ffffff" class=t1><%=cart.getProduct().getP_option() %>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
