@@ -67,9 +67,9 @@
 					<tr>
 						<td>
 							<!--contents--> <br />
-							<table style="" border=0 cellpadding=0 cellspacing=0>
+							<table style="height:200px; font-size: 30px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>My Page</b></td>
+									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>내 정보</b></td>
 								</tr>
 							</table> 
 							<!-- view Form  -->

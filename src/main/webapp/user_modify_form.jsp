@@ -18,6 +18,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
  
 <script type="text/javascript">
 	function userModifyAction() {
@@ -100,9 +102,9 @@
 					<tr>
 						<td>
 							<!--contents--> <br />
-							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
+							<table style="padding-left: 10px; height:200px; font-size: 30px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>내정보 수정</b></td>
+									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>내 정보 수정</b></td>
 								</tr>
 							</table>  
 							<!-- update Form  -->

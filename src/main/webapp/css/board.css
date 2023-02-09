@@ -11,13 +11,12 @@ form {
 }
 
 div#boardlist_info{
-	text-align: left;
-	font-size: 30px;
+	font-size: 50px;
 	font-weight: bold;
 	padding: 20px 0 0 150px;
 }
 div#boardlist_info span{
-	font-size: 12px;
+	font-size: 18px;
 	padding: 0 0 0 30px;
 }
 div#boardlist_info ul{
@@ -36,6 +35,7 @@ div#boardlist_info ul{
 }
 table#boardlist_paging{
 	padding: 30px 0 30px 0;
+	height: 200px;
 }
 table#boardlist tr#boardlist_tr{
 	color: white;
@@ -54,13 +54,12 @@ table#boardlist tr#boardlist_tr{
 
 a:link {
 	color: #000000;
-	font-size: 15px;
+	font-size: 20px;
 	text-decoration: none;
-	font: serif;
 }
 A:hover {
 	color: #000000;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
 }
 

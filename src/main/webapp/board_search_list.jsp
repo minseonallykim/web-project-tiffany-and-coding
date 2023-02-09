@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.user.User"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.board.BoardCommentService"%>
 <%@page import="com.itwill.board.BoardComment"%>
@@ -49,7 +50,9 @@ if(pageno == null || pageno.equals("")){
 
 // 검색된 게시글 조회
 BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoardList((Integer.parseInt(pageno)), boardsearchkeyword);
-
+//
+String sUserId = (String)session.getAttribute("sUserId");
+User sUser = (User)session.getAttribute("sUser");
 %>	
 	
 <!DOCTYPE html>
@@ -62,9 +65,19 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
-	// 게시글 쓰기 함수
+	//로그인 상태에서 게시글 쓰기 
 	function boardCreate(){
 		location.href = "board_write.jsp";
+	}
+	// 로그인 전 게시글 쓰기 버튼누르기 
+	function boardCreatebfLogin(){
+		alert('로그인 후 글쓰기가 가능합니다.');
+		location.href = "user_login_form.jsp";
+	}
+	// 로그인 전 게시글 제목 클릭
+	function boardViewbfLogin(){
+		alert('로그인 후 글 보기가 가능합니다.');
+		location.href = "user_login_form.jsp";
 	}
 	// 게시판 키워드 검색버튼, 이동
 	function boardsearch(){
@@ -72,6 +85,7 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 		boardsearchform.method = 'POST';
 		boardsearchform.submit();
 	}
+
 	
 </script>
 </head>
@@ -97,7 +111,14 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 		<div id='boardlist_info'>
 			<ul>
 			<li id="boardlist_top" title="게시판상단">자유게시판 <span id='board_info'>문의사항을 자유롭게 작성해주세요.</span></li>
-			<li id="boardwrite" title="게시판글쓰기" ><a href="board_write.jsp" ><img src="image/boardwrite_icon.png" ></a></li>
+			<!-- 글쓰기 아이콘 -->
+			<%if(sUserId == null){ %>
+			<li id="boardwrite" title="게시판글쓰기" >
+				<img src="image/boardwrite_icon.png" style="cursor: pointer;margin-right: 100px; margin-top: 15px; float: right" onclick="boardCreatebfLogin();"> </li>
+			<%} else { %>
+			<li id="boardwrite" title="게시판글쓰기" >
+				<img src="image/boardwrite_icon.png" style="cursor: pointer;margin-right: 100px; margin-top: 15px; float: right" onclick="boardCreate();"> </li>
+			<%} %>
 			</ul>
 		</div>
 		<!-- boardlist info end -->
@@ -148,9 +169,16 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 								%>
 								<tr>
 									<td width=280 bgcolor='#FFFFFF' style='padding-left: 10px' align='left'>
-									<a href='board_view.jsp?boardno=<%=board.getBoardNo() %>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
-									<%=this.getTitleString(board) %>
-									</a>
+									<%if(sUserId == null){ %>
+										<a href='javascript:boardViewbfLogin();'>
+										<%=this.getTitleString(board) %>
+										</a>
+									<%} else { %>	
+										<a href='board_view.jsp?boardno=<%=board.getBoardNo() %>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
+										<%=this.getTitleString(board) %>
+										</a>
+									<%} %>	
+									
 									<%if(boardCommentService.findBoardCommentList(board.getBoardNo()).size() > 0){ %>
 									<img src='image/boardcomment.png'>
 									<%} %>

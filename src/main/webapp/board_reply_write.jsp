@@ -30,7 +30,9 @@ if(request.getParameter("pageno") != null){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
  
 <script type="text/javascript">
 	function boardReplyCreate() {
@@ -82,25 +84,26 @@ if(request.getParameter("pageno") != null){
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-							</table> <br> <!-- write Form  -->
-							<form name="f" method="post">
+							</table> <br> 
+							<!-- write Form  -->
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
 		        				<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>"/>
 
-								<table border="0" cellpadding="10px" cellspacing="1" width="590" bgcolor="#CCCCCC">
+								<table border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor=#000000 style='color:white' height="22">제 목</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input value="[RE]<%=board.getTitle()%>"  type="text" style="width: 100% ;height: 100%" name="title">
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<textarea name="content" class="textarea" style="width: 100%" rows="14">>><%=board.getContent().replace("\n",">>").trim()%></textarea>
 										</td>
 									</tr>
@@ -109,10 +112,10 @@ if(request.getParameter("pageno") != null){
 								</table>
 							</form> <br>
 
-							<table width=590 border=0 cellpadding=50 cellspacing=0>
+							<table width=590 border=0 cellpadding=0 cellspacing=0 style= 'height: 200px'>
 								<tr>
 									<td align=center>
-									<input type="button" value="답글 쓰기 완료" onClick="boardReplyCreate()"> &nbsp; 
+									<input type="button" value="답글 쓰기 완료" onClick="boardReplyCreate()"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;    
 									<input type="button" value="취 소" onClick="boardList()"></td>
 								</tr>
 							</table></td>

@@ -14,6 +14,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
  
 <script type="text/javascript">
 	function userCreate() {
@@ -67,7 +69,7 @@
 				<table width="400px"  border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table  border=0 cellpadding=0 cellspacing=0>
+							<table  border=0 cellpadding=0 cellspacing=0 style="height:200px; font-size: 30px">
 								<tr>
 									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>로그인</b></td>
 								</tr>
@@ -86,7 +88,7 @@
 									</tr>
 								</table>
 							</form> <br />
-							<table border="0" cellpadding="0" cellspacing="1">
+							<table border="0" cellpadding="0" cellspacing="1" style=" margin-bottom: 100px;">
 								<tr>
 									<td align=center height=150>
 									<input type="button" value="로그인" onClick="login();"> &nbsp; 

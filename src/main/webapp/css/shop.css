@@ -43,11 +43,12 @@ a.user:active {
 }
 input,textarea,select{
 	color: #333333;
+	font-family: 'NEXON Lv1 Gothic OTF';
 }
 
 td {
 	color: #333333;
-	line-height: 18px;
+	line-height: 25px;
 }
 .title {
 	color: #000000;

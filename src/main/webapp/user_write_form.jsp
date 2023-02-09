@@ -110,7 +110,7 @@
 					<tr>
 						<td>
 							<!--contents--> <br />
-							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
+							<table border=0 cellpadding=0 cellspacing=0 style="height:200px; font-size: 30px">
 								<tr>
 									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>회원가입</b></td>
 								</tr>
@@ -164,7 +164,7 @@
 								</table>
 							</form> <br />
 
-							<table border=0 cellpadding=0 cellspacing=1>
+							<table border=0 cellpadding=0 cellspacing=1 style=" margin-bottom: 100px;">
 								<tr>
 									<td align=center height="150">
 									<input type="button" value="회원가입" onclick="userCreate();"> &nbsp;&nbsp;&nbsp; 
