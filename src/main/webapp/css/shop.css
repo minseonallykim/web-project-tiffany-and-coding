@@ -8,6 +8,43 @@ form,div#f {
 	margin-right: 0px;
 	text-align: center;
 }
+li{
+	font-size: 50px;
+}
+
+li#ca_all{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+li#ca_ring{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+li#ca_necklaces{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+li#ca_earings{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+li#ca_braclet{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.categorytext{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 /*방문 전 링크상태*/
 a:link {
 	color: #333333;
