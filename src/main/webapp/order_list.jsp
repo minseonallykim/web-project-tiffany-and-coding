@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>쇼핑몰 관리</title>
+<title>Tiffany&coding</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
@@ -32,6 +32,9 @@
 		document.order_delete_all_form.submit();
 	}
 </script>
+<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -65,7 +68,7 @@
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
+									<td bgcolor="ffffff" height="22">&nbsp;&nbsp;<b>
 											주문 목록</b></td>
 								</tr>
 							</table> <!--form-->
@@ -79,7 +82,7 @@
 										
 									%>
 									<tr>
-										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
+										<td colspan="6" height=24 align=left bgcolor="#81D8D0" class=t1 >
 											<span
 											style="font-size: 10pt; font-style: bold;">&nbsp;2023/01/31</span>
 											<span style="font-size: 8pt">주문번호 <%=order.getO_no()%></span> <a href='order_detail.jsp?o_no=<%=order.getO_no()%>' style="font-size: 6pt">상세보기</a>
@@ -105,9 +108,9 @@
 													%>
 													<!--상품시작 -->
 													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff"><a style="padding: 0px"
-														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="50px"
-															height="50px" src="image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
-														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> <%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
+														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="100px"
+															height="100px" src="image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
+														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> ₩<%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
 													</td>
 													<!--상품 끝 -->
 													<%} %>

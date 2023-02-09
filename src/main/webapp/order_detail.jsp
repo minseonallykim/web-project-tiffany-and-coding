@@ -22,7 +22,7 @@ UserService userService = new UserService();
 ProductService productService = new ProductService();
 Product product = new Product();
 
-
+User user = userService.findUser(sUserId);
 Order order = orderService.orderWithOrderItem(Integer.parseInt(o_noStr));
 %>	
 	
@@ -43,6 +43,9 @@ form > table tr td{
 <script type="text/javascript">
 	
 </script>
+	<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -74,7 +77,7 @@ form > table tr td{
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>
 											주문상세조회</b></td>
 								</tr>
 							</table> <!--form-->
@@ -83,14 +86,16 @@ form > table tr td{
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
 									<caption style="text-align: left;">주문상세정보</caption>
 									<tr>
-										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=290 height=25 bgcolor="#81D8D0" align=center class=t1><font
 											>주문번호</font></td>
-										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=112 height=25 bgcolor="#81D8D0" align=center class=t1><font
 											>주문일</font></td>
-										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=166 height=25 bgcolor="#81D8D0" align=center class=t1><font
 											>주문자</font></td>
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1><font
 											>주소</font></td>
+											<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1><font
+											>비고</font></td>
 									</tr>
 									
 									
@@ -98,7 +103,7 @@ form > table tr td{
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=order.getO_no()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=order.getO_date()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=order.getUserid()%></td>
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=sUser.getAddress()%></td>
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
 										
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
 												<input type="submit" value="삭제">
@@ -110,10 +115,10 @@ form > table tr td{
 								<table align=center  width=80% border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
 									<caption style="text-align: left;">주문제품목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>제품명</td>
-										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>수 량</td>
-										<td width=166 height=25  align=center bgcolor="E6ECDE" class=t1>가 격</td>
-										<td width=50 height=25  align=center bgcolor="E6ECDE" class=t1>색상</td>
+										<td width=290 height=25 align=center bgcolor="#81D8D0" class=t1>제품명</td>
+										<td width=112 height=25 align=center bgcolor="#81D8D0" class=t1>수 량</td>
+										<td width=166 height=25  align=center bgcolor="#81D8D0" class=t1>가 격</td>
+										<td width=50 height=25  align=center bgcolor="#81D8D0" class=t1>색상</td>
 									</tr>
 									
 									<!-- orer item start -->
@@ -143,7 +148,7 @@ form > table tr td{
 										<td width=640 colspan=4 height=26  bgcolor="ffffff" class=t1>
 										
 											<p align=right style="padding-top: 10px">
-												<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###.0").format(tot_price)%> 원
+												<font color=#FF0000>총 주문 금액 :₩<%=new DecimalFormat("#,###.0").format(tot_price)%> 원
 												</font>
 											</p>
 										</td>

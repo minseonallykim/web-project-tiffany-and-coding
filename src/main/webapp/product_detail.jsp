@@ -163,7 +163,7 @@ if (product == null) {
 								<tr>
 									<td align=center>
 									<input
-										type="button" value="상품목록" onClick="productList();">&nbsp;
+										type="button" value="상품목록" onClick="productList();">&nbsp;&nbsp;
 										<input type="button" value="바로주문" onClick="order_create_form();"> </td>
 								</tr>
 							</table></td>

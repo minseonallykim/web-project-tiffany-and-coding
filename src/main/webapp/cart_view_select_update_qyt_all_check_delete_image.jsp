@@ -127,7 +127,9 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 		}
 	}
 </script>
-<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 <body onload="cart_item_select_count();" bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>

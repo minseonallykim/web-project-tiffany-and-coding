@@ -16,7 +16,7 @@
 	if(request.getMethod().equalsIgnoreCase("GET")){
 		response.sendRedirect("order_list.jsp");
 		return;
-	}
+	} 
 	
 	String buyType = request.getParameter("buyType");
 	String p_noStr = request.getParameter("p_no");
@@ -53,7 +53,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>쇼핑몰 관리</title>
+<title>Tiffany&coding</title>
 
  
 <link rel=stylesheet href="css/styles.css" type="text/css">
@@ -67,22 +67,19 @@
 		document.order_create_form.method = 'POST'
 		document.order_create_form.action = 'order_create_action.jsp';     
 		document.order_create_form.submit();
-		alert("주문이 완료되었습니다.")
-	}
-	
-	function address_update_form_submit(){
-		document.address_update_form.method = 'POST';
-		document.address_update_form.action = 'address_update_action.jsp';
-		document.address_update_form.submit();
-		alert("배송지가 변경되었습니다.")
 		
 	}
+	
+	
 	
 	
 	
 
 	
 </script>
+<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 
 
@@ -140,7 +137,7 @@
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 - 주문/결제폼</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>주문/결제</b></td>
 								</tr>
 							</table> <!--form-->
 							<form name="address_update_form" method="post">
@@ -148,10 +145,10 @@
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">구매자정보</caption>
 									<tr>
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>아이디</td>
-										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>이름</td>
-										<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
-										<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
+										<td width=290 height=25 align=center bgcolor="#81D8D0" class=t1>아이디</td>
+										<td width=112 height=25 align=center bgcolor="#81D8D0" class=t1>이름</td>
+										<td width=166 height=25 align=center bgcolor="#81D8D0" class=t1>이메일</td>
+										<td width=50 height=25 align=center bgcolor="#81D8D0" class=t1>주소</td>
 										
 										
 									</tr>
@@ -159,20 +156,11 @@
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUserId()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=user.getName()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getEmail()%></td>
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
 										
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><input type="text" name="address" id="address_modify" value="<%=user.getAddress()%>"></td>
-										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
 										
 									</tr>
-								</table>
-								
-								<table>
-								<tr>
-								<td width=50 align=center>
-								<input type="button" value="배송지수정" onClick="address_update_form_submit()"></td>
-								</tr>
-								
-								</table>
+							
 								
    
 								<br />
@@ -181,11 +169,11 @@
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">주문제품목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1>제품명</td>
-										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1>수량</td>
-										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1>가격</td>
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1>비고</td>
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1>색상</td>
+										<td width=290 height=25 bgcolor="#81D8D0" align=center class=t1>제품명</td>
+										<td width=112 height=25 bgcolor="#81D8D0" align=center class=t1>수량</td>
+										<td width=166 height=25 bgcolor="#81D8D0" align=center class=t1>가격</td>
+										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>색상</td>
+										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>비고</td>
 									</tr>
 									<%
 									int tot_price = 0;
@@ -200,7 +188,7 @@
 										</td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=cart.getCart_qty()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1>
-											<%=new DecimalFormat("#,###").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
+											₩<%=new DecimalFormat("#,###").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
 										</td>
 										<td width=166 height 26 align=center bgcolor="ffffff" class=t1><%=cart.getProduct().getP_option() %>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
@@ -208,7 +196,7 @@
 									<!-- cart item end -->
 									<%}%>
 									<tr>
-										<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
+										<td width=640 colspan=5 height=26 bgcolor="ffffff" class=t1>
 											<p align=right style="padding-top: 10px">
 												<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###").format(tot_price)%>원
 												</font>
@@ -222,7 +210,7 @@
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center>&nbsp;&nbsp; <a
-										href="javascript:order_create_form_submit();" class=m1>구매/결재하기</a>
+										href="javascript:order_create_form_submit();" class=m1>구매/결제하기</a>
 										&nbsp;&nbsp;<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
 
 									</td>

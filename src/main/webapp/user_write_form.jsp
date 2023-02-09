@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Tiffany&Co 회원가입</title>
+<title>Tiffany&coding</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
@@ -69,6 +69,9 @@
 	
 	
 </script>
+	<!-- mouse effect start -->
+	<jsp:include page="include_mouseffect.jsp"/>
+	<!-- mouse effect end -->
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>

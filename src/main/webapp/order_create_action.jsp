@@ -48,6 +48,6 @@
 		
 		
 	}
-	response.sendRedirect("order_list.jsp");
+	response.sendRedirect("order_detail.jsp");
 %>	
 	
