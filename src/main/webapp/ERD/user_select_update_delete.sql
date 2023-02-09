@@ -15,4 +15,9 @@ where userid='test1';
 --회원탈퇴,회원정보 모두삭제--
 delete from userinfo where userid='test2';
 
+/*************UPDATE USERINFO***************/
+--회원의 주소만 업데이트
+update userinfo set address = '경기도' where userid='fffff';
+
+
 commit;=

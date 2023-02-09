@@ -187,22 +187,29 @@ public class UserDao {
 		return isExist;
 	}
 	
-/*	
-	public int updateAddress(User user) {
+	
+	public int updateAddress(String address, String userId) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		int updateRowCount = 0;
 		try {
 			con=dataSource.getConnection();
 			pstmt = con.prepareStatement(UserSQL.USER_ADDRESS_UPDATE);
-			pstmt.setString(1, user.getAddress());
-			pstmt.setString(2, user.getUserId());
-			rs = pstmt.executeQuery();
-			rs.next();
-					
+			pstmt.setString(1, address);
+			pstmt.setString(2, userId);
+			updateRowCount = pstmt.executeUpdate();
+		}finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(con != null) {
+				con.close();
+			}
 		}
+		return updateRowCount;
 		
-	} */
+		
+	} 
 	
 	
 }

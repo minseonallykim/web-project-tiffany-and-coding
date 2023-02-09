@@ -123,5 +123,15 @@ public class UserService {
 		}
 	}
 	
+	/*
+	 * 주소변경
+	 */
+	public int updateAddress(String address, String userId) throws Exception{
+		
+		return userDao.updateAddress(address, userId);
+	}
+	
+	
+	
 	
 }
