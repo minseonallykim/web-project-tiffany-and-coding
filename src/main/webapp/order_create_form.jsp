@@ -65,10 +65,19 @@
 
 	function order_create_form_submit() {
 		document.order_create_form.method = 'POST'
-		document.order_create_form.action = 'order_create_action.jsp';
+		document.order_create_form.action = 'order_create_action.jsp';     
 		document.order_create_form.submit();
 		alert("주문이 완료되었습니다.")
 	}
+	
+	function address_update_form_submit(){
+		document.address_update_form.method = 'POST';
+		document.address_update_form.action = 'address_update_action.jsp';
+		document.address_update_form.submit();
+		alert("배송지가 변경되었습니다.")
+		
+	}
+	
 	
 	
 
@@ -84,8 +93,7 @@
 		<input type="hidden" name="buyType" value="<%=buyType%>"> 
 		<input type="hidden" name="p_no" value="<%=p_noStr%>"> 
 		<input type="hidden" name="p_qty" value="<%=p_qtyStr%>">
-		<input
-			type="hidden" name="address" value="<%=user.getAddress()%>">
+		
 		<%
 		for (String cart_item_noStr : cart_item_noStr_array) {
 		%>
@@ -94,6 +102,15 @@
 		}
 		%>
 	</form>
+	
+	
+	<!-- update form 
+	<form name="address_update_form" method="post">
+	<input type="hidden" name="address" value="user.getAddress()">
+	</form> -->
+	
+	
+	
 	
 	<!-- container start-->
 	<div id="container">
@@ -126,7 +143,7 @@
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 - 주문/결제폼</b></td>
 								</tr>
 							</table> <!--form-->
-							<form>
+							<form name="address_update_form" method="post">
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">구매자정보</caption>
@@ -152,7 +169,7 @@
 								<table>
 								<tr>
 								<td width=50 align=center>
-								<input type="button" value="배송지수정" onClick="addressModifyAction();"></td>
+								<input type="button" value="배송지수정" onClick="address_update_form_submit()"></td>
 								</tr>
 								
 								</table>
@@ -200,6 +217,7 @@
 									</tr>
 								</table>
 							</form>
+							
 							<br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>

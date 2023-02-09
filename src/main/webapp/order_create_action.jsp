@@ -26,9 +26,8 @@
 	
 	OrderService orderService = new OrderService();
 	CartService cartService = new CartService();
-	UserService userService = new UserService();
 	
-	User user = new User(userId,"","","","",address);
+	
 	
 	
 	
@@ -38,15 +37,15 @@
 	
 	if(buyType.equals("cart")){
 		orderService.create(sUserId);
-		userService.updateAddress(address, userId);
+		
 	
 	}else if(buyType.equals("cart_select")){
 		orderService.create(sUserId,cart_item_no_StrArray);
-		userService.updateAddress(address, userId);
+		
 	
 	}else if(buyType.equals("direct")){
 		orderService.create(sUserId,Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr));
-		userService.updateAddress(address, userId);
+		
 		
 	}
 	response.sendRedirect("order_list.jsp");
