@@ -91,7 +91,7 @@ User user = userService.findUser(sUserId);
 							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 							</table> <br> 
 							<!-- modify Form  -->
-							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
+							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px; ">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> 
 								<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>" />
 								<table border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">

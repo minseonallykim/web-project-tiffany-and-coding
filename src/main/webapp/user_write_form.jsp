@@ -116,7 +116,7 @@
 								</tr>
 							</table> 
 							<!-- write Form  -->
-							<form name="f" method="post" style="padding-left: 400px; padding-right: 400px">
+							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px">
 								<table border="solid 1px"  cellpadding="10" cellspacing="0" width="400" bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">아이디</td>

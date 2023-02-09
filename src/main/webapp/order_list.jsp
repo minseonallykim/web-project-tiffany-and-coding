@@ -21,6 +21,8 @@
 <title>Tiffany&coding</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
  
 <style type="text/css" media="screen">
@@ -62,14 +64,14 @@
 
 			<!-- include_content.jsp start-->
 			<div id="content">
-				<table border=0 cellpadding=0 cellspacing=0>
+				<table border=0 cellpadding=0 cellspacing=0 style="padding-left: 150px; padding-right: 150px">
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
+							<table style="height:100px ; font-size: 40px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
 									<td bgcolor="ffffff" height="22">&nbsp;&nbsp;<b>
-											주문 목록</b></td>
+											ORDER LIST</b></td>
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post">
@@ -82,10 +84,10 @@
 										
 									%>
 									<tr>
-										<td colspan="6" height=24 align=left bgcolor="#81D8D0" class=t1 >
-											<span
-											style="font-size: 10pt; font-style: bold;">&nbsp;2023/01/31</span>
-											<span style="font-size: 8pt">주문번호 <%=order.getO_no()%></span> <a href='order_detail.jsp?o_no=<%=order.getO_no()%>' style="font-size: 6pt">상세보기</a>
+										<td colspan="6" height=24 align=left bgcolor="#000000" class=t1 style="color: white;">
+											<span style="font-style: bold;">&nbsp;2023/01/31</span>&nbsp;&nbsp;&nbsp;
+											<span style="">주문번호 <%=order.getO_no()%></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+											<a href='order_detail.jsp?o_no=<%=order.getO_no()%>' ><span style="color: #81d8d0">[ 상세보기 ]</span></a>
 										</td>
 									</tr>
 									<tr>
@@ -97,7 +99,7 @@
 										<td width="95%" colspan="8" bgcolor="ffffff" class=t1>
 											<!--  -->
 											<table align="left" border="0" 
-												cellspacing="1" bgcolor="EEEEEE">
+												cellspacing="1" bgcolor="ffffff">
 												<tr >
 													<%
 													int orderItemSize = ordeItemList.size();
@@ -107,7 +109,7 @@
 														Product product=orderItem.getProduct();
 													%>
 													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff"><a style="padding: 0px"
+													<td align="center" style="padding: 30px;width: 55px" bgcolor="ffffff"><a style="padding: 0px"
 														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="100px"
 															height="100px" src="image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
 														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> ₩<%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
@@ -139,13 +141,11 @@
 									<!-- order end -->
 								</table>
 							</form> <br />
-							<table border="0" cellpadding="0" cellspacing="1" width="590">
+							<table style=" height: 200px;" border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td align=center>&nbsp;&nbsp;
-									<a href=product_list.jsp
-										class=m1>계속 구경하기</a>
-									<a href='javascript:order_delete_all_action();'
-										class=m1>주문전체삭제</a>
+									<td align=center>
+									<a href=product_list.jsp class=m1>계속 구경하기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href='javascript:order_delete_all_action();'	class=m1>주문 전체 삭제</a>
 									</td>
 									
 								</tr>

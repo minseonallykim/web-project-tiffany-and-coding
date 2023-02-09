@@ -100,10 +100,9 @@ if (product == null) {
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
-								cellspacing=0>
+							<table style="padding-left: 10px; font-size: 40px; height: 100px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>detail</b></td>
+									<td bgcolor="FFFFFF" height="22">&nbsp;&nbsp;<b>DETAIL</b></td>
 								</tr>
 							</table> <!-- 
 							<form name="f" method="post">
@@ -146,7 +145,7 @@ if (product == null) {
 											</select>
 											<b><em>qty</em></b><br><br>
 											<br>
-												<a href="javascript:add_cart_popup_window(this.parentElement);"><input width=40px height=40px type=image src='image/cart.png' value="장바구니담기[팝업]" title="장바구니담기[팝업]" style="font-size: 6pt;"/></a>
+												<a href="javascript:add_cart_popup_window(this.parentElement);"><input width=80px height=80px type=image src='image/cart.png' value="장바구니 담기" title="장바구니담기[팝업]" style="font-size: 6pt;"/></a>
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 										</form>
 									</td>
@@ -159,11 +158,11 @@ if (product == null) {
 							-->
 
 
-							<table border="0" cellpadding="0" cellspacing="1">
+							<table border="0" cellpadding="0" cellspacing="1" style="height: 100px">
 								<tr>
 									<td align=center>
 									<input
-										type="button" value="상품목록" onClick="productList();">&nbsp;&nbsp;
+										type="button" value="상품목록" onClick="productList();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="button" value="바로주문" onClick="order_create_form();"> </td>
 								</tr>
 							</table></td>

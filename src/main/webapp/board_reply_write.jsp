@@ -86,7 +86,7 @@ if(request.getParameter("pageno") != null){
 								cellspacing=0>
 							</table> <br> 
 							<!-- write Form  -->
-							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
+							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px; ">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
 		        				<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>"/>
 

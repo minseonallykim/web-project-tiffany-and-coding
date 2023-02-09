@@ -48,19 +48,19 @@
 			<div id="category_container">
 				<div id="category_content">
 					<ul id="category_wrapper">
-						<li id="ca_all" title="전체" style="margin-right: 50px;" >
+						<li id="ca_all" title="전체" style="margin-right: 30px;" >
 							<a href="product_list.jsp"><img src="image/shop_category_all.png" class="ca_image" width='100%' height='100%'></a>
 						<div class="categorytext">ALL</div>
 						</li>
-						<li id="ca_ring" title="반지" style="margin-right: 50px">
+						<li id="ca_ring" title="반지" style="margin-right: 30px">
 							<a href="product_list.jsp?type_no=1"><img src="image/shop_category_ring.png" class="ca_image" width='100%' height='100%'></a>
 						<div class="categorytext">RING</div>
 						</li>
-						<li id="ca_necklaces" title="목걸이" style="margin-right: 50px">
+						<li id="ca_necklaces" title="목걸이" style="margin-right: 30px">
 							<a href="product_list.jsp?type_no=2"><img src="image/shop_category_necklaces.png" class="ca_image" width='100%' height='100%'></a>
 						<div class="categorytext">NECKLACES</div>
 						</li>
-						<li id="ca_earings" title="귀걸이" style="margin-right: 50px">
+						<li id="ca_earings" title="귀걸이" style="margin-right: 30px">
 							<a href="product_list.jsp?type_no=4"><img src="image/shop_category_earings.png" class="ca_image" width='100%' height='100%'></a>
 						<div class="categorytext">EARINGS</div>
 						</li>

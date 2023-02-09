@@ -54,10 +54,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Tiffany&coding</title>
-
  
 <link rel=stylesheet href="css/styles.css" type="text/css">
-<link rel=stylesheet href="css/shop.css" type="text/css">  
+<link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 
 <style type="text/css" media="screen"></style>
 
@@ -134,21 +135,21 @@
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
+							<table style="height:100px ; font-size: 40px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>주문/결제</b></td>
+									<td height="22"><b>ORDER / PAYMENT</b></td>
 								</tr>
 							</table> <!--form-->
 							<form name="address_update_form" method="post">
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
-									<caption style="text-align: left;">구매자정보</caption>
+									<caption style="text-align: left; margin-bottom:20px">구매자 정보</caption>
 									<tr>
-										<td width=290 height=25 align=center bgcolor="#81D8D0" class=t1>아이디</td>
-										<td width=112 height=25 align=center bgcolor="#81D8D0" class=t1>이름</td>
-										<td width=166 height=25 align=center bgcolor="#81D8D0" class=t1>이메일</td>
-										<td width=50 height=25 align=center bgcolor="#81D8D0" class=t1>주소</td>
+										<td width=290 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">아이디</td>
+										<td width=112 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">이름</td>
+										<td width=166 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">이메일</td>
+										<td width=50 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">주소</td>
 										
 										
 									</tr>
@@ -167,13 +168,13 @@
 
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
-									<caption style="text-align: left;">주문제품목록</caption>
+									<caption style="text-align: left; margin-top:30px; margin-bottom:20px">주문 제품 목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 bgcolor="#81D8D0" align=center class=t1>제품명</td>
-										<td width=112 height=25 bgcolor="#81D8D0" align=center class=t1>수량</td>
-										<td width=166 height=25 bgcolor="#81D8D0" align=center class=t1>가격</td>
-										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>색상</td>
-										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1>비고</td>
+										<td width=290 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">제품명</td>
+										<td width=112 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">수량</td>
+										<td width=166 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">가격</td>
+										<td width=50 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">색상</td>
+										<td width=50 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">비고</td>
 									</tr>
 									<%
 									int tot_price = 0;
@@ -207,11 +208,11 @@
 							</form>
 							
 							<br />
-							<table border="0" cellpadding="0" cellspacing="1" width="590">
+							<table  style=" height: 200px;" border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td align=center>&nbsp;&nbsp; <a
-										href="javascript:order_create_form_submit();" class=m1>구매/결제하기</a>
-										&nbsp;&nbsp;<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
+									<td align=center><a href="javascript:order_create_form_submit();" class=m1>결제하기</a>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
 
 									</td>
 								</tr>

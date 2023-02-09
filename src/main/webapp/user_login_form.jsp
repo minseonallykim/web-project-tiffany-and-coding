@@ -74,7 +74,7 @@
 									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>로그인</b></td>
 								</tr>
 							</table> <!-- login Form  -->
-							<form name="f" method="post" style="padding-left: 600px; padding-right: 600px;">
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px;">
 								<table border="solid 1px"  cellpadding="10" cellspacing="0" width="300" bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white'  height="22">아이디</td>
