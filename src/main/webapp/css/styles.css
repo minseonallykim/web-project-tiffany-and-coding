@@ -6,7 +6,7 @@ html, body {
 body {
 	font:sans-serif;
 	text-align: center;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 p {
@@ -175,33 +175,3 @@ table#boardlist{
 /*
 board
 */
-div#boardlist_info{
-	text-align: left;
-	font-size: 30px;
-	font-weight: bold;
-	padding: 20px 0 0 150px;
-}
-div#boardlist_info span{
-	font-size: 12px;
-	padding: 0 0 0 30px;
-}
-div#boardlist_info ul{
-	list-style:none;
-	padding: 0px;
-	width: 100%;
-}
-
-#boardlist_info li#boardlist_top{
-	float: left;
-}
-
-#boardlist_info li#boardwrite a{
-	float: right;
-	padding: 0 50px 0 0;
-}
-table#boardlist_paging{
-	padding: 30px 0 30px 0;
-}
-table#boardlist tr#boardlist_tr{
-	color: white;
-}

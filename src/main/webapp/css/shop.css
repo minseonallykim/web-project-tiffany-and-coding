@@ -50,7 +50,7 @@ a.user:active {
 	text-decoration: underline;
 }
 input,textarea,select{
-	font-size: 8pt;
+	font-size: 12pt;
 	color: #333333;
 }
 
@@ -67,15 +67,15 @@ td {
 
 /* Form css */
 .text {
-	font-size: 8pt;
+	font-size: 12pt;
 	color: #333333;
 }
 .textarea {
-	font-size: 8pt;
+	font-size: 12pt;
 	color: #333333;
 }
 .password {
-	font-size: 8pt;
+	font-size: 12pt;
 	color: #333333;
 }
 .file {
