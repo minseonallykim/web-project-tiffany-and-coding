@@ -16,6 +16,12 @@
 <link rel=stylesheet href="css/user.css" type="text/css">
  
 <script type="text/javascript">
+
+	function userOrderList(){
+		document.f.action = "order_list.jsp";
+		document.f.method = "POST";
+		document.f.submit();
+	}
 	
 	function userModify() {
 		document.f.action = "user_modify_form.jsp";
@@ -102,6 +108,7 @@
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
 									<td align=center height="150">
+									<input type="button" value="주문내역" onClick="userOrderList()">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  
 									<input type="button" value="내정보수정" onClick="userModify()">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  
 									<input type="button" value="탈퇴" onClick="userRemove()">
 									</td>
