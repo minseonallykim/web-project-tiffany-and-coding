@@ -60,17 +60,16 @@
 			<!-- include_content.jsp start-->
 			<div id="content">
 
-				<table border=0 cellpadding=0 cellspacing=0>
+				<table width="400px"  border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
-								cellspacing=0>
+							<table  border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>로그인</b></td>
 								</tr>
 							</table> <!-- login Form  -->
 							<form name="f" method="post">
-								<table border="0" cellpadding="0" cellspacing="1" bgcolor=#CCCCCC>
+								<table border="solid 1px" bordercolor="#EAEAEA"  cellpadding="0" cellspacing="1" bgcolor=#CCCCCC>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white'  height="22">아이디</td>
 										<td width=490 align="left" bgcolor="ffffff"	style="padding-left: 10px">

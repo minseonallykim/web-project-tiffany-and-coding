@@ -61,18 +61,18 @@
 
 			<!-- include_content.jsp start-->
 			<div id="content">
-				<table border=0 cellpadding=0 cellspacing=0>
+				<table border=0 cellpadding=0 cellspacing=0 style="">
 					<tr>
 						<td>
 							<!--contents--> <br />
-							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
+							<table style="" border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td bgcolor="#FFFFFF" height="50">&nbsp;&nbsp;<b>My Page</b></td>
 								</tr>
 							</table> 
 							<!-- view Form  -->
-							<form name="f" method="post">
-								<table border="0" cellpadding="10" cellspacing="1" width="590" bgcolor="#CCCCCC">
+							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px; ">
+								<table border="solid 1px" bordercolor="#EAEAEA"  cellpadding="10" cellspacing="0" width="590" bgcolor="#CCCCCC">
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">

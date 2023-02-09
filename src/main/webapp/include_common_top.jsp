@@ -42,28 +42,27 @@ function logincheck(){
 		<!-- 로그아웃 아이콘 -->	
 		<li id="logout" title="로그아웃" ><a href="user_logout_action.jsp" ><img src="image/logout_icon.png" ></a></li>
 		<%} %>
-		<!-- 검색 아이콘 -->
-		<li id="mainsearch" title="검색">
-		
-		<!-- cart_view_...image 카트삭제 이미지로 버튼 만든거 참고 -->
-		<!-- <input id='mainsearchbtn' type="button" onClick="mainSearch()"> -->
-		<form id="mainsearchform" method="post">
-			<input type='text' style="border: solid 1px grey; width:200px; height:30px; padding-left: 10px;border-radius: 10px" name='mainsearchkeyword' >
-			<input type="hidden" name='searchbtn' value='' >
-				<a href='javascript:mainsearch();'><img src='image/mainsearchbtn.png'></a>
-		</form>
-		</li>
 		<!-- 로그아웃 상태 : 로그인 하세요 팝업, 로그인창으로 이동 -->
-			<!-- 마이페이지 아이콘 -->
-			<%if(sUserId == null){ %>
-			<li id="mypagebflogin" title="나의페이지" >
+		<!-- 마이페이지 아이콘 -->
+		<%if(sUserId == null){ %>
+		<li id="mypagebflogin" title="나의페이지" >
 			<a href="javascript:logincheck();" ><img src="image/shopmain_user.png" ></a></li>
-			<%} else { %>
-			<li id="mypage" title="나의페이지" >
-			<a href="user_view.jsp" ><img src="image/shopmain_user.png" ></a></li>
-			<%} %>
+		<%} else { %>
+		<li id="mypage" title="나의페이지" >
+		<a href="user_view.jsp" ><img src="image/shopmain_user.png" ></a></li>
+		<%} %>
 		<!-- 장바구니 아이콘 -->
 		<li id="cart" title="장바구니"><a href="cart_view_select_update_qyt_all_check_delete_image.jsp" title="장바구니"><img src="image/shopmain_cart.png" ></a></li>
+			<li><a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+				<!-- 검색 아이콘 -->
+				<li><img src='image/mainsearchbtn.png' style="cursor: pointer;margin-left: 10px;margin-top: 15px" onclick="mainsearch();"></li>
+				<li id="mainsearch" title="검색">
+					<form id="mainsearchform" method="post">
+						<input type='text' style="border: solid 1px grey; width: 200px; height: 30px; padding-left: 10px; border-radius: 10px" name='mainsearchkeyword'> 
+						<input type="hidden" name='searchbtn' value=''>
+					</form>
+
+				</li>
 	</ul>
 </div>
 
