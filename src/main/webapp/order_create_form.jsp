@@ -210,7 +210,7 @@
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center>&nbsp;&nbsp; <a
-										href="javascript:order_create_form_submit();" class=m1>구매/결재하기</a>
+										href="javascript:order_create_form_submit();" class=m1>구매/결제하기</a>
 										&nbsp;&nbsp;<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
 
 									</td>
