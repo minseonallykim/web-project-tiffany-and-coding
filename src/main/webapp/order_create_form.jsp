@@ -67,16 +67,10 @@
 		document.order_create_form.method = 'POST'
 		document.order_create_form.action = 'order_create_action.jsp';     
 		document.order_create_form.submit();
-		alert("주문이 완료되었습니다.")
-	}
-	
-	function address_update_form_submit(){
-		document.address_update_form.method = 'POST';
-		document.address_update_form.action = 'address_update_action.jsp';
-		document.address_update_form.submit();
-		alert("배송지가 변경되었습니다.")
 		
 	}
+	
+	
 	
 	
 	
@@ -159,20 +153,11 @@
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUserId()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=user.getName()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getEmail()%></td>
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
 										
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><input type="text" name="address" id="address_modify" value="<%=user.getAddress()%>"></td>
-										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
 										
 									</tr>
-								</table>
-								
-								<table>
-								<tr>
-								<td width=50 align=center>
-								<input type="button" value="배송지수정" onClick="address_update_form_submit()"></td>
-								</tr>
-								
-								</table>
+							
 								
    
 								<br />
