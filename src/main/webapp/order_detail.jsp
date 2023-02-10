@@ -31,6 +31,8 @@ Order order = orderService.orderWithOrderItem(Integer.parseInt(o_noStr));
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
  
 <style type="text/css" media="screen">
@@ -74,27 +76,27 @@ form > table tr td{
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
+							<table style="height:100px ; font-size: 40px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>
-											주문상세조회</b></td>
+									<td bgcolor="ffffff" height="22">&nbsp;&nbsp;<b>
+											ORDER DETAIL</b></td>
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
 								<input type="hidden" name="o_no" value="<%=order.getO_no()%>">
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
-									<caption style="text-align: left;">주문상세정보</caption>
+									<caption style="text-align: left; margin-bottom:20px; font-size: 25px">주문 상세정보</caption>
 									<tr>
-										<td width=290 height=25 bgcolor="#81D8D0" align=center class=t1><font
+										<td width=290 height=25 bgcolor="#000000" align=center class=t1 style="color: white;"><font
 											>주문번호</font></td>
-										<td width=112 height=25 bgcolor="#81D8D0" align=center class=t1><font
+										<td width=112 height=25 bgcolor="#000000" align=center class=t1 style="color: white;"><font
 											>주문일</font></td>
-										<td width=166 height=25 bgcolor="#81D8D0" align=center class=t1><font
+										<td width=166 height=25 bgcolor="#000000" align=center class=t1 style="color: white;"><font
 											>주문자</font></td>
-										<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1><font
+										<td width=50 height=25 bgcolor="#000000" align=center class=t1 style="color: white;"><font
 											>주소</font></td>
-											<td width=50 height=25 bgcolor="#81D8D0" align=center class=t1><font
+											<td width=50 height=25 bgcolor="#000000" align=center class=t1 style="color: white;"><font
 											>비고</font></td>
 									</tr>
 									
@@ -106,19 +108,19 @@ form > table tr td{
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
 										
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
-												<input type="submit" value="삭제">
+												<input type="submit" value="주문 취소">
 										</td>
 									</tr>
 								</table>
 									
 								<br/>	
 								<table align=center  width=80% border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
-									<caption style="text-align: left;">주문제품목록</caption>
+									<caption style="text-align: left; margin-top:100px; margin-bottom:20px; font-size: 25px">주문제품 목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 align=center bgcolor="#81D8D0" class=t1>제품명</td>
-										<td width=112 height=25 align=center bgcolor="#81D8D0" class=t1>수 량</td>
-										<td width=166 height=25  align=center bgcolor="#81D8D0" class=t1>가 격</td>
-										<td width=50 height=25  align=center bgcolor="#81D8D0" class=t1>색상</td>
+										<td width=290 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">제품명</td>
+										<td width=112 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">수 량</td>
+										<td width=166 height=25  align=center bgcolor="#000000" class=t1 style="color: white;">가 격</td>
+										<td width=50 height=25  align=center bgcolor="#000000" class=t1 style="color: white;">색상</td>
 									</tr>
 									
 									<!-- orer item start -->
@@ -147,7 +149,7 @@ form > table tr td{
 									<tr>
 										<td width=640 colspan=4 height=26  bgcolor="ffffff" class=t1>
 										
-											<p align=right style="padding-top: 10px">
+											<p align=right style="margin-top: 100px; font-size: 20px">
 												<font color=#FF0000>총 주문 금액 :₩<%=new DecimalFormat("#,###.0").format(tot_price)%> 원
 												</font>
 											</p>
@@ -155,13 +157,12 @@ form > table tr td{
 									</tr>
 								</table>
 							</form> <br />
-							<table border="0" cellpadding="0" cellspacing="1" width="590">
+							<table style=" height: 200px;"border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center> 
-										&nbsp;&nbsp;<a href=order_list.jsp
-										class=m1>주문목록</a>
-										&nbsp;&nbsp;<a href=product_list.jsp
-										class=m1>계속 쇼핑하기</a>
+										<a href=order_list.jsp class=m1>주문목록</a>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
 
 									</td>
 								</tr>

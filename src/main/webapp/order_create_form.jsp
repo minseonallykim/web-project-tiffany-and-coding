@@ -144,7 +144,7 @@
 							<form name="address_update_form" method="post">
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
-									<caption style="text-align: left; margin-bottom:20px">구매자 정보</caption>
+									<caption style="text-align: left; margin-bottom:20px; font-size: 25px">구매자 정보</caption>
 									<tr>
 										<td width=290 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">아이디</td>
 										<td width=112 height=25 align=center bgcolor="#000000" class=t1 style="color: white;">이름</td>
@@ -168,7 +168,7 @@
 
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
-									<caption style="text-align: left; margin-top:30px; margin-bottom:20px">주문 제품 목록</caption>
+									<caption style="text-align: left; margin-top:100px; margin-bottom:20px; font-size: 25px">주문 제품 목록</caption>
 									<tr style="border: 0.1px solid">
 										<td width=290 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">제품명</td>
 										<td width=112 height=25 bgcolor="#000000" align=center class=t1 style="color: white;">수량</td>
@@ -198,7 +198,7 @@
 									<%}%>
 									<tr>
 										<td width=640 colspan=5 height=26 bgcolor="ffffff" class=t1>
-											<p align=right style="padding-top: 10px">
+											<p align=right style="margin-top: 100px; font-size: 20px">
 												<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###").format(tot_price)%>원
 												</font>
 											</p>
