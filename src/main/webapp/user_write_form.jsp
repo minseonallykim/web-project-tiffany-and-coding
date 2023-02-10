@@ -56,13 +56,10 @@
 			return;
 		}
 	
-		for(let i=0;i<document.f.password.value.length;i++){
-			if(!((document.f.password.value.charAt(i)>='0' && document.f.password.value.charAt(i)<='9')||
-				(document.f.password.value.charAt(i)>='a' && document.f.password.value.charAt(i)<='z'))){
-				alert("비밀번호는 영문+숫자 4~10자여야합니다.");
-				document.f.password.value.select();
-				return;
-			}							
+		if(!/[0-9]/.test(f.password.value) ||!/[a-zA-Z]/.test(f.password.value)) {
+			alert("비밀번호는 영문+숫자 혼용 4~10자여야합니다.")
+			f.password.focus();
+			return;
 		}		
 		
 		alert("회원가입을 축하드립니다!");
