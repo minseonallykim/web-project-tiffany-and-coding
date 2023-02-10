@@ -76,5 +76,19 @@ public class ProductService {
 		return productDao.categorySortAsc(ca_no);
 	}
 	
+	/*
+	 * 검색 후 정렬 오름차순
+	 */
 	
+	public List<Product> searchSortAsc(String keyword) throws Exception{
+		return productDao.searchSortAsc(keyword);
+	}
+	
+	/*
+	 * 검색 후 정렬 내림차순
+	 */
+	
+	public List<Product> searchSortDesc(String keyword) throws Exception{
+		return productDao.searchSortDesc(keyword);
+	}
 }

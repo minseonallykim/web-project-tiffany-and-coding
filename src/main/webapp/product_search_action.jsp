@@ -6,6 +6,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String keyword = request.getParameter("mainsearchkeyword");
+	String type_noStr = request.getParameter("type_no");
 	ProductService productService = new ProductService();
 	List<Product> productList = new ArrayList<Product>();
 	if(keyword.equals("반지")||keyword.equals("목걸이")||keyword.equals("팔찌")||keyword.equals("귀걸이")){

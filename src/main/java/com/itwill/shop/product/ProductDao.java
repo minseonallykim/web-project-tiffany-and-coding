@@ -251,4 +251,50 @@ public class ProductDao {
 		return categorySortList;
 	}
 	
+	/*
+	 * 키워드 내 정렬
+	 */
+	public List<Product> searchSortAsc(String keyword) throws Exception{
+		List<Product> categorySortList = new ArrayList<Product>();
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SEARCH_PRICE_ASC);
+		pstmt.setString(1, "%"+keyword+"%");
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			Product product = new Product(
+							rs.getInt("p_no"),
+							rs.getString("p_name"),
+							rs.getInt("p_price"),
+							rs.getString("p_desc"),
+							rs.getString("p_image"),
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
+			categorySortList.add(product);
+		}
+		pstmt.close();
+		con.close();
+		return categorySortList;
+	}
+	
+	public List<Product> searchSortDesc(String keyword) throws Exception{
+		List<Product> categorySortList = new ArrayList<Product>();
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SEARCH_PRICE_DESC);
+		pstmt.setString(1, "%"+keyword+"%");
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			Product product = new Product(
+							rs.getInt("p_no"),
+							rs.getString("p_name"),
+							rs.getInt("p_price"),
+							rs.getString("p_desc"),
+							rs.getString("p_image"),
+							rs.getString("p_option"),
+							rs.getInt("ca_no"));
+			categorySortList.add(product);
+		}
+		pstmt.close();
+		con.close();
+		return categorySortList;
+	}
 }

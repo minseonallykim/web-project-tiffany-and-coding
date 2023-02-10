@@ -10,10 +10,10 @@
 		ProductService productService = new ProductService();
 		List<Product> productList = new ArrayList<Product>();
 		
-	
+	 
 		if(sort_option.equals("sort_asc")){
 			pageContext.forward("product_list2.jsp");
 		}else if(sort_option.equals("sort_desc")){
 			pageContext.forward("product_list2.jsp");
-		}
+		} 
 %>
