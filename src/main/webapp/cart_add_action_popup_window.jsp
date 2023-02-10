@@ -43,7 +43,7 @@
 				장바구니로
 			</button> 
 			-->
-			<button onclick="window.close();opener.location.href='cart_view.jsp';" style="font-size: 6pt">
+			<button onclick="window.close();opener.location.href='cart_view_select_update_qyt_all_check_delete_image.jsp';" style="font-size: 6pt">
 				장바구니
 			</button>
 		</div>
