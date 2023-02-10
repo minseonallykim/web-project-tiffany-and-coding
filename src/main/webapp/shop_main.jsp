@@ -48,7 +48,7 @@
 			<div id="category_container">
 				<div id="category_content">
 					<ul id="category_wrapper">
-						<li id="ca_all" title="전체" style="margin-right: 30px;" >
+						<li id="ca_all" title="전체" style="margin-right: 30px; margin-left:30px"" >
 							<a href="product_list.jsp"><img src="image/shop_category_all.png" class="ca_image" width='100%' height='100%'></a>
 						<div class="categorytext">ALL</div>
 						</li>
