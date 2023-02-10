@@ -46,11 +46,11 @@ if (product == null) {
 			if(add_cart_form.p_option.value === 'select'){
 				alert('옵션을 선택하세요');
 			}else{
-				var left = Math.ceil(( window.screen.width)/5);
+				var left = Math.ceil(( window.screen.width)/2.5);
 				var top = Math.ceil(( window.screen.height)/3); 
 				console.log(left);
 				console.log(top);
-				var cartWin = window.open("about:blank","cartForm","width=260,height=130,top="+top+",left="+0+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+				var cartWin = window.open("about:blank","cartForm","width=260,height=130,top="+top+",left="+left+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
 				document.add_cart_form.action = 'cart_add_action_popup_window.jsp';
 				document.add_cart_form.target = 'cartForm';
 				document.add_cart_form.method = 'POST';
