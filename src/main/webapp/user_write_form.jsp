@@ -49,15 +49,20 @@
 			f.password.select();
 			return false;
 		}
-		for (let i=0; i<document.f.password.value.length ; i++) {
-			if ((document.f.password.value.charAt(i) >=4 && document.f.password.value.charAt(i) <=10) &&
-				(document.f.password.value.charAt(i) >='a' && document.f.password.value.charAt(i) <='z') ||
-				(document.f.password.value.charAt(i) >='0' && document.f.password.value.charAt(i) <='9')){
-				
-			}
-			alert("비밀번호는 영문+숫자 4~10자로 부탁드립니다.");
-			f.password.select();
+		
+		if(!(document.f.password.value.length>=4 && document.f.password.value.length<=10)){
+			alert("비밀번호는 4~10자여야합니다.");
+			f.password.value.select();
 			return;
+		}
+	
+		for(let i=0;i<document.f.password.value.length;i++){
+			if(!((document.f.password.value.charAt(i)>='0' && document.f.password.value.charAt(i)<='9')||
+				(document.f.password.value.charAt(i)>='a' && document.f.password.value.charAt(i)<='z'))){
+				alert("비밀번호는 영문+숫자 4~10자여야합니다.");
+				document.f.password.value.select();
+				return;
+			}							
 		}		
 		
 		alert("회원가입을 축하드립니다!");
