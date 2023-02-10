@@ -3,11 +3,10 @@
 	pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf"%>
 <%
-	
 
 	if(request.getMethod().equalsIgnoreCase("GET")){
 		response.sendRedirect("product_list.jsp");
-		return;
+		return;}
 
 	/*
 	1.파라메타받기(cart_qty,p_no)
