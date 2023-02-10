@@ -105,7 +105,7 @@ form > table tr td{
 									<tr>
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=order.getO_no()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=order.getO_date()%></td>
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=order.getUserid()%></td>
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getName()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getAddress()%></td>
 										
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
