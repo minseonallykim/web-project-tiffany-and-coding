@@ -124,7 +124,7 @@ User sUser = (User)session.getAttribute("sUser");
 						<table style='padding-left:10px; padding-right: 10px' border=0 cellpadding=10px cellspacing=0>
 							<tr>
 											<!-- &nbsp;&nbsp; <b>게시판 리스트</b> -->
-								<td bgcolor='#FFFFFF' height='20'><img alt="" src="image/boardlist_top.png" width=100% height='200px'></td>
+								<td bgcolor='#FFFFFF' height='20'><img alt="" src="image/boardlist_top.png" width=100% height='300px'></td>
 							</tr>
 							<tr bgcolor='#FFFFFF'>
 								<td height='20' class='t1' align='right' valign='botton'>

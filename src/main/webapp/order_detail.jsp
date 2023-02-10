@@ -34,6 +34,7 @@ Order order = orderService.orderWithOrderItem(Integer.parseInt(o_noStr));
 <link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
+<link rel=stylesheet href="css/cart.css" type="text/css">
  
 <style type="text/css" media="screen">
 /*

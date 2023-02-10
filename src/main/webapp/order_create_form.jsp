@@ -59,6 +59,7 @@
 <link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
+<link rel=stylesheet href="css/cart.css" type="text/css">
 
 <style type="text/css" media="screen"></style>
 
@@ -208,7 +209,7 @@
 							</form>
 							
 							<br />
-							<table  style=" height: 200px;" border="0" cellpadding="0" cellspacing="1" width="590">
+							<table  style=" height: 100px;" border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center><a href="javascript:order_create_form_submit();" class=m1>결제하기</a>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

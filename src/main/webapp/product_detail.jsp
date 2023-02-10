@@ -37,6 +37,7 @@ if (product == null) {
 </style>
 <script type="text/javascript">
 	function add_cart_popup_window(){
+		alert('ddd');
 		if (<%=!isLogin%>) {
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
@@ -147,7 +148,7 @@ if (product == null) {
 											</select>
 											<b><em>qty</em></b><br><br>
 											<br>
-												<a href="javascript:add_cart_popup_window(this.parentElement);"><input width=80px height=80px type=image src='image/cart.png' value="장바구니 담기" title="장바구니담기[팝업]" style="font-size: 6pt;"/></a>
+												<a href="javascript:alert('add_cart_popup_window');"><img width=80px height=80px  src='image/cart.png'  title="장바구니담기" style="font-size: 6pt;"/></a>
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 										</form>
 									</td>
