@@ -14,33 +14,35 @@
 		String sort_option = request.getParameter("sort_option");
 		List<Product> productList = new ArrayList<Product>();
 
-		if(keyword != null){
-			if(sort_option.equals("sort_asc")){
-				productList = productService.searchSortAsc(keyword);
-			}else if(sort_option.equals("sort_desc")){
-				productList = productService.searchSortDesc(keyword);
-			}else{
-				productList = productService.searchProductName(keyword);
-			}
-		}else{
-			if(type_noStr != null){
-				 if(sort_option.equals("sort_asc")){
+		if(type_noStr != null){
+			if(keyword.equals("null")){
+				if(sort_option.equals("sort_asc")){
 					productList = productService.categorySortAsc(Integer.parseInt(type_noStr));
-				}else if(sort_option.equals("sort_desc")){  
+				}else if(sort_option.equals("sort_desc")){
 					productList = productService.categorySortDesc(Integer.parseInt(type_noStr));
 				}else{
 					productList = productService.searchCaNo(Integer.parseInt(type_noStr));
 				}
-			}else if(type_noStr == null){
-				 if(sort_option.equals("sort_asc")){
+			}
+		}else if(type_noStr == null){
+			if(!keyword.equals("null")){
+				if(sort_option.equals("sort_asc")){
+					productList = productService.searchSortAsc(keyword);
+				}else if(sort_option.equals("sort_desc")){
+					productList = productService.searchSortDesc(keyword);
+				}else{
+					productList = productService.searchProductName(keyword);
+				}		
+			}else if(keyword.equals("null")){
+				if(sort_option.equals("sort_asc")){
 					productList = productService.priceSortAsc();
-				}else if(sort_option.equals("sort_desc")){  
+				}else if(sort_option.equals("sort_desc")){
 					productList = productService.priceSortDesc();
 				}else{
 					productList = productService.productList();
-				}
+				}		
 			}
-		}
+		} 
  
 		
 	%>
