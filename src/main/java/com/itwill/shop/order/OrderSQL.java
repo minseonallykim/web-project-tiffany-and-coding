@@ -9,7 +9,7 @@ public class OrderSQL {
 	/*
 	 * 주문 전체 조회 (해당아이디로)
 	 */
-	public final static String ORDER_SELECT_BY_USERID = "select * from orders where userid=?";
+	public final static String ORDER_SELECT_BY_USERID = "select * from orders where userid=? order by o_no desc";
 	/*
 	 * 주문번호로 상세조회
 	 */

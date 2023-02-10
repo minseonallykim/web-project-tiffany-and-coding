@@ -19,14 +19,15 @@ public class OrderDaoTestMain {
 		 * orderDao. insert, findOrderByUserId, findOrderWithOrderItemByUserId,findByOrderNo TEST
 		 */
 		
-		System.out.println(orderDao.findByOrderNo(1));
+		//System.out.println(orderDao.findByOrderNo(1));
 	
-		//System.out.println(orderDao.findOrderByUserId("cmy0"));
+		System.out.println(orderDao.findOrderByUserId("test1"));
 		
 		
 		/*
 		 * Order 주문 생성 TEST
 		 */
+/*		
 		int oi_qty=1;
 		int p_no=1;
 		ProductDao productDao = new ProductDao();
@@ -37,17 +38,17 @@ public class OrderDaoTestMain {
 		Order newJumun = new Order(0, product.getP_name()+"외 1종", new Date(0), product.getP_price(), "cmy0");
 		orderDao.insert(newJumun);
 		System.out.println(orderDao.findOrderByUserId("cmy0"));
-			
+	*/		
 		
-		System.out.println(orderDao.findOrderWithOrderItemByUserId("cmy0"));
+		//System.out.println(orderDao.findOrderWithOrderItemByUserId("cmy0"));
 		
 		/*
 		 * 주문삭제 관련 DAO test
 		 */
 		
-		orderDao.deleteByUserId("cmy0");
+		//orderDao.deleteByUserId("cmy0");
 		
-		orderDao.deleteByOrderNo(11); 
+		//orderDao.deleteByOrderNo(11); 
 		
 		
 	}
