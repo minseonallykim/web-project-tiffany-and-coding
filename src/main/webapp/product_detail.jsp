@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+//String p_option = request.getParameter("p_option");
 String p_noStr = request.getParameter("p_no");
 if (p_noStr == null || p_noStr.equals("")) {
 	response.sendRedirect("product_list.jsp");
@@ -41,17 +42,21 @@ if (product == null) {
 		if (<%=!isLogin%>) {
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
-		} else {
 			
-			var left = Math.ceil(( window.screen.width)/5);
-			var top = Math.ceil(( window.screen.height)/3); 
-			console.log(left);
-			console.log(top);
-			var cartWin = window.open("about:blank","cartForm","width=260,height=130,top="+top+",left="+0+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
-			document.add_cart_form.action = 'cart_add_action_popup_window.jsp';
-			document.add_cart_form.target = 'cartForm';
-			document.add_cart_form.method = 'POST';
-			document.add_cart_form.submit();
+		} else {
+			if(add_cart_form.p_option.value === 'select'){
+				alert('옵션을 선택하세요');
+			}else{
+				var left = Math.ceil(( window.screen.width)/5);
+				var top = Math.ceil(( window.screen.height)/3); 
+				console.log(left);
+				console.log(top);
+				var cartWin = window.open("about:blank","cartForm","width=260,height=130,top="+top+",left="+0+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+				document.add_cart_form.action = 'cart_add_action_popup_window.jsp';
+				document.add_cart_form.target = 'cartForm';
+				document.add_cart_form.method = 'POST';
+				document.add_cart_form.submit();
+			}
 		}
 	}
 
@@ -59,10 +64,15 @@ if (product == null) {
 		if (<%=!isLogin%>) {
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
+			
 		} else {
-			document.product_detail_form.method = 'POST';
-			document.product_detail_form.action = 'order_create_form.jsp';
-			document.product_detail_form.submit();
+			if(add_cart_form.p_option.value === 'select'){
+				alert('옵션을 선택하세요');
+			}else{
+				document.product_detail_form.method = 'POST';
+				document.product_detail_form.action = 'order_create_form.jsp';
+				document.product_detail_form.submit();
+			}
 		}
 	}
 	function productList() {
@@ -148,7 +158,7 @@ if (product == null) {
 											</select>
 											<b><em>qty</em></b><br><br>
 											<br>
-												<a href="javascript:alert('add_cart_popup_window');"><img width=80px height=80px  src='image/cart.png'  title="장바구니담기" style="font-size: 6pt;"/></a>
+												<a href="javascript:alert('add_cart_popup_window()');"><img width=80px height=80px  src='image/cart.png'  title="장바구니담기" style="font-size: 6pt;"/></a>
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 										</form>
 									</td>

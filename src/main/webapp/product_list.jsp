@@ -47,6 +47,7 @@ if (session.getAttribute("sUserId") != null) {
 		document.cart_view_form.action='product_sort_action.jsp';
 		document.cart_view_form.submit();
 	} 
+	
 </script> 
 <style type="text/css" media="screen">
 </style>
