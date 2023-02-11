@@ -31,6 +31,11 @@ if(sUserId == null){
 	sUserId = "";
 }
 
+boolean isLogin = false;
+if(sUser != null){
+	isLogin = true;
+}
+
 
 Integer boardno = null;
 int pageno = 1;
@@ -59,27 +64,6 @@ BoardService.getInstance().updateHitCount(boardno);
 // 댓글 리스트
 BoardCommentService boardCommentService = new BoardCommentService();
 List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(boardno);
-
-/*
-비밀글인 경우 비밀번호 확인창 띄우기
-if(board.getSecret().equals("비밀글")){
-	out.println("<script>");
-    out.println("let passStr = prompt('비밀번호를 입력하세요',' ')");
-    out.println("alert(passStr);");
-    out.println("</script>");
-}
-*/
-// 비밀글인 경우 비밀글입니다 팝업
-/*
-BoardService boardService = new BoardService();
-int isSecret = boardService.isSecret(boardno);
-if(isSecret == 0){
-	out.println("<script>");
-    out.println("alert('비밀글입니다.');");
-    out.println("location.href='board_list.jsp';");
-    out.println("</script>");
-}
-*/
 
 %>    
   
@@ -118,6 +102,7 @@ if(isSecret == 0){
 		f.submit();
 	}
 	function writeComment(){
+		
 		let commentform = document.getElementById('commentform');
 		commentform.submit();
 	}
@@ -229,9 +214,11 @@ if(isSecret == 0){
 								<table border="0" cellpadding="10" cellspacing="1">
 									<tr>
 										<td bgcolor="ffffff" align="left">
-										<textarea name="content" rows="5" style="width: 100%; padding-left: 10px; padding-top: 10px" placeholder=" 댓글을 작성해주세요."></textarea></td>
+										<textarea name="content" rows="5" style="width: 100%; padding-left: 10px; padding-top: 10px" placeholder=" 로그인 후 댓글을 작성해주세요."></textarea></td>
 										<td bgcolor="ffffff" width="30px" style="padding-left: 50px;">
+										<%if(sUser != null){ %>
 										<input type="button" value="댓글등록" onClick="writeComment();"></td>
+										<%} %>
 									</tr>
 								</table>
 							</form>			
