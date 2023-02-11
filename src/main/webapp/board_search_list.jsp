@@ -145,7 +145,7 @@ User sUser = (User)session.getAttribute("sUser");
 							</tr>
 						</table> <br><br>
 						<!-- boardsearch start -->
-						<ul style="list-style: none; height: 70px; padding-right: 500px" >
+						<ul style="list-style: none; height: 70px; padding-right: 250px" >
 							<li style="float: right"><img src='image/mainsearchbtn.png' style="cursor: pointer;margin-left: 10px;margin-top: 15px"  onclick="boardsearch();"></li>
 							<li id='boardsearch' title='게시판검색' style="float: right" >
 							 	<form id='boardsearchform' method='post'>
@@ -156,7 +156,7 @@ User sUser = (User)session.getAttribute("sUser");
 						</ul>
 						<!-- boardsearch end -->
 						<!-- list start -->
-						<form name='f' method='POST' action='' style="padding-left: 200px; padding-right: 200px; ">
+						<form name='f' method='POST' action='' style="padding-left: 100px; padding-right: 100px; ">
 							<table id='boardlist' border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 								<tr id='boardlist_tr'>
 									<td width=200 align=center bgcolor="#000000" style='color:white'>제 목</td>
