@@ -146,7 +146,7 @@
 								<tr>
 									<td align=center>
 									<a href=product_list.jsp class=m1>계속 구경하기</a>&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href='javascript:order_delete_all_action();'	class=m1>주문 전체 삭제</a>
+									<a href='javascript:order_delete_all_action();'	class=m1>주문 전체 취소</a>
 									</td>
 									
 								</tr>
