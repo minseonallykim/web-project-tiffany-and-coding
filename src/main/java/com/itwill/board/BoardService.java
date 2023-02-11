@@ -58,7 +58,7 @@ public class BoardService {
 	 */
 	public BoardListPageMakerDto findSearchBoardList(int currentPage, String keyword) throws Exception{
 		// 전체 글의 수
-		int totalRecordCount = boardDao.getBoardCount();
+		int totalRecordCount = boardDao.getSearchBoardCount(keyword);
 		// paging 계산 (PageMaker)
 		PageMaker pageMaker = new PageMaker(totalRecordCount, currentPage);
 		// 게시글 데이터 얻기
@@ -96,5 +96,12 @@ public class BoardService {
 	public void updateHitCount(int boardNo) throws Exception{
 		boardDao.increaseReadCount(boardNo);
 	}
+	/*
+	 * 비밀글 여부 확인
+	 *  0 : T, 1 : F
+	 */
+	 public int isSecret(int boardNo) throws Exception{
+		 return boardDao.isSecret(boardNo);
+	 }
 	
 }

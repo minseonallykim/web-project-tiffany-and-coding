@@ -86,7 +86,11 @@ if(request.getParameter("pageno") != null){
 								cellspacing=0>
 							</table> <br> 
 							<!-- write Form  -->
+<<<<<<< HEAD
 							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px; ">
+=======
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
+>>>>>>> branch 'master' of https://github.com/minseonallykim/workspaceEE.git
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
 		        				<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>"/>
 
@@ -100,6 +104,14 @@ if(request.getParameter("pageno") != null){
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">작성자</td>
 										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
+<<<<<<< HEAD
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">비밀글 여부</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px; font-size: 15px" align="left">
+											&nbsp;&nbsp;<input type="checkbox" name="secret" value="비밀글" >&nbsp;&nbsp; 체크 시 본인과 관리자만 볼 수 있습니다.</td>
+=======
+>>>>>>> branch 'master' of https://github.com/minseonallykim/workspaceEE.git
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>

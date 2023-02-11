@@ -77,6 +77,11 @@
 										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=user.getUserId() %></td>
 									</tr>
 									<tr>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">비밀글 여부</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px; font-size: 15px" align="left">
+											&nbsp;&nbsp;<input type="checkbox" name="secret" value="T" >&nbsp;&nbsp; 체크 시 본인과 관리자만 볼 수 있습니다.</td>
+									</tr>
+									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white'>내 용</td>
 										<td width=300 bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<textarea name="content" class="textarea" style="width: 100% ;height: 100%" rows="14"></textarea></td>

@@ -32,7 +32,7 @@ select ss.* from
 -- 게시판 리스트 페이지  (게시물 시작번호~끝번호)
 select * from 
     (select rownum idx, s.* from
-        (select boardno, title, userid, regdate, readcount, groupno, step, depth from board
+        (select boardno, title, userid, regdate, readcount, secret, groupno, step, depth from board
         order by groupno desc, step asc) s
     )
 where idx>=1 and idx <=10;
@@ -44,7 +44,7 @@ select * from board where title like '%문의%' order by boardno desc;
 
 select * from 
     (select rownum idx, s.* from
-        (select boardno, title, userid, regdate, readcount, groupno, step, depth from board  
+        (select boardno, title, userid, regdate, readcount, secret, groupno, step, depth from board  
         where title like '%문의%'
         order by groupno desc, step asc) s
     )
@@ -52,7 +52,7 @@ where idx>=1 and idx <=10;
 
 
 -- 게시판 리스트 전체 보기
-select boardno, title, userid, regdate, readcount, groupno, step, depth from board
+select boardno, title, userid, regdate, readcount,secret, groupno, step, depth from board
 order by groupno desc, step asc;
 -- 게시판의 같은 groupno인 게시물 그룹 1개 보기
 select * from board where groupno = 3;
@@ -62,9 +62,20 @@ select * from board where groupno=3 and depth>=1 and step>=2
 order by step, depth asc;
 
 -- 게시글 번호로 게시물 1개 보기
-select boardno, title, userid,content, regdate, readcount,groupno, step, depth from board where boardno=4;
+select boardno, title, userid,content, regdate, readcount,secret,groupno, step, depth from board where boardno=4;
 -- 게시글 번호로 게시물 1개 + 댓글 보기
 select * from board b join boardcomment c on b.boardno=c.boardno where b.boardno=5;
+desc board;
+
+/************** 비 밀 글******************/
+-- 게시글 중 비밀글 여부
+select secret from board where boardno=4;
+
+
+
+-- 검색된 게시글 총 개수
+select count(*) cnt from board where title like '%반지%';
+
 
 -- 게시물 총 개수 세기
 select count(*) cnt from board;
@@ -74,7 +85,7 @@ order by step asc, depth asc;
 -- 게시물 삭제
 delete board where boardno=1;
 -- 게시물 내용 수정
-update board set title='제목수정',content='내용수정' where boardno=8;
+update board set title='제목수정',content='내용수정',secret='T' where boardno=8;
 -- 게시물 조회수 1 증가
 update board set readcount=readcount+1 where boardno=3;
 -- 현재글과 같은 그룹번호들 중에서 현재글의 step보다 큰 step을 가진 게시물들의 step을 1씩 증가시킨다.
@@ -89,6 +100,8 @@ select count(*) cnt from boardcomment where boardno=6;
 update boardcomment set c_content='댓글내용수정' where commentno=3;
 -- 댓글 삭제(댓글 번호로)
 delete boardcomment where commentno=2;
+
+
 
 
 desc board;

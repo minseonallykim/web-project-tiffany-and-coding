@@ -13,8 +13,7 @@ import javax.sql.DataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import com.itwill.shop.common.DataSourceFactory;
-import com.itwill.shop.product.Product;
-import com.itwill.shop.product.ProductSQL;
+
 
 
 public class BoardDao {
@@ -33,12 +32,13 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "insert into board (boardno, title, userid, content, groupno, step,depth)"
-					+ " values(board_boardno_seq.nextval,?,?,?,board_boardno_seq.currval,1,0)";
+			String sql = "insert into board (boardno, title, userid, content, secret, groupno, step,depth)"
+					+ " values(board_boardno_seq.nextval,?,?,?,?,board_boardno_seq.currval,1,0)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getUserId());
 			pstmt.setString(3, board.getContent());
+			pstmt.setString(4, board.getSecret());
 
 			int result = pstmt.executeUpdate();
 			return result;
@@ -67,15 +67,16 @@ public class BoardDao {
 			pstmt.close();
 			
 			// 답글 추가
-			sql = "insert into board (boardno, title, userid, content, groupno, step,depth) "
-					+ " values(board_boardno_seq.nextval,?,?,?,?,?,?)";
+			sql = "insert into board (boardno, title, userid, content, secret, groupno, step,depth) "
+					+ " values(board_boardno_seq.nextval,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getUserId());
 			pstmt.setString(3, board.getContent());
-			pstmt.setInt(4, tempBoard.getGroupNo());
-			pstmt.setInt(5, tempBoard.getStep()+1);
-			pstmt.setInt(6, tempBoard.getDepth()+1);
+			pstmt.setString(4, board.getSecret());
+			pstmt.setInt(5, tempBoard.getGroupNo());
+			pstmt.setInt(6, tempBoard.getStep()+1);
+			pstmt.setInt(7, tempBoard.getDepth()+1);
 			count = pstmt.executeUpdate();
 			
 		} finally {
@@ -116,9 +117,10 @@ public class BoardDao {
 				board.setContent(rs.getString(4));
 				board.setRegDate(rs.getDate(5));
 				board.setReadCount(rs.getInt(6));
-				board.setGroupNo(rs.getInt(7));
-				board.setStep(rs.getInt(8));
-				board.setDepth(rs.getInt(9));
+				board.setSecret(rs.getString(7));
+				board.setGroupNo(rs.getInt(8));
+				board.setStep(rs.getInt(9));
+				board.setDepth(rs.getInt(10));
 			}
 		} finally {
 			try {
@@ -139,7 +141,7 @@ public class BoardDao {
 		}
 		return board;
 	}
-	
+
 	/*
 	 * 게시글 리스트 보기 (게시글 시작번호, 게시글 끝번호)
 	 */
@@ -153,7 +155,7 @@ public class BoardDao {
 			StringBuffer sql = new StringBuffer(500);
 			sql.append("select * from");
 			sql.append(" (select rownum idx, s.* from");
-			sql.append(" (select boardno, title, userid, regdate, readcount, groupno, step, depth from board");
+			sql.append(" (select boardno, title, userid, regdate, readcount, secret, groupno, step, depth from board");
 			sql.append(" order by groupno desc, step asc) s )");
 			sql.append(" where idx>=? and idx <=?");
 			
@@ -169,9 +171,10 @@ public class BoardDao {
 				board.setUserId(rs.getString(4));
 				board.setRegDate(rs.getDate(5));
 				board.setReadCount(rs.getInt(6));
-				board.setGroupNo(rs.getInt(7));
-				board.setStep(rs.getInt(8));
-				board.setDepth(rs.getInt(9));
+				board.setSecret(rs.getString(7));
+				board.setGroupNo(rs.getInt(8));
+				board.setStep(rs.getInt(9));
+				board.setDepth(rs.getInt(10));
 				boardList.add(board);
 			}
 
@@ -239,6 +242,51 @@ public class BoardDao {
 		return isExist;
 	}
 	/*
+	 * 게시글 번호(boardno)로 비밀글 여부 확인
+	 * 0 : T, 1 : F
+	 */
+	public int isSecret(int boardNo) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int isSecret = 0;
+		String result = "";
+		try { 
+			con = dataSource.getConnection();
+			String sql = "select secret from board where boardno=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getString("secret");
+			}
+			if (result.equals("T")) {
+				isSecret = 0;
+			} else if(result.equals("F")) {
+				isSecret = 1;
+			}
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ex) {
+			}
+		}
+		return isSecret;
+	}
+	
+	/*
 	 * 게시글 삭제
 	 */
 	public int remove(int boardNo) throws Exception{
@@ -274,11 +322,12 @@ public class BoardDao {
 		int count = 0;
 		try {
 			con = dataSource.getConnection();
-			String sql = "update board set title=?,content=? where boardno=?";
+			String sql = "update board set title=?,content=?,secret=? where boardno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());
-			pstmt.setInt(3, board.getBoardNo());
+			pstmt.setString(3, board.getSecret());
+			pstmt.setInt(4, board.getBoardNo());
 			count = pstmt.executeUpdate();
 		} finally {
 			try {
@@ -353,6 +402,45 @@ public class BoardDao {
 		}
 		return count;
 	}
+	
+	/*
+	 * 검색된 게시글 총 개수 조회
+	 */
+	public int getSearchBoardCount(String keyword) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		try {
+			con = dataSource.getConnection();
+			String sql = "select count(*) cnt from board where title like ?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+keyword+"%");
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) 
+				count = rs.getInt("cnt");
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ex) {
+			}
+		}
+		return count;
+	}
+	
 	/*
 	 * 게시판 title 키워드로 검색
 	 */
@@ -366,7 +454,7 @@ public class BoardDao {
 			StringBuffer sql = new StringBuffer(500);
 			sql.append("select * from");
 			sql.append(" (select rownum idx, s.* from");
-			sql.append(" (select boardno, title, userid, regdate, readcount, groupno, step, depth from board");
+			sql.append(" (select boardno, title, userid, regdate, readcount, secret, groupno, step, depth from board");
 			sql.append("  where title like ?");
 			sql.append(" order by groupno desc, step asc) s )");
 			sql.append(" where idx>=? and idx <=?");
@@ -384,9 +472,10 @@ public class BoardDao {
 				board.setUserId(rs.getString(4));
 				board.setRegDate(rs.getDate(5));
 				board.setReadCount(rs.getInt(6));
-				board.setGroupNo(rs.getInt(7));
-				board.setStep(rs.getInt(8));
-				board.setDepth(rs.getInt(9));
+				board.setSecret(rs.getString(7));
+				board.setGroupNo(rs.getInt(8));
+				board.setStep(rs.getInt(9));
+				board.setDepth(rs.getInt(10));
 				boardList.add(board);
 			}
 
@@ -405,5 +494,11 @@ public class BoardDao {
 		return boardList;
 	}
 	
+	
+	
 
+	
+	
+	
+	
 	}

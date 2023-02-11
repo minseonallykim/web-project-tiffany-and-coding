@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.user.User"%>
 <%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.board.BoardCommentService"%>
@@ -6,15 +7,29 @@
 <%@page import="com.itwill.board.BoardService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="login_check.jspf" %>
 <%
 /*
 세션의 아이디와 게시판 작성자 아이디가 일치하면 수정, 삭제 버튼 생성
 일치하지 않으면 수정, 삭제 버튼 X
 */
 
+/*
 UserService userService = new UserService();
 User user = userService.findUser(sUserId);
+
+*/
+/*
+if(sUserId != null){
+String sPass = sUser.getPassword();
+}
+*/
+
+String sUserId = (String)session.getAttribute("sUserId");
+User sUser = (User)session.getAttribute("sUser");
+
+if(sUserId == null){
+	sUserId = "";
+}
 
 
 Integer boardno = null;
@@ -32,16 +47,40 @@ if (boardno == null) {
 	return;
 }
 // boardno 로 board객체 찾아 생성
-Board board = BoardService.getInstance().findBoard(boardno);
+Board board = BoardService. getInstance().findBoard(boardno);
 if (board == null) {
 	response.sendRedirect("board_list.jsp?pageno=" + pageno);
 	return;
 }
+
+
 // 조회수 증가
 BoardService.getInstance().updateHitCount(boardno);
 // 댓글 리스트
 BoardCommentService boardCommentService = new BoardCommentService();
 List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(boardno);
+
+/*
+비밀글인 경우 비밀번호 확인창 띄우기
+if(board.getSecret().equals("비밀글")){
+	out.println("<script>");
+    out.println("let passStr = prompt('비밀번호를 입력하세요',' ')");
+    out.println("alert(passStr);");
+    out.println("</script>");
+}
+*/
+// 비밀글인 경우 비밀글입니다 팝업
+/*
+BoardService boardService = new BoardService();
+int isSecret = boardService.isSecret(boardno);
+if(isSecret == 0){
+	out.println("<script>");
+    out.println("alert('비밀글입니다.');");
+    out.println("location.href='board_list.jsp';");
+    out.println("</script>");
+}
+*/
+
 %>    
   
 <!DOCTYPE html>
@@ -143,7 +182,7 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 								</tr>
 							</table> <br> 
 							<!-- view Form start-->
-							<form name="f" method="post" style="padding-left: 200px; padding-right: 200px; ">
+							<form name="f" method="post" style="padding-left: 300px; padding-right: 300px; ">
 								<input type="hidden" name="boardno" value="<%=board.getBoardNo()%>">
 								<input type="hidden" name="pageno" value="<%=pageno%>">
 								<table border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
@@ -159,6 +198,11 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 										<%=board.getTitle()%></td>
 									</tr>
 									<tr>
+										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">비밀글 여부</td>
+										<td width=300 bgcolor="ffffff" style="padding-left: 10px; font-size: 15px" align="left">
+											<%=board.getSecret() %></td>
+									</tr>
+									<tr>
 										<td width=100 align=center bgcolor="#000000" style='color:white' height="22">내 용</td>
 										<td width=300 bgcolor="#FFFFFF" height="180px" style="padding-left: 10px" align="left">
 										<%=board.getContent().replace("\n","<br/>")%><br />
@@ -170,9 +214,9 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 							<table width=590 border=0 cellpadding=0 cellspacing=0 style= 'height: 200px'>
 								<tr>
 									<td align=center height=80>
+										<%if(sUserId.equals(board.getUserId())){ %>
 										<input type="button" value="글쓰기" onClick="boardCreate()"> &nbsp;&nbsp; 
 										<input type="button" value="답글쓰기" onClick="boardReplyCreate()"> &nbsp;&nbsp; 
-										<%if(sUserId.equals(board.getUserId())){ %>
 										<input type="button" value="수 정" onClick="boardUpdate()"> &nbsp;&nbsp;
 										<input type="button" value="삭 제" onClick="boardRemove()"> &nbsp;&nbsp; 
 										<%} %>

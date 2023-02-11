@@ -15,8 +15,9 @@ public class BoardServiceTestMain {
 		System.out.println(boardService.findBoard(6));
 		System.out.println(boardService.findBoardList(1));
 		*/
+		System.out.println(boardService.isSecret(12));
 		System.out.println(boardService.findSearchBoardList(1, "반지"));
-		Board updateBoard = new Board(11,"서비스dd","서비스dd","서비스dd",null,0,11,1,0);
+		Board updateBoard = new Board(11,"서비스dd","서비스dd","서비스dd",null,0,"T",11,1,0);
 		System.out.println(boardService.update(updateBoard));
 		boardService.remove(13);
 

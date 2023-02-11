@@ -30,6 +30,7 @@ DROP SEQUENCE orders_o_no_SEQ;
 CREATE SEQUENCE orders_o_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
+
 CREATE TABLE category(
 		ca_no                         		NUMBER(10)		 NULL ,
 		ca_name                       		VARCHAR2(50)		 NULL 
@@ -85,6 +86,7 @@ CREATE TABLE board(
 		content                       		VARCHAR2(2000)		 NOT NULL,
 		regdate                       		DATE		 DEFAULT sysdate		 NULL ,
 		readcount                     		NUMBER		 DEFAULT 0		 NULL ,
+		secret                        		VARCHAR2(10)		 DEFAULT 'F'		 NOT NULL,
 		groupno                       		NUMBER		 NOT NULL,
 		step                          		NUMBER		 NOT NULL,
 		depth                         		NUMBER		 DEFAULT 0		 NULL 

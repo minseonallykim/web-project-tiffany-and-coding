@@ -12,6 +12,17 @@ if(request.getMethod().equalsIgnoreCase("get")){
 Board board = new Board();
 board.setTitle(request.getParameter("title"));
 board.setUserId(sUserId);
+
+//비밀글 체크 시 - T, 체크 안 할 시 - F
+String secret = request.getParameter("secret");
+if(secret == null){
+	secret = "F";
+	board.setSecret(secret);
+}else{
+	board.setSecret(secret);
+}
+
+
 board.setContent(request.getParameter("content"));
 
 BoardService boardService = new BoardService();

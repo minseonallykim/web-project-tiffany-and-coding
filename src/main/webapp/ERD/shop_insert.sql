@@ -69,57 +69,57 @@ insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextv
  * depth   : 0
  */
 
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'반지 사이즈 문의','test1','반지 사이즈 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'목걸이 길이 문의','test2','목걸이 길이문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'다이아몬드 문의','test3','다이아몬드 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'시계 문의','test4','시계 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'로즈골드 색상 문의','test5','로즈골드 색상문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'배송 문의','test6','배송 문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'반지 사이즈 문의','test1','반지 사이즈 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'목걸이 길이 문의','test2','목걸이 길이문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'다이아몬드 문의','test3','다이아몬드 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'시계 문의','test4','시계 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'로즈골드 색상 문의','test5','로즈골드 색상문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'배송 문의','test6','배송 문의드립니다.','T', board_boardno_seq.currval,1,0);
 
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'반지 색깔이...','test1','반지 색깔 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'목걸이 줄일 수 있나요?','test2','목걸이 길이문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'시계 변색 궁금하네요,,','test3','시계 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'귀걸이 한 쪽만 구매 되나요??!','test4','귀걸이 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'화이트골드 금 함유 % 알려주세요','test5','화이트골드 색상문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'배송 문의','test6','배송 문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'반지 색깔이...','test1','반지 색깔 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'목걸이 줄일 수 있나요?','test2','목걸이 길이문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'시계 변색 궁금하네요,,','test3','시계 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'귀걸이 한 쪽만 구매 되나요??!','test4','귀걸이 문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'화이트골드 금 함유 % 알려주세요','test5','화이트골드 색상문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'배송 문의','test6','배송 문의드립니다.','F', board_boardno_seq.currval,1,0);
 
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'팔찌 둘레 궁금하네요','test1','반지 사이즈 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'웨딩밴드 실제 착용 어디서 해볼 수 있죠??','test2','목걸이 길이문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'골드 함유량?','test3','다이아몬드 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'배송 빨리 부탁드립니다!!!','test4','시계 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'웨딩링 색상 문의','test5','로즈골드 색상문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'화이트골드 변색??','test6','배송 문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'팔찌 둘레 궁금하네요','test1','반지 사이즈 문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'웨딩밴드 실제 착용 어디서 해볼 수 있죠??','test2','목걸이 길이문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'골드 함유량?','test3','다이아몬드 문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'배송 빨리 부탁드립니다!!!','test4','시계 문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'웨딩링 색상 문의','test5','로즈골드 색상문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'화이트골드 변색??','test6','배송 문의드립니다.','F', board_boardno_seq.currval,1,0);
 
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'반지 사이즈 줄이고싶은데요','test1','반지 사이즈 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'목걸이 줄 색깔이..','test2','목걸이 길이문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'웨딩링 이벤트','test3','다이아몬드 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'시계 착용어디서 해볼 수 있을까요..','test4','시계 문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'로즈골드 색상이 이게 맞나요','test5','로즈골드 색상문의드립니다.', board_boardno_seq.currval,1,0);
-insert into board(boardno,title,userid,content,groupno,step,depth) 
-values(board_boardno_seq.nextval,'배송 언제올까요?','test6','배송 문의드립니다.', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'반지 사이즈 줄이고싶은데요','test1','반지 사이즈 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'목걸이 줄 색깔이..','test2','목걸이 길이문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'웨딩링 이벤트','test3','다이아몬드 문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'시계 착용어디서 해볼 수 있을까요..','test4','시계 문의드립니다.','T', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'로즈골드 색상이 이게 맞나요','test5','로즈골드 색상문의드립니다.','F', board_boardno_seq.currval,1,0);
+insert into board(boardno,title,userid,content,secret,groupno,step,depth) 
+values(board_boardno_seq.nextval,'배송 언제올까요?','test6','배송 문의드립니다.','T', board_boardno_seq.currval,1,0);
 
 -- 게시판 답글쓰기 (groupno 변경 주의)
 

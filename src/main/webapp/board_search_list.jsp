@@ -41,7 +41,6 @@ if(boardsearchkeyword == null || boardsearchkeyword.equals("")){
 }
 
 BoardCommentService boardCommentService = new BoardCommentService();
-
 // pageno 없거나 공백일 경우 1페이지 보여주기
 String pageno = request.getParameter("pageno");
 if(pageno == null || pageno.equals("")){
@@ -53,6 +52,12 @@ BoardListPageMakerDto boardListPage = BoardService.getInstance().findSearchBoard
 //
 String sUserId = (String)session.getAttribute("sUserId");
 User sUser = (User)session.getAttribute("sUser");
+
+boolean isLogin = false;
+if (sUserId != null) {
+	isLogin = true;
+}
+
 %>	
 	
 <!DOCTYPE html>
@@ -65,6 +70,14 @@ User sUser = (User)session.getAttribute("sUser");
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
+
+	// boardno, pageno 전달
+	function boardInfo(){
+		f.action = 'board_view.jsp';
+		f.method = 'POST';
+		f.submit();
+	}
+
 	//로그인 상태에서 게시글 쓰기 
 	function boardCreate(){
 		location.href = "board_write.jsp";
@@ -85,7 +98,22 @@ User sUser = (User)session.getAttribute("sUser");
 		boardsearchform.method = 'POST';
 		boardsearchform.submit();
 	}
-
+	// 비밀글 게시판 비밀번호 확인 창
+	function openPasswordCheck(){
+		if(<%=!isLogin%>){
+			alert('로그인 후 글 보기가 가능합니다.');
+			location.href = "user_login_form.jsp";
+			return;
+		}else{
+			var left = Math.ceil(( window.screen.width)/5);
+			var top = Math.ceil(( window.screen.height)/5); 
+			window.open("board_password_check.jsp","passCheck","width=430,height=200,top="+top+",left="+left+",resizable = no,location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+			boardlistform.action = 'board_password_check.jsp';
+			boardlistform.target = 'passCheck';
+			boardlistform.method = 'POST';
+			boardlistform.submit();
+		}
+	}
 	
 </script>
 </head>
@@ -156,7 +184,7 @@ User sUser = (User)session.getAttribute("sUser");
 						</ul>
 						<!-- boardsearch end -->
 						<!-- list start -->
-						<form name='f' method='POST' action='' style="padding-left: 100px; padding-right: 100px; ">
+						<form name='boardlistform' method='POST' action='' style="padding-left: 100px; padding-right: 100px; ">
 							<table id='boardlist' border='solid 1px' cellpadding='5px' cellspacing='1' width='400' bgcolor='#FFFFFF' style=" border-color: #FFFFFF">
 								<tr id='boardlist_tr'>
 									<td width=200 align=center bgcolor="#000000" style='color:white'>제 목</td>
@@ -168,20 +196,30 @@ User sUser = (User)session.getAttribute("sUser");
 								for(Board board : boardListPage.itemList) {
 								%>
 								<tr>
-									<td width=280 bgcolor='#FFFFFF' style='padding-left: 10px' align='left'>
-									<%if(sUserId == null){ %>
-										<a href='javascript:boardViewbfLogin();'>
+									<td width=280 bgcolor='#FFFFFF' style='padding-left: 10px' align='left' >
+									
+									<!-- 제목 클릭: 비밀글->비밀번호 확인 -->
+									<%if(board.getSecret().equals("T")){ %>
+										<a href='board_password_check.jsp?boardno=<%=board.getBoardNo() %>&pageno=<%=boardListPage.pageMaker.getCurPage()%>' 
+											onclick=>
 										<%=this.getTitleString(board) %>
 										</a>
 									<%} else { %>	
 										<a href='board_view.jsp?boardno=<%=board.getBoardNo() %>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
 										<%=this.getTitleString(board) %>
 										</a>
-									<%} %>	
+									<%} %>
 									
+									<!-- 댓글 아이콘 -->
 									<%if(boardCommentService.findBoardCommentList(board.getBoardNo()).size() > 0){ %>
 									<img src='image/boardcomment.png'>
 									<%} %>
+									
+									<!-- 비밀글 아이콘 -->
+									<%if(board.getSecret().equals("T")){ %>
+									<img src='image/boardlock.png' style="width: 20px; height: 20px">
+									<%} %>
+									
 									</td>
 									<td width=120 bgcolor='#FFFFFF' align='center'>
 									<%=board.getUserId() %>

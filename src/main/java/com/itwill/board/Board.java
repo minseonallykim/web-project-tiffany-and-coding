@@ -8,9 +8,10 @@ USERID             VARCHAR2(100)
 CONTENT   NOT NULL VARCHAR2(2000) 
 REGDATE            DATE           
 READCOUNT          NUMBER         
+SECRET    NOT NULL VARCHAR2(10)   
 GROUPNO   NOT NULL NUMBER         
 STEP      NOT NULL NUMBER         
-DEPTH              NUMBER 
+DEPTH              NUMBER   
  */
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Board {
 	private String content;
 	private Date regDate;
 	private int readCount;
+	private String secret;
 	//글의 논리적인 순서번호를 관리하기 위한 필드 (3개)
 	private int groupNo;
 	private int step;
@@ -37,7 +39,7 @@ public class Board {
 		this.boardCommentList = new ArrayList<BoardComment>();
 	}
 	
-	public Board(int boardNo, String title, String userId, String content, Date regDate, int readCount, int groupNo,
+	public Board(int boardNo, String title, String userId, String content, Date regDate, int readCount, String secret, int groupNo,
 			int step, int depth) {
 		super();
 		this.boardNo = boardNo;
@@ -46,6 +48,7 @@ public class Board {
 		this.content = content;
 		this.regDate = regDate;
 		this.readCount = readCount;
+		this.secret = secret;
 		this.groupNo = groupNo;
 		this.step = step;
 		this.depth = depth;
@@ -123,6 +126,15 @@ public class Board {
 	public void setDepth(int depth) {
 		this.depth = depth;
 	}
+	
+	public String getSecret() {
+		return secret;
+	}
+
+	public void setSecret(String secret) {
+		this.secret = secret;
+	}
+
 	public List<BoardComment> getBoardCommentList() {
 		return boardCommentList;
 	}
@@ -134,9 +146,12 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", title=" + title + ", userId=" + userId + ", content=" + content
-				+ ", regDate=" + regDate + ", readCount=" + readCount + ", groupNo=" + groupNo + ", step=" + step
-				+ ", depth=" + depth + ", boardCommentList=" + boardCommentList + "]\n";
+				+ ", regDate=" + regDate + ", readCount=" + readCount + ", secret=" + secret + ", groupNo=" + groupNo
+				+ ", step=" + step + ", depth=" + depth + ", boardCommentList=" + boardCommentList + "]\n";
 	}
+	
+	
+
 
 	
 }
