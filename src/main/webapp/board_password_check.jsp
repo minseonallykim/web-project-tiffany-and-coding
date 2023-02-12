@@ -99,7 +99,7 @@ String passStr = boardUser.getPassword();
 				<input id="useBtn" type="button" value="사용"  style="font-size: 10pt" onclick="boardPassCheck();">
 			</form>	
 				&nbsp;&nbsp;&nbsp;
-				<input id="cancelBtn" type="button" value="취소"  style="font-size: 10pt" onclick="window.close();"> 
+				<input id="cancelBtn" type="button" value="취소"  style="font-size: 10pt" onclick="history.back();"> 
 		</div>
 	</div>
 </body>
