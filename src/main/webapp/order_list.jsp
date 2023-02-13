@@ -86,7 +86,7 @@
 									%>
 									<tr>
 										<td colspan="6" height=24 align=left bgcolor="#000000" class=t1 style="color: white;">
-											<span style="font-style: bold;">&nbsp;2023/01/31</span>&nbsp;&nbsp;&nbsp;
+											<span style="font-style: bold;">&nbsp;<%=order.getO_date() %></span>&nbsp;&nbsp;&nbsp;
 											<span style="">주문번호 <%=order.getO_no()%></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 											<a href='order_detail.jsp?o_no=<%=order.getO_no()%>' ><span style="color: #81d8d0">[ 상세보기 ]</span></a>
 										</td>
