@@ -74,6 +74,7 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
+
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <title>Tiffany&Co 게시판</title>
 <script type="text/javascript">
@@ -200,11 +201,11 @@ List<BoardComment> boardCommentList = boardCommentService.findBoardCommentList(b
 								<tr>
 									<td align=center height=80>
 										<%if(sUserId.equals(board.getUserId())){ %>
-										<input type="button" value="글쓰기" onClick="boardCreate()"> &nbsp;&nbsp; 
-										<input type="button" value="답글쓰기" onClick="boardReplyCreate()"> &nbsp;&nbsp; 
 										<input type="button" value="수 정" onClick="boardUpdate()"> &nbsp;&nbsp;
 										<input type="button" value="삭 제" onClick="boardRemove()"> &nbsp;&nbsp; 
 										<%} %>
+										<input type="button" value="글쓰기" onClick="boardCreate()"> &nbsp;&nbsp; 
+										<input type="button" value="답글쓰기" onClick="boardReplyCreate()"> &nbsp;&nbsp; 
 										<input type="button" value="게시판 리스트" onClick="boardList()"></td>
 								</tr>
 							</table>
