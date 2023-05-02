@@ -24,8 +24,6 @@ public class EncodingFilter implements Filter {
 		//System.out.println("생성직후 단한번호출 init(): encoding parameter-->"
 		//			+ encoding);
 	}
-	
-
 	/**
 	 * ServletRequest객체에 web.xml에서 전달된 인코딩을 설정하는 메써드.
 	 */
