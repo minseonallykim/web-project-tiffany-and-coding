@@ -25,7 +25,7 @@ public class EncodingFilter implements Filter {
 		//			+ encoding);
 	}
 	/**
-	 * ServletRequest객체에 web.xml에서 전달된 인코딩을 설정하는 메써드.
+	 * ServletRequest객체에 web.xml에서 전달된 인코딩을 설정하는 메소드.
 	 */
 	public void doFilter(
 		ServletRequest request,
