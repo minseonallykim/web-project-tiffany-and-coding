@@ -51,8 +51,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>845</x>
-              <y>349</y>
+              <x>816</x>
+              <y>356</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -80,8 +80,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>837</x>
-                    <y>610</y>
+                    <x>829</x>
+                    <y>598</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -220,8 +220,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>205</x>
-                                <y>638</y>
+                                <x>204</x>
+                                <y>614</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -606,8 +606,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>521</x>
-              <y>92</y>
+              <x>593</x>
+              <y>32</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -634,8 +634,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>153</x>
-                    <y>61</y>
+                    <x>196</x>
+                    <y>30</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.db.visual.model.ForeignKeyModel>
