@@ -32,6 +32,7 @@ User boardUser = userService.findUser(boardUserId);
 
 String passStr = boardUser.getPassword();
 
+
 %>	
 	
 <!DOCTYPE html>
@@ -70,7 +71,7 @@ String passStr = boardUser.getPassword();
  
 	function boardPassCheck() {
 		let boardPass = document.getElementById('boardpass').value;
-		if (boardPass == <%=passStr%>) {
+		if (boardPass == '<%=passStr%>') {
 			location.href = 'board_view.jsp?boardno=<%=boardno%>&pageno=<%=pageno%>';
 		} else {
 			alert('비밀번호가 일치하지 않습니다.');
